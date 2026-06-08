@@ -1,9 +1,21 @@
 #ifndef PARSER_H
 #define PARSER_H
 
+// Preprocess
+
+#ifdef _WIN32
+    #include "windows/read.h"
+
+#elif defined(__linux__)
+    #include "linux/read.h"
+
+#else
+    #error "Os Not Supported"
+
+#endif
+
 // Include Library For Parser Function And Structure
 #include <stdint.h>
-#include "windows/read.h"
 
 // Structure For PACKETINFO
 typedef struct{

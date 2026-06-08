@@ -5,6 +5,6 @@
 #include <winsock2.h>
 
 // Get Packet Function For Get Raw Packet From Winsock
-int get_packet(SOCKET socket , const char *buffer , int buffer_size);
+int get_packet(SOCKET socket , char *buffer , int buffer_size);
 
 #endif

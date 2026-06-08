@@ -3,7 +3,6 @@
 
 // Include Library For socket Function And Structure
 #include <winsock2.h>
-#include <winsock.h>
 #include <stdbool.h>
 
 // Structure For SOCKETRESULT
@@ -14,7 +13,10 @@ typedef struct{
 
 }SocketResult;
 
-// SocketResult Function Export
+// Intialized Socket Function Export
 SocketResult init_socket(const char *ip);
+
+// Close Socket Function Export
+void close_socket(SocketResult *result);
 
 #endif
