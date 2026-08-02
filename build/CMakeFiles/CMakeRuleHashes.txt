@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+bbd2e1620a9bddd1db3ce24b0ef989dc sentinel_autogen/timestamp

@@ -1,5 +1,6 @@
-#include "include/receiver/receiver.h"
 #include <stdio.h>
+
+#include "include/receiver/receiver.h"
 #include "include/curses/curses.h"
 
 int main(int argc , char *argv[]){
