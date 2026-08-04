@@ -17,6 +17,10 @@
 // Include Library For Parser Function And Structure
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // Structure For PACKETINFO
 typedef struct{
 
@@ -71,5 +75,9 @@ typedef struct{
 }TCPHeader;
 
 PacketInfo parser(const char *buffer , int buffer_size);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

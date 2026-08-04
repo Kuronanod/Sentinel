@@ -1,5 +1,7 @@
 #include "window.h"
 #include "topbar.h"
+#include "receiver/receiver.h"
+#include "receiver/packet_counter.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -12,6 +14,9 @@
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QWindow>
+#include <thread>
+#include <chrono>
+#include <atomic>
 
 // Window API
 #ifdef Q_OS_WIN
@@ -59,7 +64,7 @@ void Window::SetupUI(){
 
     //Title Layout
     QHBoxLayout *TitleLayout = new QHBoxLayout(Main_TitleBar);
-    TitleLayout->setContentsMargins(10, 0, 10, 0);
+    TitleLayout->setContentsMargins(0, 0, 10, 0);
 
     //Logo
     Main_TitleLogo = new QLabel(this);
@@ -73,14 +78,27 @@ void Window::SetupUI(){
 
     //Main Layout
     QWidget *CentralWidget = new QWidget(this);
+    CentralWidget->setContentsMargins(0, 0, 0, 0);
+    CentralWidget->setStyleSheet("background-color: #1a2127");
     QVBoxLayout *MainLayout = new QVBoxLayout(CentralWidget);
     MainLayout->setContentsMargins(0, 0, 0, 0);
     MainLayout->setSpacing(0);
     MainLayout->addWidget(Main_TitleBar);
 
     //Content
+    QWidget *Content = new QWidget(this);
+    Content->setContentsMargins(0, 0, 0, 0);
+    QHBoxLayout *ContentLayout = new QHBoxLayout(Content);
+    ContentLayout->setContentsMargins(0, 0, 0, 0);
+    ContentLayout->setSpacing(0);
+
+    mainSideBar = new SideBar(this);
+    ContentLayout->addWidget(mainSideBar, 1);
+
     mainGraph = new TrafficGraph(this);
-    MainLayout->addWidget(mainGraph,Qt::AlignCenter);
+    ContentLayout->addWidget(mainGraph, 1);
+
+    MainLayout->addWidget(Content, 1);
 
     setCentralWidget(CentralWidget);
 
@@ -89,6 +107,30 @@ void Window::SetupUI(){
     connect(Main_MaximizeButton, &QPushButton::clicked, this, &Window::OnMaximizeClicked);
     connect(Main_CloseButton, &QPushButton::clicked, this, &Window::OnCloseClicked);
 
+    MainReceiverThread = new std::thread([this]() {
+    while (!StopReceiverThread) {
+            receiver("192.168.1.103");
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+    });
+
+    // Timer อัปเดต UI ทุก 100 ms
+    MainTimer = new QTimer(this);
+    connect(MainTimer, &QTimer::timeout, this, [this]() {
+        int count = GetPacketCount();
+        mainGraph->UpdatePacketCount(count);
+    });
+    MainTimer->start(1000);
+
+}
+
+Window::~Window() {
+    StopReceiverThread = true; 
+    if (MainReceiverThread && MainReceiverThread->joinable()) {
+        MainReceiverThread->join();
+    }
+    delete MainReceiverThread;
+    delete MainTimer;
 }
 
 bool Window::nativeEvent(const QByteArray &eventType, void *message, qintptr *result){

@@ -1,17 +1,23 @@
-#include "include/receiver/windows/get_packet.h"
-#include "include/receiver/windows/read.h"
-#include "include/receiver/windows/socket.h"
-#include "include/receiver/parser.h"
+#include "receiver/windows/get_packet.h"
+#include "receiver/windows/read.h"
+#include "receiver/windows/socket.h"
+#include "receiver/parser.h"
+#include "receiver/packet_counter.h"
+
+#include <stdio.h>
 #include <stdbool.h>
 
 int receiver(const char *ip){
 
+    printf("Receiver started on IP: %s\n", ip);
     SocketResult socket = init_socket(ip);
 
     if(socket.valid == false){
+        printf("Socket init failed!\n");
         return -1;
     }
 
+    printf("Entering capture loop...\n");
     while(true){
 
         char buffer[65535];
@@ -23,6 +29,8 @@ int receiver(const char *ip){
 
         PacketData DATA = read_packet(buffer , size);
         PacketInfo INFO = parser(DATA.data , DATA.size);
+
+        IncreementPacketCount();
 
     }
 

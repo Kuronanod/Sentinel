@@ -2,11 +2,15 @@
 #define WINDOW_H
 
 #include "trafficgraph.h"
+#include "sidebar.h"
 
 #include <QMainWindow>
 #include <QPushButton>
 #include <QLabel>
 #include <QWidget>
+#include <QTimer>
+#include <thread>
+#include <atomic>
 
 class Window : public QMainWindow{
 
@@ -14,6 +18,7 @@ class Window : public QMainWindow{
 
 public: 
     explicit Window(QWidget *parent = nullptr);
+    ~Window();
 
 protected:
     bool nativeEvent(const QByteArray &eventType, void *message, qintptr *result) override;
@@ -36,7 +41,13 @@ private:
 
     void SetupUI();
 
+    QTimer *MainTimer;
+    std::thread *MainReceiverThread;
+    std::atomic<bool> StopReceiverThread{false};
+    void startReceiver();
+
     TrafficGraph *mainGraph;
+    SideBar *mainSideBar;
 
 };
 

@@ -71,7 +71,7 @@ include CMakeFiles/sentinel.dir/flags.make
 sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/bin/moc.exe
 sentinel_autogen/timestamp: CMakeFiles/sentinel.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target sentinel"
-	C:\mingw64\bin\cmake.exe -E cmake_autogen C:/Users/korusuba/Sentinel/build/CMakeFiles/sentinel_autogen.dir/AutogenInfo.json Debug
+	C:\mingw64\bin\cmake.exe -E cmake_autogen C:/Users/korusuba/Sentinel/build/CMakeFiles/sentinel_autogen.dir/AutogenInfo.json ""
 	C:\mingw64\bin\cmake.exe -E touch C:/Users/korusuba/Sentinel/build/sentinel_autogen/timestamp
 
 CMakeFiles/sentinel.dir/codegen:
@@ -152,13 +152,125 @@ CMakeFiles/sentinel.dir/src/ui/topbar.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sentinel.dir/src/ui/topbar.cpp.s"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\korusuba\Sentinel\src\ui\topbar.cpp -o CMakeFiles\sentinel.dir\src\ui\topbar.cpp.s
 
+CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj: CMakeFiles/sentinel.dir/flags.make
+CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj: CMakeFiles/sentinel.dir/includes_CXX.rsp
+CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj: C:/Users/korusuba/Sentinel/src/ui/sidebar.cpp
+CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj: CMakeFiles/sentinel.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj -MF CMakeFiles\sentinel.dir\src\ui\sidebar.cpp.obj.d -o CMakeFiles\sentinel.dir\src\ui\sidebar.cpp.obj -c C:\Users\korusuba\Sentinel\src\ui\sidebar.cpp
+
+CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\korusuba\Sentinel\src\ui\sidebar.cpp > CMakeFiles\sentinel.dir\src\ui\sidebar.cpp.i
+
+CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\korusuba\Sentinel\src\ui\sidebar.cpp -o CMakeFiles\sentinel.dir\src\ui\sidebar.cpp.s
+
+CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj: CMakeFiles/sentinel.dir/flags.make
+CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj: CMakeFiles/sentinel.dir/includes_C.rsp
+CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj: C:/Users/korusuba/Sentinel/src/receiver/windows/get_packet.c
+CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj: CMakeFiles/sentinel.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj -MF CMakeFiles\sentinel.dir\src\receiver\windows\get_packet.c.obj.d -o CMakeFiles\sentinel.dir\src\receiver\windows\get_packet.c.obj -c C:\Users\korusuba\Sentinel\src\receiver\windows\get_packet.c
+
+CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.i"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\korusuba\Sentinel\src\receiver\windows\get_packet.c > CMakeFiles\sentinel.dir\src\receiver\windows\get_packet.c.i
+
+CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.s"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\korusuba\Sentinel\src\receiver\windows\get_packet.c -o CMakeFiles\sentinel.dir\src\receiver\windows\get_packet.c.s
+
+CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj: CMakeFiles/sentinel.dir/flags.make
+CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj: CMakeFiles/sentinel.dir/includes_C.rsp
+CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj: C:/Users/korusuba/Sentinel/src/receiver/windows/read.c
+CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj: CMakeFiles/sentinel.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj -MF CMakeFiles\sentinel.dir\src\receiver\windows\read.c.obj.d -o CMakeFiles\sentinel.dir\src\receiver\windows\read.c.obj -c C:\Users\korusuba\Sentinel\src\receiver\windows\read.c
+
+CMakeFiles/sentinel.dir/src/receiver/windows/read.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/sentinel.dir/src/receiver/windows/read.c.i"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\korusuba\Sentinel\src\receiver\windows\read.c > CMakeFiles\sentinel.dir\src\receiver\windows\read.c.i
+
+CMakeFiles/sentinel.dir/src/receiver/windows/read.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/sentinel.dir/src/receiver/windows/read.c.s"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\korusuba\Sentinel\src\receiver\windows\read.c -o CMakeFiles\sentinel.dir\src\receiver\windows\read.c.s
+
+CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj: CMakeFiles/sentinel.dir/flags.make
+CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj: CMakeFiles/sentinel.dir/includes_C.rsp
+CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj: C:/Users/korusuba/Sentinel/src/receiver/windows/socket.c
+CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj: CMakeFiles/sentinel.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj -MF CMakeFiles\sentinel.dir\src\receiver\windows\socket.c.obj.d -o CMakeFiles\sentinel.dir\src\receiver\windows\socket.c.obj -c C:\Users\korusuba\Sentinel\src\receiver\windows\socket.c
+
+CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.i"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\korusuba\Sentinel\src\receiver\windows\socket.c > CMakeFiles\sentinel.dir\src\receiver\windows\socket.c.i
+
+CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.s"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\korusuba\Sentinel\src\receiver\windows\socket.c -o CMakeFiles\sentinel.dir\src\receiver\windows\socket.c.s
+
+CMakeFiles/sentinel.dir/src/receiver/parser.c.obj: CMakeFiles/sentinel.dir/flags.make
+CMakeFiles/sentinel.dir/src/receiver/parser.c.obj: CMakeFiles/sentinel.dir/includes_C.rsp
+CMakeFiles/sentinel.dir/src/receiver/parser.c.obj: C:/Users/korusuba/Sentinel/src/receiver/parser.c
+CMakeFiles/sentinel.dir/src/receiver/parser.c.obj: CMakeFiles/sentinel.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/sentinel.dir/src/receiver/parser.c.obj"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sentinel.dir/src/receiver/parser.c.obj -MF CMakeFiles\sentinel.dir\src\receiver\parser.c.obj.d -o CMakeFiles\sentinel.dir\src\receiver\parser.c.obj -c C:\Users\korusuba\Sentinel\src\receiver\parser.c
+
+CMakeFiles/sentinel.dir/src/receiver/parser.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/sentinel.dir/src/receiver/parser.c.i"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\korusuba\Sentinel\src\receiver\parser.c > CMakeFiles\sentinel.dir\src\receiver\parser.c.i
+
+CMakeFiles/sentinel.dir/src/receiver/parser.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/sentinel.dir/src/receiver/parser.c.s"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\korusuba\Sentinel\src\receiver\parser.c -o CMakeFiles\sentinel.dir\src\receiver\parser.c.s
+
+CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj: CMakeFiles/sentinel.dir/flags.make
+CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj: CMakeFiles/sentinel.dir/includes_C.rsp
+CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj: C:/Users/korusuba/Sentinel/src/receiver/receiver.c
+CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj: CMakeFiles/sentinel.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj -MF CMakeFiles\sentinel.dir\src\receiver\receiver.c.obj.d -o CMakeFiles\sentinel.dir\src\receiver\receiver.c.obj -c C:\Users\korusuba\Sentinel\src\receiver\receiver.c
+
+CMakeFiles/sentinel.dir/src/receiver/receiver.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/sentinel.dir/src/receiver/receiver.c.i"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\korusuba\Sentinel\src\receiver\receiver.c > CMakeFiles\sentinel.dir\src\receiver\receiver.c.i
+
+CMakeFiles/sentinel.dir/src/receiver/receiver.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/sentinel.dir/src/receiver/receiver.c.s"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\korusuba\Sentinel\src\receiver\receiver.c -o CMakeFiles\sentinel.dir\src\receiver\receiver.c.s
+
+CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj: CMakeFiles/sentinel.dir/flags.make
+CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj: CMakeFiles/sentinel.dir/includes_C.rsp
+CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj: C:/Users/korusuba/Sentinel/src/receiver/packet_counter.c
+CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj: CMakeFiles/sentinel.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj -MF CMakeFiles\sentinel.dir\src\receiver\packet_counter.c.obj.d -o CMakeFiles\sentinel.dir\src\receiver\packet_counter.c.obj -c C:\Users\korusuba\Sentinel\src\receiver\packet_counter.c
+
+CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.i"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\korusuba\Sentinel\src\receiver\packet_counter.c > CMakeFiles\sentinel.dir\src\receiver\packet_counter.c.i
+
+CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.s"
+	C:\Qt\Tools\mingw1310_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\korusuba\Sentinel\src\receiver\packet_counter.c -o CMakeFiles\sentinel.dir\src\receiver\packet_counter.c.s
+
 # Object files for target sentinel
 sentinel_OBJECTS = \
 "CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj" \
 "CMakeFiles/sentinel.dir/src/ui/qt.cpp.obj" \
 "CMakeFiles/sentinel.dir/src/ui/window.cpp.obj" \
 "CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj" \
-"CMakeFiles/sentinel.dir/src/ui/topbar.cpp.obj"
+"CMakeFiles/sentinel.dir/src/ui/topbar.cpp.obj" \
+"CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj" \
+"CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj" \
+"CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj" \
+"CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj" \
+"CMakeFiles/sentinel.dir/src/receiver/parser.c.obj" \
+"CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj" \
+"CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj"
 
 # External object files for target sentinel
 sentinel_EXTERNAL_OBJECTS =
@@ -168,6 +280,13 @@ sentinel.exe: CMakeFiles/sentinel.dir/src/ui/qt.cpp.obj
 sentinel.exe: CMakeFiles/sentinel.dir/src/ui/window.cpp.obj
 sentinel.exe: CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj
 sentinel.exe: CMakeFiles/sentinel.dir/src/ui/topbar.cpp.obj
+sentinel.exe: CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj
+sentinel.exe: CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj
+sentinel.exe: CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj
+sentinel.exe: CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj
+sentinel.exe: CMakeFiles/sentinel.dir/src/receiver/parser.c.obj
+sentinel.exe: CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj
+sentinel.exe: CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj
 sentinel.exe: CMakeFiles/sentinel.dir/build.make
 sentinel.exe: C:/Qt/6.11.1/mingw_64/lib/libQt6Widgets.a
 sentinel.exe: C:/Qt/6.11.1/mingw_64/lib/libQt6Gui.a
@@ -175,7 +294,7 @@ sentinel.exe: C:/Qt/6.11.1/mingw_64/lib/libQt6Core.a
 sentinel.exe: CMakeFiles/sentinel.dir/linkLibs.rsp
 sentinel.exe: CMakeFiles/sentinel.dir/objects1.rsp
 sentinel.exe: CMakeFiles/sentinel.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable sentinel.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable sentinel.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\sentinel.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

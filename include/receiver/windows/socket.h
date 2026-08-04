@@ -5,6 +5,10 @@
 #include <winsock2.h>
 #include <stdbool.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // Structure For SOCKETRESULT
 typedef struct{
 
@@ -18,5 +22,9 @@ SocketResult init_socket(const char *ip);
 
 // Close Socket Function Export
 void close_socket(SocketResult *result);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <mstcpip.h>
 #include <stdbool.h>
-#include "include/receiver/windows/socket.h"
+#include "receiver/windows/socket.h"
 
 // Init Socket Function For Intialized Socket To Windows
 SocketResult init_socket(const char *ip){

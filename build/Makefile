@@ -178,6 +178,150 @@ sentinel_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.s
 .PHONY : sentinel_autogen/mocs_compilation.cpp.s
 
+src/receiver/packet_counter.obj: src/receiver/packet_counter.c.obj
+.PHONY : src/receiver/packet_counter.obj
+
+# target to build an object file
+src/receiver/packet_counter.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj
+.PHONY : src/receiver/packet_counter.c.obj
+
+src/receiver/packet_counter.i: src/receiver/packet_counter.c.i
+.PHONY : src/receiver/packet_counter.i
+
+# target to preprocess a source file
+src/receiver/packet_counter.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.i
+.PHONY : src/receiver/packet_counter.c.i
+
+src/receiver/packet_counter.s: src/receiver/packet_counter.c.s
+.PHONY : src/receiver/packet_counter.s
+
+# target to generate assembly for a file
+src/receiver/packet_counter.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.s
+.PHONY : src/receiver/packet_counter.c.s
+
+src/receiver/parser.obj: src/receiver/parser.c.obj
+.PHONY : src/receiver/parser.obj
+
+# target to build an object file
+src/receiver/parser.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/parser.c.obj
+.PHONY : src/receiver/parser.c.obj
+
+src/receiver/parser.i: src/receiver/parser.c.i
+.PHONY : src/receiver/parser.i
+
+# target to preprocess a source file
+src/receiver/parser.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/parser.c.i
+.PHONY : src/receiver/parser.c.i
+
+src/receiver/parser.s: src/receiver/parser.c.s
+.PHONY : src/receiver/parser.s
+
+# target to generate assembly for a file
+src/receiver/parser.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/parser.c.s
+.PHONY : src/receiver/parser.c.s
+
+src/receiver/receiver.obj: src/receiver/receiver.c.obj
+.PHONY : src/receiver/receiver.obj
+
+# target to build an object file
+src/receiver/receiver.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj
+.PHONY : src/receiver/receiver.c.obj
+
+src/receiver/receiver.i: src/receiver/receiver.c.i
+.PHONY : src/receiver/receiver.i
+
+# target to preprocess a source file
+src/receiver/receiver.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/receiver.c.i
+.PHONY : src/receiver/receiver.c.i
+
+src/receiver/receiver.s: src/receiver/receiver.c.s
+.PHONY : src/receiver/receiver.s
+
+# target to generate assembly for a file
+src/receiver/receiver.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/receiver.c.s
+.PHONY : src/receiver/receiver.c.s
+
+src/receiver/windows/get_packet.obj: src/receiver/windows/get_packet.c.obj
+.PHONY : src/receiver/windows/get_packet.obj
+
+# target to build an object file
+src/receiver/windows/get_packet.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj
+.PHONY : src/receiver/windows/get_packet.c.obj
+
+src/receiver/windows/get_packet.i: src/receiver/windows/get_packet.c.i
+.PHONY : src/receiver/windows/get_packet.i
+
+# target to preprocess a source file
+src/receiver/windows/get_packet.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.i
+.PHONY : src/receiver/windows/get_packet.c.i
+
+src/receiver/windows/get_packet.s: src/receiver/windows/get_packet.c.s
+.PHONY : src/receiver/windows/get_packet.s
+
+# target to generate assembly for a file
+src/receiver/windows/get_packet.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.s
+.PHONY : src/receiver/windows/get_packet.c.s
+
+src/receiver/windows/read.obj: src/receiver/windows/read.c.obj
+.PHONY : src/receiver/windows/read.obj
+
+# target to build an object file
+src/receiver/windows/read.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj
+.PHONY : src/receiver/windows/read.c.obj
+
+src/receiver/windows/read.i: src/receiver/windows/read.c.i
+.PHONY : src/receiver/windows/read.i
+
+# target to preprocess a source file
+src/receiver/windows/read.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/windows/read.c.i
+.PHONY : src/receiver/windows/read.c.i
+
+src/receiver/windows/read.s: src/receiver/windows/read.c.s
+.PHONY : src/receiver/windows/read.s
+
+# target to generate assembly for a file
+src/receiver/windows/read.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/windows/read.c.s
+.PHONY : src/receiver/windows/read.c.s
+
+src/receiver/windows/socket.obj: src/receiver/windows/socket.c.obj
+.PHONY : src/receiver/windows/socket.obj
+
+# target to build an object file
+src/receiver/windows/socket.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj
+.PHONY : src/receiver/windows/socket.c.obj
+
+src/receiver/windows/socket.i: src/receiver/windows/socket.c.i
+.PHONY : src/receiver/windows/socket.i
+
+# target to preprocess a source file
+src/receiver/windows/socket.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.i
+.PHONY : src/receiver/windows/socket.c.i
+
+src/receiver/windows/socket.s: src/receiver/windows/socket.c.s
+.PHONY : src/receiver/windows/socket.s
+
+# target to generate assembly for a file
+src/receiver/windows/socket.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.s
+.PHONY : src/receiver/windows/socket.c.s
+
 src/ui/qt.obj: src/ui/qt.cpp.obj
 .PHONY : src/ui/qt.obj
 
@@ -201,6 +345,30 @@ src/ui/qt.s: src/ui/qt.cpp.s
 src/ui/qt.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/qt.cpp.s
 .PHONY : src/ui/qt.cpp.s
+
+src/ui/sidebar.obj: src/ui/sidebar.cpp.obj
+.PHONY : src/ui/sidebar.obj
+
+# target to build an object file
+src/ui/sidebar.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj
+.PHONY : src/ui/sidebar.cpp.obj
+
+src/ui/sidebar.i: src/ui/sidebar.cpp.i
+.PHONY : src/ui/sidebar.i
+
+# target to preprocess a source file
+src/ui/sidebar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.i
+.PHONY : src/ui/sidebar.cpp.i
+
+src/ui/sidebar.s: src/ui/sidebar.cpp.s
+.PHONY : src/ui/sidebar.s
+
+# target to generate assembly for a file
+src/ui/sidebar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.s
+.PHONY : src/ui/sidebar.cpp.s
 
 src/ui/topbar.obj: src/ui/topbar.cpp.obj
 .PHONY : src/ui/topbar.obj
@@ -288,9 +456,30 @@ help:
 	@echo ... sentinel_autogen/mocs_compilation.obj
 	@echo ... sentinel_autogen/mocs_compilation.i
 	@echo ... sentinel_autogen/mocs_compilation.s
+	@echo ... src/receiver/packet_counter.obj
+	@echo ... src/receiver/packet_counter.i
+	@echo ... src/receiver/packet_counter.s
+	@echo ... src/receiver/parser.obj
+	@echo ... src/receiver/parser.i
+	@echo ... src/receiver/parser.s
+	@echo ... src/receiver/receiver.obj
+	@echo ... src/receiver/receiver.i
+	@echo ... src/receiver/receiver.s
+	@echo ... src/receiver/windows/get_packet.obj
+	@echo ... src/receiver/windows/get_packet.i
+	@echo ... src/receiver/windows/get_packet.s
+	@echo ... src/receiver/windows/read.obj
+	@echo ... src/receiver/windows/read.i
+	@echo ... src/receiver/windows/read.s
+	@echo ... src/receiver/windows/socket.obj
+	@echo ... src/receiver/windows/socket.i
+	@echo ... src/receiver/windows/socket.s
 	@echo ... src/ui/qt.obj
 	@echo ... src/ui/qt.i
 	@echo ... src/ui/qt.s
+	@echo ... src/ui/sidebar.obj
+	@echo ... src/ui/sidebar.i
+	@echo ... src/ui/sidebar.s
 	@echo ... src/ui/topbar.obj
 	@echo ... src/ui/topbar.i
 	@echo ... src/ui/topbar.s

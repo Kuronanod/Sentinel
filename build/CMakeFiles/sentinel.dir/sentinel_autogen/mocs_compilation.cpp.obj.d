@@ -1,7 +1,7 @@
 CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:\Users\korusuba\Sentinel\build\sentinel_autogen\mocs_compilation.cpp \
- C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_trafficgraph.cpp \
- C:/Users/korusuba/Sentinel/include/ui/trafficgraph.h \
+ C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_sidebar.cpp \
+ C:/Users/korusuba/Sentinel/include/ui/sidebar.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -385,6 +385,14 @@ CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qbitmap.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractbutton.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
@@ -399,12 +407,25 @@ CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qtmochelpers.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qtmocconstants.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/q20algorithm.h \
+ C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_trafficgraph.cpp \
+ C:/Users/korusuba/Sentinel/include/ui/trafficgraph.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/QPainter \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpainter.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h \
  C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_window.cpp \
  C:/Users/korusuba/Sentinel/include/ui/window.h \
  C:/Users/korusuba/Sentinel/include/ui/trafficgraph.h \
+ C:/Users/korusuba/Sentinel/include/ui/sidebar.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qmainwindow.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabwidget.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractbutton.h
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qtimer.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/thread \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h

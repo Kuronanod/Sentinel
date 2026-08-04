@@ -4,8 +4,22 @@ file(REMOVE_RECURSE
   "sentinel_autogen"
   "CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj"
   "CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj"
+  "CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj.d"
+  "CMakeFiles/sentinel.dir/src/receiver/parser.c.obj"
+  "CMakeFiles/sentinel.dir/src/receiver/parser.c.obj.d"
+  "CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj"
+  "CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj.d"
+  "CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj"
+  "CMakeFiles/sentinel.dir/src/receiver/windows/get_packet.c.obj.d"
+  "CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj"
+  "CMakeFiles/sentinel.dir/src/receiver/windows/read.c.obj.d"
+  "CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj"
+  "CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.obj.d"
   "CMakeFiles/sentinel.dir/src/ui/qt.cpp.obj"
   "CMakeFiles/sentinel.dir/src/ui/qt.cpp.obj.d"
+  "CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj"
+  "CMakeFiles/sentinel.dir/src/ui/sidebar.cpp.obj.d"
   "CMakeFiles/sentinel.dir/src/ui/topbar.cpp.obj"
   "CMakeFiles/sentinel.dir/src/ui/topbar.cpp.obj.d"
   "CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj"
@@ -21,6 +35,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang C CXX)
   include(CMakeFiles/sentinel.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

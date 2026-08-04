@@ -3,6 +3,42 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QPainter>
+#include <QVector>
+#include <algorithm>
+
+class SparkLineWidget : public QWidget{
+
+    Q_OBJECT
+
+public:
+    explicit SparkLineWidget(QWidget *parent = nullptr);
+    void AddValue(int rate);
+    void Clear();
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+
+private:
+    QVector<int> MainData;
+    static const int MaxPoints = 120;
+
+};
+
+class ResourceWidget : public QWidget {
+
+    Q_OBJECT
+
+public:
+    explicit ResourceWidget(QWidget *parent = nullptr);
+    void UpdateResources();
+
+private:
+    QLabel *CPULabel;
+    QLabel *RamLabel;
+    QLabel *StorageLabel;
+    QLabel *GPULabel;
+};
 
 class TrafficGraph : public QWidget{
 
@@ -11,8 +47,21 @@ class TrafficGraph : public QWidget{
 public:
     explicit TrafficGraph(QWidget *parent = nullptr);
 
+public slots:
+    void UpdatePacketCount(int count);
+
 private:
-    QLabel *main_label;
+    QWidget *TrafficWidget;
+    QWidget *TrafficContainer;
+    SparkLineWidget *MainSparkLine;
+    ResourceWidget *MainResourceWidget;
+    QLabel *TrafficLabel;
+    QLabel *PacketLabel;
+    QLabel *AlertLabel;
+    QTimer *MainResourceTimer;
+
+    int MainLastCount = 0;
+    bool MainFirst = true;
 
 };
 

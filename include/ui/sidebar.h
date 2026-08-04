@@ -1,3 +1,6 @@
+#ifndef SIDEBAR_H
+#define SIDEBAR_H
+
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -10,4 +13,13 @@ class SideBar : public QWidget{
 public:
     explicit SideBar(QWidget *parent = nullptr);
 
+private:
+    QPushButton *TrafficGraphButton;
+    QPushButton *TerminalButton;
+    QPushButton *ManagementButton;
+    QPushButton *LogInformationButton;
+    QPushButton *SettingButton;
+
 };
+
+#endif
