@@ -69,8 +69,12 @@ void Window::SetupUI(){
     //Logo
     Main_TitleLogo = new QLabel(this);
 
+    SentinelTitle = new QLabel("Sentinel",this);
+    SentinelTitle->setStyleSheet("color: white; font-weight: bold;");
+
     //Layout Widget Add
     TitleLayout->addWidget(Main_TitleLogo);
+    TitleLayout->addWidget(SentinelTitle);
     TitleLayout->addStretch();
     TitleLayout->addWidget(Main_MinimizeButton);
     TitleLayout->addWidget(Main_MaximizeButton);
@@ -92,12 +96,14 @@ void Window::SetupUI(){
     ContentLayout->setContentsMargins(0, 0, 0, 0);
     ContentLayout->setSpacing(0);
 
-    mainSideBar = new SideBar(this);
-    ContentLayout->addWidget(mainSideBar, 1);
+    MainSideBar = new SideBar(this);
+    ContentLayout->addWidget(MainSideBar, 1);
+    connect(MainSideBar, &SideBar::pageChangeRequested, this, &Window::SwitchPage);
 
-    mainGraph = new TrafficGraph(this);
-    ContentLayout->addWidget(mainGraph, 1);
+    MainWidget = new QStackedWidget(this);
+    MainDashBoard = new TrafficGraph(MainWidget);
 
+    MainWidget->addWidget(MainDashBoard);
     MainLayout->addWidget(Content, 1);
 
     setCentralWidget(CentralWidget);
@@ -109,7 +115,7 @@ void Window::SetupUI(){
 
     MainReceiverThread = new std::thread([this]() {
     while (!StopReceiverThread) {
-            receiver("192.168.1.103");
+            receiver("172.15.35.11");  // Ip ตรงนี้นะ bro
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
     });
@@ -118,7 +124,7 @@ void Window::SetupUI(){
     MainTimer = new QTimer(this);
     connect(MainTimer, &QTimer::timeout, this, [this]() {
         int count = GetPacketCount();
-        mainGraph->UpdatePacketCount(count);
+        MainDashBoard->UpdatePacketCount(count);
     });
     MainTimer->start(1000);
 
@@ -278,5 +284,13 @@ void Window::OnMaximizeClicked(){
 void Window::OnCloseClicked(){
 
     this->close();
+
+}
+
+void Window::SwitchPage(int index){
+
+    if(MainWidget && index <= 0 && index < MainWidget->count()){
+        MainWidget->setCurrentIndex(index);
+    }
 
 }

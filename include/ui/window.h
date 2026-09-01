@@ -11,6 +11,7 @@
 #include <QTimer>
 #include <thread>
 #include <atomic>
+#include <QStackedWidget>
 
 class Window : public QMainWindow{
 
@@ -30,11 +31,13 @@ private slots:
     void OnMinimizeClicked();
     void OnMaximizeClicked();
     void OnCloseClicked();
+    void SwitchPage(int index);
 
 private:
 
     QWidget *Main_TitleBar;
     QLabel *Main_TitleLogo;
+    QLabel *SentinelTitle;
     QPushButton *Main_MinimizeButton;
     QPushButton *Main_MaximizeButton;
     QPushButton *Main_CloseButton;
@@ -46,8 +49,9 @@ private:
     std::atomic<bool> StopReceiverThread{false};
     void startReceiver();
 
-    TrafficGraph *mainGraph;
-    SideBar *mainSideBar;
+    QStackedWidget *MainWidget;
+    TrafficGraph *MainDashBoard;
+    SideBar *MainSideBar;
 
 };
 

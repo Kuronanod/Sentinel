@@ -12,6 +12,7 @@ set(UI_SRCS
     src/ui/trafficgraph.cpp
     src/ui/topbar.cpp
     src/ui/sidebar.cpp
+    src/ui/terminal.cpp
 )
 
 set(C_SRCS
@@ -30,6 +31,7 @@ add_executable(sentinel
     include/ui/trafficgraph.h
     include/ui/topbar.h
     include/ui/sidebar.h
+    include/ui/terminal.h
     include/receiver/windows/get_packet.h
     include/receiver/windows/read.h
     include/receiver/windows/socket.h

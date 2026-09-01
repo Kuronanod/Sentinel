@@ -403,6 +403,9 @@ CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QByteArray \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QString \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QDebug \
  C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qtimer.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qbasictimer.h \

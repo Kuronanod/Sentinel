@@ -15,9 +15,10 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent){
     Main_Layout->setSpacing(0);
 
     // Trafficgraph
-    TrafficGraphButton = new QPushButton("⧉");
-    TrafficGraphButton->setStyleSheet("color: white; font-size: 20px; padding: 35px; font-weight: bold;");
-    Main_Layout->addWidget(TrafficGraphButton);
+    DashBoardButton = new QPushButton("⧉");
+    connect(DashBoardButton, &QPushButton::clicked, this, [this](){ emit pageChangeRequested(0); });
+    DashBoardButton->setStyleSheet("color: white; font-size: 20px; padding: 35px; font-weight: bold;");
+    Main_Layout->addWidget(DashBoardButton);
 
     // Terminal
     TerminalButton = new QPushButton(">_");

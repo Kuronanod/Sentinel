@@ -2,6 +2,9 @@
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QByteArray>
+#include <QString>
+#include <QDebug>
 #include <QPainter>
 #include <QTimer>
 #include <algorithm>
@@ -119,24 +122,31 @@ ResourceWidget::ResourceWidget(QWidget *parent) : QWidget(parent) {
     MainLayout->setContentsMargins(5,5,5,5);
     MainLayout->setSpacing(10);
 
-    auto createBox = [this, &MainLayout](const QString &title) -> QLabel* {
+    auto BoxSetup = [this, &MainLayout](const QString &title) -> QLabel* {
+        
         QWidget *Box = new QWidget(this);
         Box->setStyleSheet("background-color: #2a2a2a; border-radius:5px;");
+
         QVBoxLayout *VBox = new QVBoxLayout(Box);
+        VBox->setContentsMargins(8, 8, 8, 8);
+
         QLabel *TitleLabel = new QLabel(title, Box);
         TitleLabel->setStyleSheet("color: #888; font-size:11px;");
+
         QLabel *ValueLabel = new QLabel("...", Box);
         ValueLabel->setStyleSheet("color: white; font-size:16px; font-weight:bold;");
+
         VBox->addWidget(TitleLabel);
         VBox->addWidget(ValueLabel);
         MainLayout->addWidget(Box, 1);
+
         return ValueLabel;
     };
 
-    CPULabel  = createBox("CPU");
-    RamLabel  = createBox("RAM");
-    StorageLabel = createBox("DISK");
-    GPULabel  = createBox("GPU");
+    CPULabel  = BoxSetup("CPU");
+    RamLabel  = BoxSetup("RAM");
+    StorageLabel = BoxSetup("DISK");
+    GPULabel  = BoxSetup("GPU");
     GPULabel->setText("N/A");
 }
 
@@ -149,7 +159,7 @@ void ResourceWidget::UpdateResources() {
         idleDiff.QuadPart = idle.dwLowDateTime | ((ULONGLONG)idle.dwHighDateTime << 32);
         kernelDiff.QuadPart = kernel.dwLowDateTime | ((ULONGLONG)kernel.dwHighDateTime << 32);
         userDiff.QuadPart = user.dwLowDateTime | ((ULONGLONG)user.dwHighDateTime << 32);
-        // คำนวณเฉพาะเมื่อมีค่าก่อนหน้า
+
         if (prevIdle.dwLowDateTime || prevIdle.dwHighDateTime) {
             ULONGLONG idleDelta = idleDiff.QuadPart - (prevIdle.dwLowDateTime | ((ULONGLONG)prevIdle.dwHighDateTime << 32));
             ULONGLONG kernelDelta = kernelDiff.QuadPart - (prevKernel.dwLowDateTime | ((ULONGLONG)prevKernel.dwHighDateTime << 32));

@@ -13,8 +13,11 @@ class SideBar : public QWidget{
 public:
     explicit SideBar(QWidget *parent = nullptr);
 
+signals:
+    void pageChangeRequested(int index);
+
 private:
-    QPushButton *TrafficGraphButton;
+    QPushButton *DashBoardButton;
     QPushButton *TerminalButton;
     QPushButton *ManagementButton;
     QPushButton *LogInformationButton;
