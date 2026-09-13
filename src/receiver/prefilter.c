@@ -1,8 +1,35 @@
+#ifdef _WIN32
+    #include <windows.h>
+#else
+    #include <pthread.h>
+#endif
+
 #include <string.h>
 #include <time.h>
 
 #include "prefilter.h"
+#include "packet_counter.h"
 #include "firewall.h"
+
+#ifdef _WIN32
+    static CRITICAL_SECTION BlacklistMutex;
+    static int MutexInitialized = 0;
+    static void LockBlacklist(void) {
+        if (!MutexInitialized) {
+            InitializeCriticalSection(&BlacklistMutex);
+            MutexInitialized = 1;
+        }
+        EnterCriticalSection(&BlacklistMutex);
+    }
+    static void UnlockBlacklist(void) {
+        LeaveCriticalSection(&BlacklistMutex);
+    }
+#else
+    #include <pthread.h>
+    static pthread_mutex_t BlacklistMutex = PTHREAD_MUTEX_INITIALIZER;
+    static void LockBlacklist(void) { pthread_mutex_lock(&BlacklistMutex); }
+    static void UnlockBlacklist(void) { pthread_mutex_unlock(&BlacklistMutex); }
+#endif
 
 #define MAX_BLACKLIST 100
 #define MAX_TRACKED_IPS 256
@@ -33,37 +60,71 @@ static int RateCount = 0;
 
 void PreFilterAddBlacklist(unsigned int IP) {
 
+    int Added = 0;
+
+    LockBlacklist(); 
+
+    int Found = 0;
     for (int Index = 0; Index < BlacklistCount; Index++){
         if (Blacklist[Index] == IP){
-            return;
+            Found = 1;
+            break;
         }
     }
 
-    if (BlacklistCount < MAX_BLACKLIST) {
+    if (!Found && BlacklistCount < MAX_BLACKLIST) {
         Blacklist[BlacklistCount++] = IP;
-        FirewallBlockIP(IP);
+        Added = 1;
     }
+
+    UnlockBlacklist(); 
+
+    if (Added) {
+        FirewallBlockIP(IP);
+        IncrementBlockedIPCount();
+    }
+
 }
 
 void PreFilterRemoveBlacklist(unsigned int IP) {
+
+    int Removed = 0;
+
+    LockBlacklist();
     for (int Index = 0; Index < BlacklistCount; Index++) {
         if (Blacklist[Index] == IP) {
             Blacklist[Index] = Blacklist[BlacklistCount - 1];
             BlacklistCount--;
-            FirewallUnblockIP(IP);
-            return;
+            Removed = 1;
+            break;
         }
     }
+    UnlockBlacklist();
+
+    if (Removed) {
+        FirewallUnblockIP(IP);
+        DecrementBlockedIPCount();
+    }
+
 }
 
-int PreFilterGetBlacklistCount(void) { return BlacklistCount; }
+int PreFilterGetBlacklistCount(void){
+
+    LockBlacklist();
+    int Count = BlacklistCount;
+    UnlockBlacklist();
+    return Count;
+
+}
 
 unsigned int PreFilterGetBlacklistIP(int Index) {
-    if (Index >= 0 && Index < BlacklistCount){
-        return Blacklist[Index];
+    LockBlacklist();
+    unsigned int IP = 0;
+    if (Index >= 0 && Index < BlacklistCount) {
+        IP = Blacklist[Index];
     }
-    return 0;
-
+    UnlockBlacklist();
+    return IP;
 }
 
 void PreFilterSetRateThreshold(int threshold) {
@@ -88,19 +149,36 @@ unsigned short PreFilterGetSuspiciousPort(int index) {
 }
 
 void PreFilterClear(void) {
+
+    LockBlacklist();
+
     BlacklistCount = 0;
     RateCount = 0;
     RateThreshold = DEFAULT_RATE;
     memset(RateTable, 0, sizeof(RateTable));
+
+    UnlockBlacklist(); 
+
     FirewallClearAll();
+    ResetBlockedIPCount(); 
+
 }
 
 static int IsBlacklisted(unsigned int IP) {
+
+    int result = 0;
+
+    LockBlacklist();
+
     for (int Index = 0; Index < BlacklistCount; Index++)
         if (Blacklist[Index] == IP){
-            return 1;
+            result = 1;
+            break;
         }
-    return 0;
+
+    UnlockBlacklist(); 
+
+    return result;
 }
 
 static int IsSuspiciousPort(unsigned short Port) {

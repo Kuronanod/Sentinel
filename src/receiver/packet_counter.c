@@ -23,3 +23,23 @@ int GetBlockedPacketCount(void) {
 void IncrementBlockedPacketCount(void) {
     GETBLOCKEDPACKETCOUNT++;
 }
+
+static volatile int GETBLOCKEDIPCOUNT = 0;
+
+int  GetBlockedIPCount(void){
+    return GETBLOCKEDIPCOUNT; 
+}
+
+void IncrementBlockedIPCount(void){
+    GETBLOCKEDIPCOUNT++; 
+}
+
+void DecrementBlockedIPCount(void){
+    if (GETBLOCKEDIPCOUNT > 0) {
+        GETBLOCKEDIPCOUNT--;
+    }
+}
+
+void ResetBlockedIPCount(void) {
+    GETBLOCKEDIPCOUNT = 0;
+}

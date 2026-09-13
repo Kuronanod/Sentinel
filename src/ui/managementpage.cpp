@@ -147,15 +147,22 @@ ManagementPage::ManagementPage(QWidget *parent) : QWidget(parent) {
     connect(BlacklistList, &QListWidget::customContextMenuRequested,
             this, [this](const QPoint &pos) {
         QListWidgetItem *Item = BlacklistList->itemAt(pos);
-        if (!Item) return;
+        if (!Item){
+            return;
+        }
+
+        unsigned int IP = Item->data(Qt::UserRole).toUInt();
+
+        RefreshTimer->stop();  
 
         QMenu menu(this);
         QAction *RemoveAction = menu.addAction("🗑 Remove");
         QAction *Selected = menu.exec(BlacklistList->mapToGlobal(pos));
 
+        RefreshTimer->start(1000);
+
         if (Selected == RemoveAction) {
-            unsigned int ip = Item->data(Qt::UserRole).toUInt();
-            PreFilterRemoveBlacklist(ip);
+            PreFilterRemoveBlacklist(IP);
             RefreshUI();
         }
     });
@@ -229,7 +236,7 @@ void ManagementPage::RefreshUI() {
     int AllowedPacket = GetPacketCount();
 
     TotalPacketsLabel->setText(QString::number(TotalPacket));
-    BlockedPacketsLabel->setText(QString::number(BlockedPacket));
+    BlockedPacketsLabel->setText(QString("%1 IPs").arg(GetBlockedIPCount()));
     AllowedPacketsLabel->setText(QString::number(AllowedPacket));
 
     // ---- Count labels ----

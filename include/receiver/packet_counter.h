@@ -11,6 +11,11 @@ void IncreementPacketCount(void);
 int GetBlockedPacketCount(void);
 void IncrementBlockedPacketCount(void);
 
+int  GetBlockedIPCount(void);
+void IncrementBlockedIPCount(void);
+void DecrementBlockedIPCount(void);
+void ResetBlockedIPCount(void);
+
 #ifdef __cplusplus
 }
 #endif
