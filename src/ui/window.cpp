@@ -2,6 +2,7 @@
 #include "topbar.h"
 #include "receiver/receiver.h"
 #include "receiver/packet_counter.h"
+#include "receiver/request_queue.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -97,13 +98,23 @@ void Window::SetupUI(){
     ContentLayout->setSpacing(0);
 
     MainSideBar = new SideBar(this);
-    ContentLayout->addWidget(MainSideBar, 1);
+    ContentLayout->addWidget(MainSideBar, 0);
     connect(MainSideBar, &SideBar::pageChangeRequested, this, &Window::SwitchPage);
 
     MainWidget = new QStackedWidget(this);
-    MainDashBoard = new TrafficGraph(MainWidget);
+    DashBoardPage = new TrafficGraph(MainWidget);
+    PacketInfoPage = new PacketPage(MainWidget);
+    TerminalPage = new Terminal(MainWidget);
+    AlertInfoPage = new AlertPage(MainWidget);
+    ManagementInfoPage = new ManagementPage(MainWidget);
 
-    MainWidget->addWidget(MainDashBoard);
+    MainWidget->addWidget(DashBoardPage);
+    MainWidget->addWidget(PacketInfoPage);
+    MainWidget->addWidget(TerminalPage);
+    MainWidget->addWidget(AlertInfoPage);
+    MainWidget->addWidget(ManagementInfoPage);
+
+    ContentLayout->addWidget(MainWidget, 1);
     MainLayout->addWidget(Content, 1);
 
     setCentralWidget(CentralWidget);
@@ -115,7 +126,7 @@ void Window::SetupUI(){
 
     MainReceiverThread = new std::thread([this]() {
     while (!StopReceiverThread) {
-            receiver("172.15.35.11");  // Ip ตรงนี้นะ bro
+            receiver("192.168.1.103");  // Ip ตรงนี้นะ bro
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
     });
@@ -124,7 +135,11 @@ void Window::SetupUI(){
     MainTimer = new QTimer(this);
     connect(MainTimer, &QTimer::timeout, this, [this]() {
         int count = GetPacketCount();
-        MainDashBoard->UpdatePacketCount(count);
+        DashBoardPage->UpdatePacketCount(count);
+
+        int queueSize = GetPacketQueueSize();
+        qDebug() << "Queue size:" << queueSize;
+
     });
     MainTimer->start(1000);
 
@@ -289,7 +304,7 @@ void Window::OnCloseClicked(){
 
 void Window::SwitchPage(int index){
 
-    if(MainWidget && index <= 0 && index < MainWidget->count()){
+    if(MainWidget && index >= 0 && index < MainWidget->count()){
         MainWidget->setCurrentIndex(index);
     }
 

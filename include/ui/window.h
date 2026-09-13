@@ -1,8 +1,12 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include "trafficgraph.h"
 #include "sidebar.h"
+#include "trafficgraph.h"
+#include "packetpage.h"
+#include "terminal.h"
+#include "alertpage.h"
+#include "managementpage.h"
 
 #include <QMainWindow>
 #include <QPushButton>
@@ -50,8 +54,12 @@ private:
     void startReceiver();
 
     QStackedWidget *MainWidget;
-    TrafficGraph *MainDashBoard;
+    TrafficGraph *DashBoardPage;
+    PacketPage *PacketInfoPage;
+    Terminal *TerminalPage;
+    AlertPage *AlertInfoPage;
     SideBar *MainSideBar;
+    ManagementPage *ManagementInfoPage;
 
 };
 

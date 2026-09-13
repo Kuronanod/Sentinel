@@ -288,7 +288,42 @@
 		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets.cmake",
 		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake",
 		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake",
-		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake"
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersion.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersionImpl.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake",
+		"C:/mingw64/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkDependencies.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargetsPrecheck.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkPlugins.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginConfig.cmake",
+		"C:/mingw64/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargetsPrecheck.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginConfig.cmake",
+		"C:/mingw64/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargetsPrecheck.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginConfig.cmake",
+		"C:/mingw64/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargetsPrecheck.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake",
+		"C:/mingw64/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargetsPrecheck.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmake"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/korusuba/Sentinel",
 	"CROSS_CONFIG" : false,
@@ -296,6 +331,18 @@
 	"DEP_FILE_RULE_NAME" : "sentinel_autogen/timestamp",
 	"HEADERS" : 
 	[
+		[
+			"C:/Users/korusuba/Sentinel/include/receiver/alert_queue.h",
+			"Mu",
+			"QLJF6WQS6J/moc_alert_queue.cpp",
+			null
+		],
+		[
+			"C:/Users/korusuba/Sentinel/include/receiver/firewall.h",
+			"Mu",
+			"QLJF6WQS6J/moc_firewall.cpp",
+			null
+		],
 		[
 			"C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h",
 			"Mu",
@@ -309,9 +356,21 @@
 			null
 		],
 		[
+			"C:/Users/korusuba/Sentinel/include/receiver/prefilter.h",
+			"Mu",
+			"QLJF6WQS6J/moc_prefilter.cpp",
+			null
+		],
+		[
 			"C:/Users/korusuba/Sentinel/include/receiver/receiver.h",
 			"Mu",
 			"QLJF6WQS6J/moc_receiver.cpp",
+			null
+		],
+		[
+			"C:/Users/korusuba/Sentinel/include/receiver/request_queue.h",
+			"Mu",
+			"QLJF6WQS6J/moc_request_queue.cpp",
 			null
 		],
 		[
@@ -333,9 +392,33 @@
 			null
 		],
 		[
+			"C:/Users/korusuba/Sentinel/include/ui/alertpage.h",
+			"Mu",
+			"JCP2AIONHY/moc_alertpage.cpp",
+			null
+		],
+		[
+			"C:/Users/korusuba/Sentinel/include/ui/managementpage.h",
+			"Mu",
+			"JCP2AIONHY/moc_managementpage.cpp",
+			null
+		],
+		[
+			"C:/Users/korusuba/Sentinel/include/ui/packetpage.h",
+			"Mu",
+			"JCP2AIONHY/moc_packetpage.cpp",
+			null
+		],
+		[
 			"C:/Users/korusuba/Sentinel/include/ui/sidebar.h",
 			"Mu",
 			"JCP2AIONHY/moc_sidebar.cpp",
+			null
+		],
+		[
+			"C:/Users/korusuba/Sentinel/include/ui/terminal.h",
+			"Mu",
+			"JCP2AIONHY/moc_terminal.cpp",
 			null
 		],
 		[
@@ -365,6 +448,7 @@
 		"MINGW_HAS_SECURE_API=1",
 		"QT_CORE_LIB",
 		"QT_GUI_LIB",
+		"QT_NETWORK_LIB",
 		"QT_WIDGETS_LIB",
 		"UNICODE",
 		"WIN32",
@@ -391,13 +475,13 @@
 		"C:/Qt/6.11.1/mingw_64/include/QtCore",
 		"C:/Qt/6.11.1/mingw_64/mkspecs/win32-g++",
 		"C:/Qt/6.11.1/mingw_64/include/QtGui",
-		"C:/mingw64/include/c++/15.2.0",
-		"C:/mingw64/include/c++/15.2.0/x86_64-w64-mingw32",
-		"C:/mingw64/include/c++/15.2.0/backward",
-		"C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include",
-		"C:/mingw64/include",
-		"C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed",
-		"C:/mingw64/x86_64-w64-mingw32/include"
+		"C:/Qt/6.11.1/mingw_64/include/QtNetwork",
+		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
+		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
+		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward",
+		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
+		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
+		"C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include"
 	],
 	"MOC_MACRO_NAMES" : 
 	[
@@ -412,7 +496,7 @@
 	"MOC_PATH_PREFIX" : false,
 	"MOC_PREDEFS_CMD" : 
 	[
-		"C:/mingw64/bin/c++.exe",
+		"C:/Qt/Tools/mingw1310_64/bin/g++.exe",
 		"-std=gnu++17",
 		"-w",
 		"-dM",
@@ -432,13 +516,21 @@
 	"SETTINGS_FILE" : "C:/Users/korusuba/Sentinel/build/CMakeFiles/sentinel_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "C:/Users/korusuba/Sentinel/src/receiver/alert_queue.cpp", "Mu", null ],
+		[ "C:/Users/korusuba/Sentinel/src/receiver/firewall.c", "Mu", null ],
 		[
 			"C:/Users/korusuba/Sentinel/src/receiver/packet_counter.c",
 			"Mu",
 			null
 		],
 		[ "C:/Users/korusuba/Sentinel/src/receiver/parser.c", "Mu", null ],
+		[ "C:/Users/korusuba/Sentinel/src/receiver/prefilter.c", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/receiver/receiver.c", "Mu", null ],
+		[
+			"C:/Users/korusuba/Sentinel/src/receiver/request_queue.cpp",
+			"Mu",
+			null
+		],
 		[
 			"C:/Users/korusuba/Sentinel/src/receiver/windows/get_packet.c",
 			"Mu",
@@ -450,8 +542,12 @@
 			"Mu",
 			null
 		],
+		[ "C:/Users/korusuba/Sentinel/src/ui/alertpage.cpp", "Mu", null ],
+		[ "C:/Users/korusuba/Sentinel/src/ui/managementpage.cpp", "Mu", null ],
+		[ "C:/Users/korusuba/Sentinel/src/ui/packetpage.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/qt.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/sidebar.cpp", "Mu", null ],
+		[ "C:/Users/korusuba/Sentinel/src/ui/terminal.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/topbar.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/trafficgraph.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/window.cpp", "Mu", null ]

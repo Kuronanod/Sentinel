@@ -10,23 +10,23 @@
 				{
 					"includeDirectories" : 
 					[
-						"C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include",
-						"C:/mingw64/include",
-						"C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed",
-						"C:/mingw64/x86_64-w64-mingw32/include"
+						"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
+						"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
+						"C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include"
 					],
 					"linkDirectories" : 
 					[
-						"C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0",
-						"C:/mingw64/lib/gcc",
-						"C:/mingw64/x86_64-w64-mingw32/lib",
-						"C:/mingw64/lib"
+						"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0",
+						"C:/Qt/Tools/mingw1310_64/lib/gcc",
+						"C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/lib",
+						"C:/Qt/Tools/mingw1310_64/lib"
 					],
 					"linkFrameworkDirectories" : [],
 					"linkLibraries" : 
 					[
 						"mingw32",
 						"gcc",
+						"moldname",
 						"mingwex",
 						"kernel32",
 						"pthread",
@@ -34,14 +34,16 @@
 						"shell32",
 						"user32",
 						"kernel32",
+						"iconv",
 						"mingw32",
 						"gcc",
+						"moldname",
 						"mingwex",
 						"kernel32"
 					]
 				},
-				"path" : "C:/mingw64/bin/gcc.exe",
-				"version" : "15.2.0"
+				"path" : "C:/Qt/Tools/mingw1310_64/bin/gcc.exe",
+				"version" : "13.1.0"
 			},
 			"language" : "C",
 			"sourceFileExtensions" : 
@@ -58,20 +60,19 @@
 				{
 					"includeDirectories" : 
 					[
-						"C:/mingw64/include/c++/15.2.0",
-						"C:/mingw64/include/c++/15.2.0/x86_64-w64-mingw32",
-						"C:/mingw64/include/c++/15.2.0/backward",
-						"C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include",
-						"C:/mingw64/include",
-						"C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed",
-						"C:/mingw64/x86_64-w64-mingw32/include"
+						"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
+						"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
+						"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward",
+						"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
+						"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
+						"C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include"
 					],
 					"linkDirectories" : 
 					[
-						"C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0",
-						"C:/mingw64/lib/gcc",
-						"C:/mingw64/x86_64-w64-mingw32/lib",
-						"C:/mingw64/lib"
+						"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0",
+						"C:/Qt/Tools/mingw1310_64/lib/gcc",
+						"C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/lib",
+						"C:/Qt/Tools/mingw1310_64/lib"
 					],
 					"linkFrameworkDirectories" : [],
 					"linkLibraries" : 
@@ -80,6 +81,7 @@
 						"mingw32",
 						"gcc_s",
 						"gcc",
+						"moldname",
 						"mingwex",
 						"kernel32",
 						"pthread",
@@ -87,15 +89,17 @@
 						"shell32",
 						"user32",
 						"kernel32",
+						"iconv",
 						"mingw32",
 						"gcc_s",
 						"gcc",
+						"moldname",
 						"mingwex",
 						"kernel32"
 					]
 				},
-				"path" : "C:/mingw64/bin/c++.exe",
-				"version" : "15.2.0"
+				"path" : "C:/Qt/Tools/mingw1310_64/bin/g++.exe",
+				"version" : "13.1.0"
 			},
 			"language" : "CXX",
 			"sourceFileExtensions" : 

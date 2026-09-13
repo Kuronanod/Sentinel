@@ -6,6 +6,17 @@
 
 Terminal::Terminal(QWidget *parent) : QWidget(parent){
 
-    QVBoxLayout
+
+}
+
+void Terminal::ExecuteCommand() {
+    
+}
+
+void Terminal::ReadOutput() {
+
+}
+
+void Terminal::ReadError() {
 
 }

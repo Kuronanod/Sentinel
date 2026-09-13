@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QPainter>
 #include <QVector>
+#include <QTimer>
 #include <algorithm>
 
 class SparkLineWidget : public QWidget{
@@ -52,12 +53,8 @@ public slots:
 
 private:
     QWidget *TrafficWidget;
-    QWidget *TrafficContainer;
     SparkLineWidget *MainSparkLine;
     ResourceWidget *MainResourceWidget;
-    QLabel *TrafficLabel;
-    QLabel *PacketLabel;
-    QLabel *AlertLabel;
     QTimer *MainResourceTimer;
 
     int MainLastCount = 0;

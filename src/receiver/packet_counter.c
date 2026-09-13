@@ -13,3 +13,13 @@ void IncreementPacketCount(void){
     GETPACKETCOUNT++;
 
 }
+
+static volatile int GETBLOCKEDPACKETCOUNT = 0;
+
+int GetBlockedPacketCount(void) {
+    return GETBLOCKEDPACKETCOUNT;
+}
+
+void IncrementBlockedPacketCount(void) {
+    GETBLOCKEDPACKETCOUNT++;
+}

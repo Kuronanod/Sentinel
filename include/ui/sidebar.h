@@ -18,9 +18,10 @@ signals:
 
 private:
     QPushButton *DashBoardButton;
+    QPushButton *PacketPageButton;
     QPushButton *TerminalButton;
     QPushButton *ManagementButton;
-    QPushButton *LogInformationButton;
+    QPushButton *AlertpageButton;
     QPushButton *SettingButton;
 
 };

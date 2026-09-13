@@ -55,6 +55,13 @@
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "Qt6::Network::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Qt6__Network-Debug-1ea97cd4fad559c2e3cc.json",
+					"name" : "Qt6::Network",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "Qt6::Platform::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-Qt6__Platform-Debug-59ac865cd9efcf828aa9.json",
 					"name" : "Qt6::Platform",
@@ -139,9 +146,23 @@
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "Qt6::QNLMNIPlugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Qt6__QNLMNIPlugin-Debug-5e547224f2005a726825.json",
+					"name" : "Qt6::QNLMNIPlugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "Qt6::QOffscreenIntegrationPlugin::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-Qt6__QOffscreenIntegrationPlugin-Debug-af15a8d968fb49962368.json",
 					"name" : "Qt6::QOffscreenIntegrationPlugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Qt6::QSchannelBackendPlugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Qt6__QSchannelBackendPlugin-Debug-b19ce64bb96851d74919.json",
+					"name" : "Qt6::QSchannelBackendPlugin",
 					"projectIndex" : 0
 				},
 				{
@@ -156,6 +177,20 @@
 					"id" : "Qt6::QSvgPlugin::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-Qt6__QSvgPlugin-Debug-72c1fe9e12d30bb84ef3.json",
 					"name" : "Qt6::QSvgPlugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Qt6::QTlsBackendCertOnlyPlugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Qt6__QTlsBackendCertOnlyPlugin-Debug-199d6cbed671f0a12185.json",
+					"name" : "Qt6::QTlsBackendCertOnlyPlugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Qt6::QTlsBackendOpenSSLPlugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Qt6__QTlsBackendOpenSSLPlugin-Debug-0a0428924a11d9994040.json",
+					"name" : "Qt6::QTlsBackendOpenSSLPlugin",
 					"projectIndex" : 0
 				},
 				{
@@ -473,7 +508,12 @@
 						54,
 						55,
 						56,
-						57
+						57,
+						58,
+						59,
+						60,
+						61,
+						62
 					],
 					"build" : ".",
 					"jsonFile" : "directory-.-Debug-f6f22219c74102c3da70.json",
@@ -554,7 +594,12 @@
 						54,
 						55,
 						56,
-						57
+						57,
+						58,
+						59,
+						60,
+						61,
+						62
 					],
 					"directoryIndexes" : 
 					[
@@ -574,7 +619,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "sentinel::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-sentinel-Debug-08a0d78283be6d5b75a5.json",
+					"jsonFile" : "target-sentinel-Debug-3188724a178c45fef4bd.json",
 					"name" : "sentinel",
 					"projectIndex" : 0
 				},
@@ -588,7 +633,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "sentinel_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-sentinel_autogen_timestamp_deps-Debug-101e7c754f3e4b84e55c.json",
+					"jsonFile" : "target-sentinel_autogen_timestamp_deps-Debug-889387cc890e813c35d5.json",
 					"name" : "sentinel_autogen_timestamp_deps",
 					"projectIndex" : 0
 				}

@@ -8,6 +8,9 @@ extern "C" {
 int GetPacketCount(void);
 void IncreementPacketCount(void);
 
+int GetBlockedPacketCount(void);
+void IncrementBlockedPacketCount(void);
+
 #ifdef __cplusplus
 }
 #endif

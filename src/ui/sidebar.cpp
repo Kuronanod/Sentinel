@@ -20,23 +20,33 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent){
     DashBoardButton->setStyleSheet("color: white; font-size: 20px; padding: 35px; font-weight: bold;");
     Main_Layout->addWidget(DashBoardButton);
 
+    // PacketPage
+    PacketPageButton = new QPushButton("O");
+    connect(PacketPageButton, &QPushButton::clicked, this, [this](){ emit pageChangeRequested(1); });
+    PacketPageButton->setStyleSheet("color: white; font-size: 20px; padding: 35px; font-weight: bold;");
+    Main_Layout->addWidget(PacketPageButton);
+
     // Terminal
     TerminalButton = new QPushButton(">_");
+    connect(TerminalButton, &QPushButton::clicked, this, [this](){ emit pageChangeRequested(2); });
     TerminalButton->setStyleSheet("color: white; font-size: 20px; padding: 35px; font-weight: bold;");
     Main_Layout->addWidget(TerminalButton);
 
+    // Alert page
+    AlertpageButton = new QPushButton("▥");
+    connect(AlertpageButton, &QPushButton::clicked, this, [this](){ emit pageChangeRequested(3); });
+    AlertpageButton->setStyleSheet("color: white; font-size: 40px; padding: 35px; font-weight: bold;");
+    Main_Layout->addWidget(AlertpageButton);
+
     // Management
     ManagementButton = new QPushButton("⊞");
+    connect(ManagementButton, &QPushButton::clicked, this, [this](){ emit pageChangeRequested(4); });
     ManagementButton->setStyleSheet("color: white; font-size: 40px; padding: 35px; font-weight: bold;");
     Main_Layout->addWidget(ManagementButton);
 
-    // Log Information
-    LogInformationButton = new QPushButton("▥");
-    LogInformationButton->setStyleSheet("color: white; font-size: 40px; padding: 35px; font-weight: bold;");
-    Main_Layout->addWidget(LogInformationButton);
-
     // Setting Button
     SettingButton = new QPushButton("⚙");
+    connect(SettingButton, &QPushButton::clicked, this, [this](){ emit pageChangeRequested(5); });
     SettingButton->setStyleSheet("color: white; font-size: 20px; padding: 35px; font-weight: bold;");
     Main_Layout->addWidget(SettingButton);
 

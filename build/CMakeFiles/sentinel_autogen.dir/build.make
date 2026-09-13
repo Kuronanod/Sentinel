@@ -70,7 +70,7 @@ CMakeFiles/sentinel_autogen: sentinel_autogen/timestamp
 sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/bin/moc.exe
 sentinel_autogen/timestamp: CMakeFiles/sentinel_autogen.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\korusuba\Sentinel\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target sentinel"
-	C:\mingw64\bin\cmake.exe -E cmake_autogen C:/Users/korusuba/Sentinel/build/CMakeFiles/sentinel_autogen.dir/AutogenInfo.json ""
+	C:\mingw64\bin\cmake.exe -E cmake_autogen C:/Users/korusuba/Sentinel/build/CMakeFiles/sentinel_autogen.dir/AutogenInfo.json Debug
 	C:\mingw64\bin\cmake.exe -E touch C:/Users/korusuba/Sentinel/build/sentinel_autogen/timestamp
 
 CMakeFiles/sentinel_autogen.dir/codegen:

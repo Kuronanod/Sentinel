@@ -22,7 +22,7 @@ private slots:
 private:
     QTextEdit *OutputArea;
     QLineEdit *InputArea;
-    QProcess *Process
+    QProcess *Process;
 
 };
 
