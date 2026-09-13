@@ -18,10 +18,7 @@ set(UI_SRCS
     src/ui/managementpage.cpp
 )
 
-set(C_SRCS
-    src/receiver/windows/get_packet.c
-    src/receiver/windows/read.c
-    src/receiver/windows/socket.c
+set(CORE_SRCS
     src/receiver/parser.c
     src/receiver/receiver.c
     src/receiver/packet_counter.c
@@ -31,9 +28,38 @@ set(C_SRCS
     src/receiver/firewall.c
 )
 
+if(WIN32)
+    set(OS_SRCS
+        src/receiver/windows/socket.c
+        src/receiver/windows/get_packet.c
+        src/receiver/windows/read.c
+    )
+    set(OS_LIBS ws2_32)
+    set(OS_HEADERS
+        include/receiver/windows/socket.h
+        include/receiver/windows/get_packet.h
+        include/receiver/windows/read.h
+    )
+elseif(UNIX AND NOT APPLE)
+    set(OS_SRCS
+        src/receiver/linux/socket.c
+        src/receiver/linux/ring_buffer.c
+        src/receiver/linux/read.c
+    )
+    set(OS_LIBS)
+    set(OS_HEADERS
+        include/receiver/linux/socket.h
+        include/receiver/linux/ring_buffer.h
+        include/receiver/linux/read.h
+    )
+else()
+    message(FATAL_ERROR "OS not supported")
+endif()
+
 add_executable(sentinel
     ${UI_SRCS}
-    ${C_SRCS}
+    ${CORE_SRCS}
+    ${OS_SRCS}
     include/ui/window.h
     include/ui/trafficgraph.h
     include/ui/topbar.h
@@ -42,16 +68,14 @@ add_executable(sentinel
     include/ui/packetpage.h
     include/ui/alertpage.h
     include/ui/managementpage.h
-    include/receiver/windows/get_packet.h
-    include/receiver/windows/read.h
-    include/receiver/windows/socket.h
-    include/receiver/parser.h
     include/receiver/receiver.h
+    include/receiver/parser.h
     include/receiver/packet_counter.h
     include/receiver/request_queue.h
-    include/receiver/prefilter.h
     include/receiver/alert_queue.h
+    include/receiver/prefilter.h
     include/receiver/firewall.h
+    ${OS_HEADERS}
 )
 
 target_include_directories(sentinel PRIVATE
@@ -59,6 +83,11 @@ target_include_directories(sentinel PRIVATE
     include/ui
     include/receiver
     include/receiver/windows
+    include/receiver/linux
 )
 
-target_link_libraries(sentinel PRIVATE Qt6::Widgets Qt6::Network ws2_32)
+if(WIN32)
+    target_link_libraries(sentinel PRIVATE Qt6::Widgets Qt6::Network ${OS_LIBS})
+else()
+    target_link_libraries(sentinel PRIVATE Qt6::Widgets Qt6::Network ${OS_LIBS})
+endif()

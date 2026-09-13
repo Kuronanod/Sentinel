@@ -45,13 +45,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 34,
+				"line" : 59,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 64,
+				"line" : 90,
 				"parent" : 0
 			},
 			{
@@ -185,7 +185,7 @@
 			{
 				"command" : 8,
 				"file" : 0,
-				"line" : 57,
+				"line" : 81,
 				"parent" : 0
 			}
 		]
@@ -285,6 +285,10 @@
 					"path" : "C:/Users/korusuba/Sentinel/include/receiver/windows"
 				},
 				{
+					"backtrace" : 27,
+					"path" : "C:/Users/korusuba/Sentinel/include/receiver/linux"
+				},
+				{
 					"backtrace" : 2,
 					"isSystem" : true,
 					"path" : "C:/Qt/6.11.1/mingw_64/include/QtWidgets"
@@ -337,8 +341,8 @@
 				7,
 				8,
 				9,
-				16,
-				18
+				13,
+				15
 			]
 		},
 		{
@@ -418,6 +422,10 @@
 					"path" : "C:/Users/korusuba/Sentinel/include/receiver/windows"
 				},
 				{
+					"backtrace" : 27,
+					"path" : "C:/Users/korusuba/Sentinel/include/receiver/linux"
+				},
+				{
 					"backtrace" : 2,
 					"isSystem" : true,
 					"path" : "C:/Qt/6.11.1/mingw_64/include/QtWidgets"
@@ -454,10 +462,10 @@
 				10,
 				11,
 				12,
-				13,
 				14,
-				15,
+				16,
 				17,
+				18,
 				19
 			]
 		}
@@ -465,11 +473,11 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "sentinel_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "sentinel_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "sentinel_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "sentinel::@6890427a1f51a3e7e1df",
@@ -566,11 +574,11 @@
 			"id" : "Qt6::moc::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "sentinel_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "sentinel_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "sentinel_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"paths" : 
@@ -711,24 +719,6 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "src/receiver/windows/get_packet.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 1,
-			"path" : "src/receiver/windows/read.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 1,
-			"path" : "src/receiver/windows/socket.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 1,
 			"path" : "src/receiver/parser.c",
 			"sourceGroupIndex" : 0
 		},
@@ -766,6 +756,24 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
 			"path" : "src/receiver/firewall.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "src/receiver/windows/socket.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "src/receiver/windows/get_packet.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "src/receiver/windows/read.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -810,27 +818,12 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/receiver/windows/get_packet.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "include/receiver/windows/read.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "include/receiver/windows/socket.h",
+			"path" : "include/receiver/receiver.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"path" : "include/receiver/parser.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "include/receiver/receiver.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -845,17 +838,32 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/receiver/prefilter.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"path" : "include/receiver/alert_queue.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
+			"path" : "include/receiver/prefilter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
 			"path" : "include/receiver/firewall.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/receiver/windows/socket.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/receiver/windows/get_packet.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/receiver/windows/read.h",
 			"sourceGroupIndex" : 1
 		},
 		{

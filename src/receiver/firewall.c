@@ -23,7 +23,6 @@ static void RunHidden(const char *Command) {
         CloseHandle(ProcessInfomation.hThread);
     }
 }
-#endif
 
 static void FormatIP(unsigned int IP, char *Output, int MaxLen) {
     snprintf(Output, MaxLen, "%u.%u.%u.%u",
@@ -34,8 +33,6 @@ static void FormatIP(unsigned int IP, char *Output, int MaxLen) {
 }
 
 void FirewallBlockIP(unsigned int IP) {
-
-#ifdef _WIN32
 
     char IPString[32];
     FormatIP(IP, IPString, sizeof(IPString));
@@ -55,40 +52,78 @@ void FirewallBlockIP(unsigned int IP) {
         IPString, IPString);
     RunHidden(Command);
 
-    RunHidden(Command);
     printf("[Firewall] Blocked: %s\n", IPString);
-
-#endif
 
 }
 
 void FirewallUnblockIP(unsigned int IP) {
-
-#ifdef _WIN32
 
     char IPString[32];
     FormatIP(IP, IPString, sizeof(IPString));
 
     char Command[512];
     snprintf(Command, sizeof(Command),
-        "netsh advfirewall firewall delete rule "
-        "name=\"Sentinel_Block_%s\"",
+        "netsh advfirewall firewall delete rule name=\"Sentinel_Block_In_%s\"",
         IPString);
-
     RunHidden(Command);
-    printf("[Firewall] Unblocked: %s\n", IPString);
 
-#endif
+    snprintf(Command, sizeof(Command),
+        "netsh advfirewall firewall delete rule name=\"Sentinel_Block_Out_%s\"",
+        IPString);
+    RunHidden(Command);
+
+    printf("[Firewall] Unblocked: %s\n", IPString);
 
 }
 
 void FirewallClearAll(void) {
-
-#ifdef _WIN32
     
     RunHidden("powershell -Command \"Get-NetFirewallRule -DisplayName 'Sentinel_Block_*' -ErrorAction SilentlyContinue | Remove-NetFirewallRule\"");
     printf("[Firewall] Cleared all Sentinel rules\n");
 
-#endif
-
 }
+
+#else  // ========== Linux ==========
+
+static void FormatIP(unsigned int IP, char *Output, int MaxLen) {
+    snprintf(Output, MaxLen, "%u.%u.%u.%u",
+        IP & 0xFF,
+        (IP >> 8) & 0xFF,
+        (IP >> 16) & 0xFF,
+        (IP >> 24) & 0xFF);
+}
+
+static void RunShell(const char *Command) {
+    system(Command);
+}
+
+void FirewallBlockIP(unsigned int IP) {
+    char IPString[32];
+    FormatIP(IP, IPString, sizeof(IPString));
+    char Command[512];
+    snprintf(Command, sizeof(Command),
+        "sudo iptables -A INPUT -s %s -j DROP 2>/dev/null", IPString);
+    RunShell(Command);
+    snprintf(Command, sizeof(Command),
+        "sudo iptables -A OUTPUT -d %s -j DROP 2>/dev/null", IPString);
+    RunShell(Command);
+}
+
+void FirewallUnblockIP(unsigned int IP) {
+    char IPString[32];
+    FormatIP(IP, IPString, sizeof(IPString));
+    char Command[512];
+    snprintf(Command, sizeof(Command),
+        "sudo iptables -D INPUT -s %s -j DROP 2>/dev/null", IPString);
+    RunShell(Command);
+    snprintf(Command, sizeof(Command),
+        "sudo iptables -D OUTPUT -d %s -j DROP 2>/dev/null", IPString);
+    RunShell(Command);
+}
+
+void FirewallClearAll(void) {
+    // (ในเวอร์ชันจริงควรใช้ iptables-save | grep Sentinel)
+    system("sudo iptables -F 2>/dev/null");
+}
+
+#endif
