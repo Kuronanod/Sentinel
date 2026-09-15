@@ -470,6 +470,8 @@ CMakeFiles/sentinel.dir/src/ui/qt.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qdatetime.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qcalendar.h \
  C:/Users/korusuba/Sentinel/include/ui/managementpage.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSpinBox \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qspinbox.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qmainwindow.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/thread \

@@ -340,8 +340,7 @@ CMakeFiles/sentinel.dir/src/ui/managementpage.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qpoint.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QGroupBox \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgroupbox.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QFrame \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
@@ -398,7 +397,7 @@ CMakeFiles/sentinel.dir/src/ui/managementpage.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMenu \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qmenu.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/QAction \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QFrame \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QDebug \
  C:/Users/korusuba/Sentinel/include/ui/managementpage.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLineEdit \
@@ -441,6 +440,8 @@ CMakeFiles/sentinel.dir/src/ui/managementpage.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qeventloop.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSpinBox \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qspinbox.h \
  C:/Users/korusuba/Sentinel/include/receiver/prefilter.h \
  C:/Users/korusuba/Sentinel/include/receiver/request_queue.h \
  C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h

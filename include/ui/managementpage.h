@@ -7,6 +7,8 @@
 #include <QListWidget>
 #include <QLabel>
 #include <QTimer>
+#include <QSpinBox>
+#include <QHBoxLayout>
 
 class ManagementPage : public QWidget {
     Q_OBJECT
@@ -18,24 +20,41 @@ public:
 private slots:
     void OnAddBlacklistClicked();
     void OnClearRulesClicked();
+    void OnApplyThresholdClicked();
+    void OnAddPortClicked();
+    void OnRemovePortClicked();
     void RefreshUI();
 
 private:
-
+    // ============ Stats ============
     QLabel *TotalPacketsLabel;
-    QLabel *BlockedPacketsLabel;
     QLabel *AllowedPacketsLabel;
+    QLabel *BlockedPacketsLabel;
 
-    QLabel *BlacklistCountLabel;
-    QLabel *SuspiciousPortsLabel;
-    QLabel *RateThresholdLabel;
+    // ============ Blacklist ============
+    QLineEdit   *IPInput;
+    QPushButton *AddIPButton;
+    QListWidget *BlacklistList;
 
-    QLineEdit *IPInput;
-    QPushButton *AddButton;
+    // ============ Suspicious Ports ============
+    QLineEdit *PortInput;
+    QWidget   *PortsContainer;
+    QHBoxLayout *PortsLayout;
+
+    // ============ Rate Threshold ============
+    QSpinBox    *RateThresholdInput;
+    QPushButton *ApplyThresholdButton;
+
+    // ============ Clear ============
     QPushButton *ClearButton;
 
-    QListWidget *BlacklistList;
+    // ============ Timer ============
     QTimer *RefreshTimer;
+
+    // ============ Helpers ============
+    void RefreshBlacklist();
+    void RefreshPorts();
+    void RebuildPortChips();
 };
 
 #endif

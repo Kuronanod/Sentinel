@@ -440,6 +440,13 @@ CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtCore/q20algorithm.h \
  C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_managementpage.cpp \
  C:/Users/korusuba/Sentinel/include/ui/managementpage.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSpinBox \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qspinbox.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
  C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_packetpage.cpp \
  C:/Users/korusuba/Sentinel/include/ui/packetpage.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTableWidget \
@@ -448,10 +455,6 @@ CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_sidebar.cpp \
  C:/Users/korusuba/Sentinel/include/ui/sidebar.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QVBoxLayout \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayout.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QButtonGroup \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qbuttongroup.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
@@ -468,7 +471,6 @@ CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qpainterpath.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
  C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_window.cpp \
  C:/Users/korusuba/Sentinel/include/ui/window.h \
  C:/Users/korusuba/Sentinel/include/ui/sidebar.h \
