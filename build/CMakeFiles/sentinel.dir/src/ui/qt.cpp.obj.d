@@ -451,13 +451,13 @@ CMakeFiles/sentinel.dir/src/ui/qt.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabbar.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qrubberband.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLineEdit \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qtextformat.h \
  C:/Users/korusuba/Sentinel/include/ui/terminal.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTextEdit \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtextedit.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qtextcursor.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qtextformat.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLineEdit \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlineedit.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qprocess.h \
  C:/Users/korusuba/Sentinel/include/ui/alertpage.h \
