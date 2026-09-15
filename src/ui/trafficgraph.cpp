@@ -1,11 +1,18 @@
-#include "trafficgraph.h"
-#include "receiver/packet_counter.h"
-
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QDebug>
 #include <QFrame>
+
+#include <winsock2.h>
 #include <windows.h>
 #include <psapi.h>
+#include <iphlpapi.h>
+#include <netioapi.h>
+#include <pdh.h>
+#include <pdhmsg.h>
+
+#include "trafficgraph.h"
+#include "receiver/packet_counter.h"
 
 // ================================================================
 //  Palette (VSCode Dark)
@@ -19,6 +26,362 @@
 #define COLOR_SUCCESS "#4ec9b0"     // เขียว
 #define COLOR_WARNING "#dcdcaa"     // เหลือง
 #define COLOR_ERROR "#f48771"
+
+static bool GetNetSpeed(double &inMbps, double &outMbps) {
+    static PDH_HQUERY   hQuery = nullptr;
+    static PDH_HCOUNTER hIn    = nullptr;
+    static PDH_HCOUNTER hOut   = nullptr;
+    static bool init = false;
+
+    inMbps  = 0;
+    outMbps = 0;
+
+    if (!init) {
+        init = true;
+        if (PdhOpenQuery(NULL, 0, &hQuery) != ERROR_SUCCESS) return false;
+
+        PdhAddEnglishCounterW(hQuery,
+            L"\\Network Interface(*)\\Bytes Received/sec",
+            0, &hIn);
+        PdhAddEnglishCounterW(hQuery,
+            L"\\Network Interface(*)\\Bytes Sent/sec",
+            0, &hOut);
+
+        PdhCollectQueryData(hQuery);
+        return false;   // รอบแรก ยังไม่มีข้อมูล
+    }
+
+    if (!hQuery) return false;
+    if (PdhCollectQueryData(hQuery) != ERROR_SUCCESS) return false;
+
+    // ---- ดึงค่า array ของทุก adapter ----
+    auto SumArray = [](PDH_HCOUNTER h) -> double {
+        DWORD bufSize = 0;
+        DWORD itemCount = 0;
+        PDH_STATUS st = PdhGetFormattedCounterArrayW(
+            h, PDH_FMT_DOUBLE, &bufSize, &itemCount, NULL);
+
+        if (st != PDH_MORE_DATA || bufSize == 0) return 0.0;
+
+        QByteArray buf(bufSize, 0);
+        PDH_FMT_COUNTERVALUE_ITEM_W *items =
+            (PDH_FMT_COUNTERVALUE_ITEM_W*)buf.data();
+
+        st = PdhGetFormattedCounterArrayW(
+            h, PDH_FMT_DOUBLE, &bufSize, &itemCount, items);
+
+        if (st != ERROR_SUCCESS) return 0.0;
+
+        double sum = 0.0;
+        for (DWORD i = 0; i < itemCount; ++i) {
+            if (items[i].FmtValue.CStatus == ERROR_SUCCESS) {
+                sum += items[i].FmtValue.doubleValue;
+            }
+        }
+        return sum;
+    };
+
+    double bytesIn  = SumArray(hIn);
+    double bytesOut = SumArray(hOut);
+
+    inMbps  = bytesIn  * 8.0 / 1'000'000.0;
+    outMbps = bytesOut * 8.0 / 1'000'000.0;
+
+    return true;
+}
+
+static int GetGPUUsage() {
+    static PDH_HQUERY   hQuery      = nullptr;
+    static bool         initialized = false;
+    static QVector<PDH_HCOUNTER> counters;
+
+    if (!initialized) {
+        initialized = true;
+        if (PdhOpenQuery(NULL, 0, &hQuery) != ERROR_SUCCESS) {
+            qDebug() << "[GPU] PdhOpenQuery failed";
+            return -1;
+        }
+
+        DWORD bufSize = 0;
+        PDH_STATUS status = PdhExpandWildCardPathW(
+            NULL,
+            L"\\GPU Engine(*)\\Utilization Percentage",
+            NULL,
+            &bufSize,
+            0
+        );
+
+        qDebug() << "[GPU] Expand status:" << status << "bufSize:" << bufSize;
+
+        if (status != PDH_MORE_DATA || bufSize == 0) {
+            PdhCloseQuery(hQuery);
+            hQuery = nullptr;
+            qDebug() << "[GPU] No GPU Engine counter available";
+            return -1;
+        }
+
+        QByteArray buf(bufSize * sizeof(wchar_t), 0);
+        wchar_t *paths = (wchar_t*)buf.data();
+
+        status = PdhExpandWildCardPathW(
+            NULL,
+            L"\\GPU Engine(*)\\Utilization Percentage",
+            paths,
+            &bufSize,
+            0
+        );
+
+        if (status != ERROR_SUCCESS) {
+            PdhCloseQuery(hQuery);
+            hQuery = nullptr;
+            qDebug() << "[GPU] Expand #2 failed";
+            return -1;
+        }
+
+        // ---- เพิ่ม counter ----
+        int count = 0;
+        wchar_t *p = paths;
+        while (*p) {
+            PDH_HCOUNTER hCounter = nullptr;
+            if (PdhAddCounterW(hQuery, p, 0, &hCounter) == ERROR_SUCCESS) {
+                counters.append(hCounter);
+                count++;
+            }
+            p += wcslen(p) + 1;
+        }
+
+        qDebug() << "[GPU] Added counters:" << count;
+
+        if (counters.isEmpty()) {
+            PdhCloseQuery(hQuery);
+            hQuery = nullptr;
+            return -1;
+        }
+
+        PdhCollectQueryData(hQuery);
+        return -1;
+    }
+
+    if (!hQuery || counters.isEmpty()) return -1;
+    if (PdhCollectQueryData(hQuery) != ERROR_SUCCESS) return -1;
+
+    // ============================================================
+    //  ✅ เปลี่ยนจาก SUM → MAX (busiest engine)
+    // ============================================================
+    double maxVal = 0.0;
+    int validCount = 0;
+
+    for (PDH_HCOUNTER h : counters) {
+        PDH_FMT_COUNTERVALUE value;
+        if (PdhGetFormattedCounterValue(h, PDH_FMT_DOUBLE, NULL, &value) == ERROR_SUCCESS) {
+            if (value.CStatus == ERROR_SUCCESS) {
+                if (value.doubleValue > maxVal) maxVal = value.doubleValue;
+                validCount++;
+            }
+        }
+    }
+
+    qDebug() << "[GPU] validCount:" << validCount
+             << "maxVal:" << maxVal;
+
+    if (validCount == 0) return -1;
+    if (maxVal > 100.0) maxVal = 100.0;
+    return (int)maxVal;
+}
+
+CoreBar::CoreBar(int coreIndex, QWidget *parent)
+    : QWidget(parent), CoreIndex(coreIndex)
+{
+    setFixedHeight(22);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+}
+
+void CoreBar::SetPercent(int percent) {
+    Percent = qBound(0, percent, 100);
+    update();
+}
+
+void CoreBar::paintEvent(QPaintEvent *) {
+    QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing, false);
+
+    int W = width();
+    int H = height();
+
+    // ✅ Label ที่ x=25 เหมือน ResourceBar
+    p.setPen(QColor("#e0e0e0"));
+    p.setFont(QFont("Consolas", 9));
+    p.drawText(QRect(25, 0, 65, H), Qt::AlignLeft | Qt::AlignVCenter,
+               QString("Core %1").arg(CoreIndex));
+
+    // ✅ Bar ที่ x=95 เหมือน ResourceBar
+    int barX = 95;
+    int barW = W - 95 - 55;
+    int barH = 6;
+    int barY = (H - barH) / 2;
+
+    p.fillRect(barX, barY, barW, barH, QColor("#2d2d30"));
+
+    int fillW = (barW * Percent) / 100;
+
+    QColor barColor;
+    if (Percent > 80)      barColor = QColor("#f48771");
+    else if (Percent > 60) barColor = QColor("#dcdcaa");
+    else                   barColor = QColor("#4ec9b0");
+
+    p.fillRect(barX, barY, fillW, barH, barColor);
+
+    // ✅ % ชิดขวา
+    p.setPen(QColor("#707070"));
+    p.setFont(QFont("Consolas", 9));
+    p.drawText(QRect(barX + barW + 4, 0, 50, H),
+               Qt::AlignRight | Qt::AlignVCenter,
+               QString("%1%").arg(Percent));
+}
+
+// ================================================================
+//  CPUWidget
+// ================================================================
+CPUWidget::CPUWidget(QWidget *parent) : QWidget(parent) {
+
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);   // ← เพิ่ม
+    setMinimumHeight(250);                                            // ← เพิ่ม
+
+    QVBoxLayout *MainLayout = new QVBoxLayout(this);
+    MainLayout->setContentsMargins(0, 0, 0, 0);
+    MainLayout->setSpacing(4);
+
+    // ---- Title ----
+    QLabel *Title = new QLabel("CPU", this);
+    Title->setStyleSheet("color: #e0e0e0; font-size: 11px; font-weight: 600;");
+    MainLayout->addWidget(Title);
+
+    // ---- Line ----
+    QFrame *Line = new QFrame(this);
+    Line->setFixedHeight(1);
+    Line->setStyleSheet("background-color: #2d2d2d;");
+    MainLayout->addWidget(Line);
+
+    // ---- Scroll Area ----
+    ScrollArea = new QScrollArea(this);
+    ScrollArea->setWidgetResizable(true);
+    ScrollArea->setFrameShape(QFrame::NoFrame);
+    ScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    ScrollArea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
+    ScrollArea->setStyleSheet(
+        "QScrollArea { background: transparent; border: none; }"
+        "QScrollBar:vertical {"
+        "  background: #1a1a1a; width: 6px; border: none;"
+        "}"
+        "QScrollBar::handle:vertical {"
+        "  background: #3e3e42; border-radius: 3px; min-height: 20px;"
+        "}"
+        "QScrollBar::handle:vertical:hover { background: #505054; }"
+        "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {"
+        "  height: 0px;"
+        "}"
+    );
+
+    BarsContainer = new QWidget();
+    BarsContainer->setStyleSheet("background: transparent;");
+    QVBoxLayout *BarsLayout = new QVBoxLayout(BarsContainer);
+    BarsLayout->setContentsMargins(0, 0, 0, 0);
+    BarsLayout->setSpacing(2);
+
+    // ---- ดึงจำนวน cores ----
+    SYSTEM_INFO si;
+    GetSystemInfo(&si);
+    CoreCount = si.dwNumberOfProcessors;
+    if (CoreCount < 1) CoreCount = 1;
+    if (CoreCount > 64) CoreCount = 64;   // กัน overflow
+
+    // ---- สร้าง CoreBar ----
+    CoreBars.reserve(CoreCount);
+    for (int i = 0; i < CoreCount; ++i) {
+        CoreBar *bar = new CoreBar(i, BarsContainer);
+        BarsLayout->addWidget(bar);
+        CoreBars.append(bar);
+    }
+    BarsLayout->addStretch();
+
+    ScrollArea->setWidget(BarsContainer);
+    MainLayout->addWidget(ScrollArea, 1);
+}
+
+void CPUWidget::UpdateCPU() {
+    // ============================================================
+    //  ใช้ NtQuerySystemInformation ดึงข้อมูลแต่ละ core
+    // ============================================================
+    typedef struct _SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
+        LARGE_INTEGER IdleTime;
+        LARGE_INTEGER KernelTime;
+        LARGE_INTEGER UserTime;
+        LARGE_INTEGER DpcTime;
+        LARGE_INTEGER InterruptTime;
+        ULONG         InterruptCount;
+    } SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION;
+
+    typedef LONG (WINAPI *PROCNTQSIP)(ULONG, PVOID, ULONG, PULONG);
+    static PROCNTQSIP NtQuerySystemInformation = nullptr;
+
+    if (!NtQuerySystemInformation) {
+        HMODULE hMod = GetModuleHandleW(L"ntdll.dll");
+        if (hMod) {
+            NtQuerySystemInformation = (PROCNTQSIP)
+                GetProcAddress(hMod, "NtQuerySystemInformation");
+        }
+        if (!NtQuerySystemInformation) return;
+    }
+
+    // SystemProcessorPerformanceInformation = 8
+    QVector<SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION> info(CoreCount);
+    ULONG retLen = 0;
+    LONG status = NtQuerySystemInformation(
+        8,
+        info.data(),
+        sizeof(SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION) * CoreCount,
+        &retLen
+    );
+
+    if (status != 0) return;
+
+    // ---- เก็บค่าเก่าไว้เทียบ ----
+    static QVector<SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION> prev(CoreCount);
+    static bool initialized = false;
+
+    if (!initialized) {
+        prev = info;
+        initialized = true;
+        return;
+    }
+
+    for (int i = 0; i < CoreCount; ++i) {
+        ULONGLONG prevIdle   = prev[i].IdleTime.QuadPart;
+        ULONGLONG prevKernel = prev[i].KernelTime.QuadPart;
+        ULONGLONG prevUser   = prev[i].UserTime.QuadPart;
+
+        ULONGLONG currIdle   = info[i].IdleTime.QuadPart;
+        ULONGLONG currKernel = info[i].KernelTime.QuadPart;
+        ULONGLONG currUser   = info[i].UserTime.QuadPart;
+
+        ULONGLONG idleDelta   = currIdle   - prevIdle;
+        ULONGLONG kernelDelta = currKernel - prevKernel;
+        ULONGLONG userDelta   = currUser   - prevUser;
+        ULONGLONG totalDelta  = kernelDelta + userDelta;
+
+        int pct = 0;
+        if (totalDelta > 0) {
+            pct = (int)((1.0 - (double)idleDelta / totalDelta) * 100.0);
+            if (pct < 0)   pct = 0;
+            if (pct > 100) pct = 100;
+        }
+
+        CoreBars[i]->SetPercent(pct);
+    }
+
+    prev = info;
+}
 
 // ================================================================
 //  SparkLineWidget
@@ -61,10 +424,6 @@ void SparkLineWidget::Clear() {
     OutData.clear();
     PeakIn = PeakOut = 0;
     update();
-}
-
-int SparkLineWidget::GetPeakValue() const {
-    return qMax(PeakIn, PeakOut);
 }
 
 void SparkLineWidget::paintEvent(QPaintEvent *) {
@@ -248,7 +607,7 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
 ResourceBar::ResourceBar(const QString &Label, QWidget *parent)
     : QWidget(parent), LabelText(Label)
 {
-    setFixedHeight(28);
+    setFixedHeight(62);   // ← จาก 28 → 62 (3 แถว)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
 
@@ -267,119 +626,166 @@ void ResourceBar::paintEvent(QPaintEvent *) {
     p.setRenderHint(QPainter::Antialiasing, false);
 
     int W = width();
-    int H = height();
 
-    // ---- Label ----
+    // ---- Layout ----
+    const int TitleY   = 4;      // แถว 1: Title
+    const int Row2Y    = 24;     // แถว 2: Usage + Bar + %
+    const int Row3Y    = 44;     // แถว 3: SubText
+
+    const int LabelX   = 0;      // "Usage" label
+    const int BarX     = 60;     // Bar
+    const int BarW     = W - 60 - 55;
+    const int BarH     = 8;
+
+    // ============================================================
+    //  แถว 1: Title (RAM / DISK / GPU / NET)
+    // ============================================================
     p.setPen(QColor(COLOR_TEXT));
-    p.setFont(QFont("Segoe UI", 10));
-    p.drawText(QRect(0, 0, 55, H), Qt::AlignLeft | Qt::AlignVCenter, LabelText);
+    p.setFont(QFont("Segoe UI", 10, QFont::DemiBold));
+    p.drawText(QRect(20, TitleY, W, 18),
+               Qt::AlignLeft | Qt::AlignVCenter, LabelText);
 
-    // ---- Progress Bar ----
-    int barX = 60;
-    int barW = W - 60 - 110;   // เหลือที่ให้ %
-    int barH = 8;
-    int barY = (H - barH) / 2;
+    // ============================================================
+    //  แถว 2: "Usage" + Bar + %
+    // ============================================================
+    // ---- "Usage" ----
+    p.setPen(QColor(COLOR_DIM));
+    p.setFont(QFont("Segoe UI", 9));
+    p.drawText(QRect(20, Row2Y, BarX - 4, BarH + 8),
+               Qt::AlignLeft | Qt::AlignVCenter, "Usage");
 
-    // พื้นหลัง bar
-    p.fillRect(barX, barY, barW, barH, QColor("#2d2d30"));
+    // ---- Bar ----
+    int barY = Row2Y + (BarH + 8 - BarH) / 2;
 
-    // เติมสีตามค่า
-    int fillW = (barW * Percent) / 100;
+    // Background
+    p.fillRect(BarX, barY, BarW, BarH, QColor("#2d2d30"));
+
+    // Fill
+    int fillW = (BarW * Percent) / 100;
     QColor barColor(COLOR_ACCENT);
     if (Percent > 80)      barColor = QColor(COLOR_ERROR);
     else if (Percent > 60) barColor = QColor(COLOR_WARNING);
     else                   barColor = QColor(COLOR_SUCCESS);
+    p.fillRect(BarX, barY, fillW, BarH, barColor);
 
-    p.fillRect(barX, barY, fillW, barH, barColor);
-
-    // ---- SubText + Percent (ชิดขวา) ----
+    // ---- % ----
     p.setPen(QColor(COLOR_DIM));
     p.setFont(QFont("Consolas", 9));
-    QString right = SubText.isEmpty()
-        ? QString("%1%").arg(Percent)
-        : QString("%1  %2%").arg(SubText).arg(Percent);
-    p.drawText(QRect(barX + barW + 5, 0, 105, H),
-               Qt::AlignRight | Qt::AlignVCenter, right);
+    p.drawText(QRect(BarX + BarW + 4, Row2Y, 50, BarH + 8),
+               Qt::AlignRight | Qt::AlignVCenter,
+               QString("%1%").arg(Percent));
+
+    // ============================================================
+    //  แถว 3: SubText (ด้านล่าง)
+    // ============================================================
+    if (!SubText.isEmpty()) {
+        p.setPen(QColor(COLOR_DIM));
+        p.setFont(QFont("Consolas", 8));
+        p.drawText(QRect(BarX, Row3Y, BarW, 14),
+                   Qt::AlignLeft | Qt::AlignVCenter, SubText);
+    }
 }
 
 // ================================================================
 //  ResourceWidget
 // ================================================================
 ResourceWidget::ResourceWidget(QWidget *parent) : QWidget(parent) {
-    QVBoxLayout *L = new QVBoxLayout(this);
-    L->setContentsMargins(0, 0, 0, 0);
-    L->setSpacing(2);
 
-    CPUBar  = new ResourceBar("CPU",  this);
-    RAMBar  = new ResourceBar("RAM",  this);
-    DiskBar = new ResourceBar("DISK", this);
-    GPUBar  = new ResourceBar("GPU",  this);
+    QHBoxLayout *MainLayout = new QHBoxLayout(this);
+    MainLayout->setContentsMargins(0, 0, 0, 0);
+    MainLayout->setSpacing(20);
 
-    L->addWidget(CPUBar);
-    L->addWidget(RAMBar);
-    L->addWidget(DiskBar);
-    L->addWidget(GPUBar);
+    // ============================================
+    //  Column 1: CPU
+    // ============================================
+    CPUColumn = new CPUWidget(this);
+    CPUColumn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    MainLayout->addWidget(CPUColumn, 3);
+
+    // ============================================
+    //  Column 2: RAM, DISK, GPU, NET
+    // ============================================
+    QWidget *RightCol = new QWidget(this);
+    RightCol->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    QVBoxLayout *RightLayout = new QVBoxLayout(RightCol);
+    RightLayout->setContentsMargins(0, 0, 0, 0);
+    RightLayout->setSpacing(10);
+
+    RAMBar  = new ResourceBar("RAM",  RightCol);
+    DiskBar = new ResourceBar("DISK", RightCol);
+    GPUBar  = new ResourceBar("GPU",  RightCol);
+    NETBar  = new ResourceBar("NET",  RightCol);
+
+    RightLayout->addWidget(RAMBar);
+    RightLayout->addWidget(DiskBar);
+    RightLayout->addWidget(GPUBar);
+    RightLayout->addWidget(NETBar);
+    RightLayout->addStretch();
+    CPUColumn->setFixedHeight(320);
+    RightCol->setFixedHeight(320);
+
+    MainLayout->addWidget(RightCol, 4);
 }
 
 void ResourceWidget::UpdateResources() {
-    // ---------- CPU ----------
-    static FILETIME prevIdle, prevKernel, prevUser;
-    FILETIME idle, kernel, user;
 
-    if (GetSystemTimes(&idle, &kernel, &user)) {
-        ULARGE_INTEGER i, k, u, pi, pk, pu;
-        i.LowPart = idle.dwLowDateTime;    i.HighPart = idle.dwHighDateTime;
-        k.LowPart = kernel.dwLowDateTime;  k.HighPart = kernel.dwHighDateTime;
-        u.LowPart = user.dwLowDateTime;    u.HighPart = user.dwHighDateTime;
-        pi.LowPart = prevIdle.dwLowDateTime;    pi.HighPart = prevIdle.dwHighDateTime;
-        pk.LowPart = prevKernel.dwLowDateTime;  pk.HighPart = prevKernel.dwHighDateTime;
-        pu.LowPart = prevUser.dwLowDateTime;    pu.HighPart = prevUser.dwHighDateTime;
+    qDebug() << "=== SIZE DEBUG ==="
+             << "CPU:" << CPUColumn->height()
+             << "Resource:" << this->height();
 
-        if (prevIdle.dwLowDateTime || prevIdle.dwHighDateTime) {
-            ULONGLONG idleD   = i.QuadPart - pi.QuadPart;
-            ULONGLONG kernelD = k.QuadPart - pk.QuadPart;
-            ULONGLONG userD   = u.QuadPart - pu.QuadPart;
-            ULONGLONG total   = kernelD + userD;
+    // ---- CPU (per-core) ----
+    CPUColumn->UpdateCPU();
 
-            if (total > 0) {
-                double cpu = (1.0 - (double)idleD / total) * 100.0;
-                int pct = (int)cpu;
-                CPUBar->SetPercent(pct);
-                CPUBar->SetSubText("");
-            }
-        }
-        prevIdle = idle; prevKernel = kernel; prevUser = user;
-    }
-
-    // ---------- RAM ----------
+    // ---- RAM ----
     MEMORYSTATUSEX mem;
     mem.dwLength = sizeof(mem);
     if (GlobalMemoryStatusEx(&mem)) {
         int pct = mem.dwMemoryLoad;
         double totalGB = mem.ullTotalPhys / (1024.0 * 1024 * 1024);
         double usedGB  = totalGB * pct / 100.0;
-
         RAMBar->SetPercent(pct);
-        RAMBar->SetSubText(QString("%1/%2G")
+        RAMBar->SetSubText(QString("%1 / %2G")
             .arg(usedGB, 0, 'f', 1).arg(totalGB, 0, 'f', 0));
     }
 
-    // ---------- DISK ----------
+    // ---- DISK ----
     ULARGE_INTEGER freeB, totalB, totalFreeB;
     if (GetDiskFreeSpaceExW(L"C:\\", &freeB, &totalB, &totalFreeB)) {
         double totalGB = totalB.QuadPart / (1024.0 * 1024 * 1024);
         double freeGB  = freeB.QuadPart  / (1024.0 * 1024 * 1024);
         double usedGB  = totalGB - freeGB;
         int pct = totalGB > 0 ? (int)(usedGB / totalGB * 100) : 0;
-
         DiskBar->SetPercent(pct);
-        DiskBar->SetSubText(QString("%1/%2G")
+        DiskBar->SetSubText(QString("%1 / %2G")
             .arg(usedGB, 0, 'f', 0).arg(totalGB, 0, 'f', 0));
     }
 
-    // ---------- GPU ----------
-    GPUBar->SetPercent(0);
-    GPUBar->SetSubText("N/A");
+    // ---- GPU ----
+    int gpu = GetGPUUsage();
+    if (gpu < 0) {
+        GPUBar->SetPercent(0);
+        GPUBar->SetSubText("N/A");
+    } else {
+        GPUBar->SetPercent(gpu);
+        GPUBar->SetSubText(QString("%1%").arg(gpu));
+    }
+
+    // ---- NET ----
+    double inMbps = 0, outMbps = 0;
+    if (GetNetSpeed(inMbps, outMbps)) {
+        double total = inMbps + outMbps;
+
+        // คำนวณ % — สมมติ bandwidth = 100 Mbps
+        int pct = qMin(100, (int)(total));
+
+        NETBar->SetPercent(pct);
+        NETBar->SetSubText(QString("↓%1 ↑%2 Mbps")
+            .arg(inMbps,  0, 'f', 1)
+            .arg(outMbps, 0, 'f', 1));
+    } else {
+        NETBar->SetPercent(0);
+        NETBar->SetSubText("...");
+    }
 }
 
 // ================================================================
@@ -438,7 +844,7 @@ TrafficGraph::TrafficGraph(QWidget *parent) : QWidget(parent) {
 
     // กราฟ
     MainSparkLine = new SparkLineWidget(this);
-    Main->addWidget(MainSparkLine, 3);   // ใช้พื้นที่ 3 ส่วน
+    Main->addWidget(MainSparkLine, 2);   // ใช้พื้นที่ 3 ส่วน
 
     // ============================================
     //  System Resources Section
@@ -456,7 +862,8 @@ TrafficGraph::TrafficGraph(QWidget *parent) : QWidget(parent) {
     Main->addWidget(Line2);
 
     MainResourceWidget = new ResourceWidget(this);
-    Main->addWidget(MainResourceWidget, 1);
+    MainResourceWidget->setFixedHeight(320);
+    Main->addWidget(MainResourceWidget, 0);
 
     // ============================================
     //  Timer

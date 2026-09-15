@@ -32,14 +32,14 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
-struct qt_meta_tag_ZN15SparkLineWidgetE_t {};
+struct qt_meta_tag_ZN7CoreBarE_t {};
 } // unnamed namespace
 
-template <> constexpr inline auto SparkLineWidget::qt_create_metaobjectdata<qt_meta_tag_ZN15SparkLineWidgetE_t>()
+template <> constexpr inline auto CoreBar::qt_create_metaobjectdata<qt_meta_tag_ZN7CoreBarE_t>()
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "SparkLineWidget"
+        "CoreBar"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -48,42 +48,99 @@ template <> constexpr inline auto SparkLineWidget::qt_create_metaobjectdata<qt_m
     };
     QtMocHelpers::UintData qt_enums {
     };
-    return QtMocHelpers::metaObjectData<SparkLineWidget, qt_meta_tag_ZN15SparkLineWidgetE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+    return QtMocHelpers::metaObjectData<CoreBar, qt_meta_tag_ZN7CoreBarE_t>(QMC::MetaObjectFlag{}, qt_stringData,
             qt_methods, qt_properties, qt_enums);
 }
-Q_CONSTINIT const QMetaObject SparkLineWidget::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject CoreBar::staticMetaObject = { {
     QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15SparkLineWidgetE_t>.stringdata,
-    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15SparkLineWidgetE_t>.data,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN7CoreBarE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN7CoreBarE_t>.data,
     qt_static_metacall,
     nullptr,
-    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN15SparkLineWidgetE_t>.metaTypes,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN7CoreBarE_t>.metaTypes,
     nullptr
 } };
 
-void SparkLineWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void CoreBar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    auto *_t = static_cast<SparkLineWidget *>(_o);
+    auto *_t = static_cast<CoreBar *>(_o);
     (void)_t;
     (void)_c;
     (void)_id;
     (void)_a;
 }
 
-const QMetaObject *SparkLineWidget::metaObject() const
+const QMetaObject *CoreBar::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *SparkLineWidget::qt_metacast(const char *_clname)
+void *CoreBar::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15SparkLineWidgetE_t>.strings))
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN7CoreBarE_t>.strings))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
-int SparkLineWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int CoreBar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    return _id;
+}
+namespace {
+struct qt_meta_tag_ZN9CPUWidgetE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto CPUWidget::qt_create_metaobjectdata<qt_meta_tag_ZN9CPUWidgetE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "CPUWidget"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<CPUWidget, qt_meta_tag_ZN9CPUWidgetE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject CPUWidget::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9CPUWidgetE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9CPUWidgetE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN9CPUWidgetE_t>.metaTypes,
+    nullptr
+} };
+
+void CPUWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<CPUWidget *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *CPUWidget::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *CPUWidget::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9CPUWidgetE_t>.strings))
+        return static_cast<void*>(this);
+    return QWidget::qt_metacast(_clname);
+}
+
+int CPUWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     return _id;
@@ -203,6 +260,63 @@ int ResourceWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     return _id;
 }
 namespace {
+struct qt_meta_tag_ZN15SparkLineWidgetE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto SparkLineWidget::qt_create_metaobjectdata<qt_meta_tag_ZN15SparkLineWidgetE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "SparkLineWidget"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<SparkLineWidget, qt_meta_tag_ZN15SparkLineWidgetE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject SparkLineWidget::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15SparkLineWidgetE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15SparkLineWidgetE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN15SparkLineWidgetE_t>.metaTypes,
+    nullptr
+} };
+
+void SparkLineWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<SparkLineWidget *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *SparkLineWidget::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *SparkLineWidget::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15SparkLineWidgetE_t>.strings))
+        return static_cast<void*>(this);
+    return QWidget::qt_metacast(_clname);
+}
+
+int SparkLineWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    return _id;
+}
+namespace {
 struct qt_meta_tag_ZN12TrafficGraphE_t {};
 } // unnamed namespace
 
@@ -213,8 +327,8 @@ template <> constexpr inline auto TrafficGraph::qt_create_metaobjectdata<qt_meta
         "TrafficGraph",
         "UpdatePacketCount",
         "",
-        "InboundCount",
-        "OutboundCount"
+        "inCount",
+        "outCount"
     };
 
     QtMocHelpers::UintData qt_methods {

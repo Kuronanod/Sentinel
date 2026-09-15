@@ -185,11 +185,13 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/timestamp
  C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QButtonGroup
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLineEdit
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QListWidget
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QStackedWidget
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTableWidget
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTextEdit
@@ -215,6 +217,7 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/timestamp
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qmainwindow.h
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qrubberband.h
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qslider.h
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstackedwidget.h

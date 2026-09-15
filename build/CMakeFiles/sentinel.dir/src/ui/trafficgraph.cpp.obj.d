@@ -1,8 +1,7 @@
 CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj: \
  C:\Users\korusuba\Sentinel\src\ui\trafficgraph.cpp \
- C:/Users/korusuba/Sentinel/include/ui/trafficgraph.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qtguiglobal.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qglobal.h \
@@ -156,7 +155,8 @@ CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qtguiexports.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qobjectdefs.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qnamespace.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qcompare.h \
@@ -230,8 +230,6 @@ CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qstring.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qchar.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qstringview.h \
@@ -331,37 +329,24 @@ CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qmargins.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qrect.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qcheckedint_impl.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qmargins.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/q23utility.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/q20utility.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qaction.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qkeysequence.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qicon.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qsize.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qpixmap.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qpaintdevice.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qrect.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qpoint.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qcolor.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qrgb.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qrgba64.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qshareddata.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qimage.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qpixelformat.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qtransform.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qpolygon.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qregion.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qspan.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
- C:/Qt/6.11.1/mingw_64/include/QtCore/q20iterator.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qline.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qvariant.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QDebug \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qdebug.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qtextstream.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qcontiguouscache.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qsharedpointer.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qshareddata.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qsharedpointer_impl.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
@@ -374,6 +359,29 @@ CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qhash.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qvarlengtharray.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qalloc.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QFrame \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qaction.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qkeysequence.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qicon.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpixmap.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpaintdevice.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qcolor.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qrgb.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qrgba64.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qimage.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpixelformat.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qtransform.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpolygon.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qregion.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qspan.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/q20iterator.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qline.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qvariant.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qpalette.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qbrush.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qfont.h \
@@ -381,38 +389,10 @@ CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qfontmetrics.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qfontinfo.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qfontvariableaxis.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qbitmap.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qpicture.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevice.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qtextdocument.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qurl.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/QPainter \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qpainter.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qtextoption.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qpen.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/QPainterPath \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qpainterpath.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qtimer.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QVBoxLayout \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayout.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QFrame \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winsock2.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_unicode.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/windows.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sdkddkver.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/excpt.h \
@@ -424,7 +404,6 @@ CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/concurrencysal.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/driverspecs.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winnt.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_unicode.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/apiset.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/basetsd.h \
@@ -608,15 +587,6 @@ CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/shellapi.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winperf.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winsock.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_bsd_types.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/inaddr.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_socket_types.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_fd_types.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_ip_types.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_wsadata.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_xmitfile.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_wsa_errnos.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wincrypt.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/bcrypt.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ncrypt.h \
@@ -653,4 +623,60 @@ CMakeFiles/sentinel.dir/src/ui/trafficgraph.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winsvc.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/mcx.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/imm.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psapi.h
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_ws1_undef.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_bsd_types.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/inaddr.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_socket_types.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_fd_types.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_ip_types.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_wsadata.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ws2def.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_wsa_errnos.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/qos.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psapi.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/iphlpapi.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/iprtrmib.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/mprapi.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/lmcons.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ras.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/in6addr.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/naptypes.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ocidl.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ipmib.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/nldef.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ipifcons.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/udpmib.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/tcpmib.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ipexport.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/iptypes.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ifdef.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/tcpestats.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/netioapi.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/pdh.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/pdhmsg.h \
+ C:/Users/korusuba/Sentinel/include/ui/trafficgraph.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpicture.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevice.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qurl.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/QPainter \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpainter.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qtextoption.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/QPainterPath \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpainterpath.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qtimer.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h

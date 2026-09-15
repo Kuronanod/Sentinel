@@ -501,6 +501,16 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "-lpdh",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-liphlpapi",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "-lws2_32",
 				"role" : "libraries"
 			},
@@ -560,6 +570,14 @@
 		{
 			"backtrace" : 2,
 			"id" : "Qt6::Network::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "pdh"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "iphlpapi"
 		},
 		{
 			"backtrace" : 2,

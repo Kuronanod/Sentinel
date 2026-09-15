@@ -184,11 +184,13 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QButtonGroup \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QListWidget \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QStackedWidget \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTableWidget \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTextEdit \
@@ -214,6 +216,7 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qrubberband.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qslider.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstackedwidget.h \
@@ -982,6 +985,8 @@ C:/mingw64/share/cmake-4.2/Modules/CheckCSourceCompiles.cmake:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/exception:
 
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar:
+
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicGitHelpers.cmake:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_init_exception.h:
@@ -1048,8 +1053,6 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets.cma
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstyle.h:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar:
-
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qrubberband.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qcompare_impl.h:
@@ -1112,6 +1115,10 @@ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/QStackedWidget:
 
+C:/Qt/6.11.1/mingw_64/include/QtCore/qstringbuilder.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h:
+
 C:/Qt/6.11.1/mingw_64/include/QtCore/qscopeguard.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qttypetraits.h:
@@ -1165,6 +1172,10 @@ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemview.h:
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargetsPrecheck.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qcolor.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/debug.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/algorithmfwd.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h:
 
@@ -1444,14 +1455,6 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomRelationshipHelpers.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qhashfunctions.h:
 
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomCommonGenerationHelpers.cmake:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersion.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/align.h:
-
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtversion.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgetsexports.h:
@@ -1474,15 +1477,11 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qalgorithms.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtextstream.h:
 
+C:/Qt/6.11.1/mingw_64/include/QtCore/qstring.h:
+
 C:/Qt/6.11.1/mingw_64/include/QtGui/qfontmetrics.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomCpeHelpers.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qstring.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/algorithmfwd.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/debug.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgets-config.h:
 
@@ -1514,10 +1513,6 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ios_
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qeventloop.h:
 
-C:/Qt/6.11.1/mingw_64/include/QtCore/qstringbuilder.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h:
-
 C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ctype.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qbasictimer.h:
@@ -1539,6 +1534,8 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomAttributionHelpers.cmake:
 C:/Qt/6.11.1/mingw_64/include/QtCore/q20bit.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qpen.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake:
 
@@ -1609,6 +1606,8 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginAdditiona
 C:/Users/korusuba/Sentinel/include/receiver/alert_queue.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qlist.h:
 
@@ -1696,10 +1695,6 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qstringalgorithms.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake:
 
-C:/Qt/6.11.1/mingw_64/include/QtCore/qutf8stringview.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomCycloneDXHelpers.cmake:
-
 C:/Qt/6.11.1/mingw_64/include/QtCore/qbytearraylist.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtconfiginclude.h:
@@ -1716,6 +1711,10 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qtcoreexports.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bit:
 
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qarraydata.h:
+
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtimer.h:
@@ -1724,7 +1723,23 @@ C:/mingw64/share/cmake-4.2/Modules/CMakeCInformation.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qfontinfo.h:
 
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qstringtokenizer.h:
+
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtmetamacros.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomCommonGenerationHelpers.cmake:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersion.cmake:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/align.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qutf8stringview.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomCycloneDXHelpers.cmake:
 
 C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h:
 
@@ -1891,10 +1906,6 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qpoint.h:
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets-relwithdebinfo.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qstringtokenizer.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h:
 
@@ -2128,6 +2139,8 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qstringfwd.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_heap.h:
 
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout:
+
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/Qt6ConfigExtras.cmake:
@@ -2189,10 +2202,6 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert:
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qarraydata.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qsharedpointer_impl.h:
 

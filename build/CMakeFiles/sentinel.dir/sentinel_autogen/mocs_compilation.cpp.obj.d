@@ -461,6 +461,9 @@ CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qpainterpath.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
  C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_window.cpp \
  C:/Users/korusuba/Sentinel/include/ui/window.h \
  C:/Users/korusuba/Sentinel/include/ui/sidebar.h \

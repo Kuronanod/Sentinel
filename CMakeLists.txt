@@ -87,7 +87,7 @@ target_include_directories(sentinel PRIVATE
 )
 
 if(WIN32)
-    target_link_libraries(sentinel PRIVATE Qt6::Widgets Qt6::Network ${OS_LIBS})
+    target_link_libraries(sentinel PRIVATE Qt6::Widgets Qt6::Network pdh iphlpapi ${OS_LIBS})
 else()
-    target_link_libraries(sentinel PRIVATE Qt6::Widgets Qt6::Network ${OS_LIBS})
+    target_link_libraries(sentinel PRIVATE Qt6::Widgets Qt6::Network pdh iphlpapi ${OS_LIBS})
 endif()

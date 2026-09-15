@@ -172,10 +172,19 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_trafficgraph.cp
   C:/Qt/6.11.1/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \

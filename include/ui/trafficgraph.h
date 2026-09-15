@@ -7,49 +7,52 @@
 #include <QPainterPath>
 #include <QVector>
 #include <QTimer>
+#include <QScrollArea>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <algorithm>
 
 // ================================================================
-//  SparkLineWidget — กราฟเส้น Minimal (VSCode style)
+//  CoreBar — แสดง CPU แต่ละ core
 // ================================================================
-class SparkLineWidget : public QWidget {
+class CoreBar : public QWidget {
     Q_OBJECT
-
 public:
-    explicit SparkLineWidget(QWidget *parent = nullptr);
-    void AddValue(int InboundRate, int OutboundRate);
-    void Clear();
-    int  GetPeakValue() const;
-    int GetPeakIn()  const { return PeakIn; }
-    int GetPeakOut() const { return PeakOut; }
-
+    explicit CoreBar(int coreIndex, QWidget *parent = nullptr);
+    void SetPercent(int percent);
 protected:
-    void paintEvent(QPaintEvent *event) override;
-
+    void paintEvent(QPaintEvent *) override;
 private:
-     QVector<int> InData;
-    QVector<int> OutData;
-    int PeakIn  = 0;
-    int PeakOut = 0;
-    int StickyMax = 10;
-    int MaxPoints = 60;
+    int CoreIndex;
+    int Percent = 0;
 };
 
 // ================================================================
-//  ResourceBar — แถวเดียวแสดง Resource (CPU / RAM / DISK / GPU)
+//  CPUWidget — รวม CoreBar ทั้งหมด + ScrollArea
+// ================================================================
+class CPUWidget : public QWidget {
+    Q_OBJECT
+public:
+    explicit CPUWidget(QWidget *parent = nullptr);
+    void UpdateCPU();
+private:
+    QVector<CoreBar*> CoreBars;
+    QScrollArea      *ScrollArea;
+    QWidget          *BarsContainer;
+    int CoreCount = 0;
+};
+
+// ================================================================
+//  ResourceBar — RAM, DISK, GPU, NET (เดิม)
 // ================================================================
 class ResourceBar : public QWidget {
     Q_OBJECT
-
 public:
     explicit ResourceBar(const QString &Label, QWidget *parent = nullptr);
-
     void SetPercent(int percent);
     void SetSubText(const QString &text);
-
 protected:
-    void paintEvent(QPaintEvent *event) override;
-
+    void paintEvent(QPaintEvent *) override;
 private:
     QString LabelText;
     QString SubText;
@@ -57,34 +60,52 @@ private:
 };
 
 // ================================================================
-//  ResourceWidget — รวม 4 แถว
+//  ResourceWidget — 2 columns (CPU | RAM/DISK/GPU/NET)
 // ================================================================
 class ResourceWidget : public QWidget {
     Q_OBJECT
-
 public:
     explicit ResourceWidget(QWidget *parent = nullptr);
     void UpdateResources();
-
 private:
-    ResourceBar *CPUBar;
+    CPUWidget   *CPUColumn;
     ResourceBar *RAMBar;
     ResourceBar *DiskBar;
     ResourceBar *GPUBar;
+    ResourceBar *NETBar;
 };
 
 // ================================================================
-//  TrafficGraph — Dashboard Minimal
+//  SparkLineWidget (เดิม)
+// ================================================================
+class SparkLineWidget : public QWidget {
+    Q_OBJECT
+public:
+    explicit SparkLineWidget(QWidget *parent = nullptr);
+    void AddValue(int inRate, int outRate);
+    void Clear();
+    int GetPeakIn()  const { return PeakIn; }
+    int GetPeakOut() const { return PeakOut; }
+protected:
+    void paintEvent(QPaintEvent *) override;
+private:
+    QVector<int> InData;
+    QVector<int> OutData;
+    int PeakIn  = 0;
+    int PeakOut = 0;
+    int StickyMax = 10;
+    static const int MaxPoints = 120;
+};
+
+// ================================================================
+//  TrafficGraph (Dashboard)
 // ================================================================
 class TrafficGraph : public QWidget {
     Q_OBJECT
-
 public:
     explicit TrafficGraph(QWidget *parent = nullptr);
-
 public slots:
-    void UpdatePacketCount(int InboundCount, int OutboundCount);
-
+    void UpdatePacketCount(int inCount, int outCount);
 private:
     SparkLineWidget *MainSparkLine;
     ResourceWidget  *MainResourceWidget;
@@ -98,7 +119,6 @@ private:
     int MainLastIn  = 0;
     int MainLastOut = 0;
     int MainFirst   = 1;
-    int PeakRate    = 0;
 };
 
 #endif
