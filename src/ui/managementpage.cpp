@@ -4,11 +4,28 @@
 #include <QMessageBox>
 #include <QMenu>
 #include <QAction>
+#include <QFrame>
 
 #include "managementpage.h"
 #include "receiver/prefilter.h"
 #include "receiver/packet_counter.h"
 
+// ================================================================
+//  Palette (VSCode Dark) — เหมือน trafficgraph.cpp
+// ================================================================
+#define COLOR_BG      "#1a1a1a"
+#define COLOR_PANEL   "#212121"
+#define COLOR_BORDER  "#2d2d2d"
+#define COLOR_TEXT    "#e0e0e0"
+#define COLOR_DIM     "#707070"
+#define COLOR_ACCENT  "#4ec9b0"
+#define COLOR_SUCCESS "#4ec9b0"
+#define COLOR_WARNING "#dcdcaa"
+#define COLOR_ERROR   "#f48771"
+
+// ================================================================
+//  Helper: IP <-> String
+// ================================================================
 static QString IPToString(unsigned int IP) {
     return QString("%1.%2.%3.%4")
         .arg(IP & 0xFF)
@@ -26,137 +43,260 @@ static unsigned int StringToIP(const QString &String) {
            ((parts[3].toUInt() & 0xFF) << 24);
 }
 
+// ================================================================
+//  Helper: สร้าง Stat Card
+// ================================================================
+static QWidget* MakeStatCard(const QString &title, const QString &color,
+                             QLabel **valueLabel, QWidget *parent)
+{
+    QWidget *Card = new QWidget(parent);
+    Card->setStyleSheet(
+        "background-color: " COLOR_PANEL ";"
+        "border: 1px solid " COLOR_BORDER ";"
+        "border-radius: 4px;"
+    );
+
+    QVBoxLayout *Layout = new QVBoxLayout(Card);
+    Layout->setContentsMargins(14, 10, 14, 10);
+    Layout->setSpacing(4);
+
+    QLabel *Title = new QLabel(title, Card);
+    Title->setStyleSheet(
+        "color: " COLOR_DIM ";"
+        "font-size: 10px;"
+        "font-weight: 600;"
+        "letter-spacing: 1px;"
+        "background: transparent;"
+        "border: none;"
+    );
+    Layout->addWidget(Title);
+
+    *valueLabel = new QLabel("0", Card);
+    (*valueLabel)->setStyleSheet(
+        QString("color: %1; font-size: 22px; font-weight: bold;"
+                "background: transparent; border: none;").arg(color)
+    );
+    Layout->addWidget(*valueLabel);
+
+    return Card;
+}
+
+// ================================================================
+//  Constructor
+// ================================================================
 ManagementPage::ManagementPage(QWidget *parent) : QWidget(parent) {
-    this->setStyleSheet("background-color: #1a2127;");
+
+    this->setStyleSheet(
+        QString("ManagementPage { background-color: %1; }").arg(COLOR_BG)
+    );
 
     QVBoxLayout *MainLayout = new QVBoxLayout(this);
     MainLayout->setContentsMargins(20, 20, 20, 20);
-    MainLayout->setSpacing(15);
+    MainLayout->setSpacing(14);
 
-    QLabel *Title = new QLabel("⚙ Management", this);
-    Title->setStyleSheet("color: white; font-size: 22px; font-weight: bold;");
+    // ============================================================
+    //  Title
+    // ============================================================
+    QLabel *Title = new QLabel("Management", this);
+    Title->setStyleSheet(
+        "color: " COLOR_TEXT ";"
+        "font-size: 16px;"
+        "font-weight: 600;"
+        "background: transparent;"
+    );
     MainLayout->addWidget(Title);
 
-    QGroupBox *StatsGroup = new QGroupBox("📊 Statistics", this);
-    StatsGroup->setStyleSheet(
-        "QGroupBox { color: #00ffcc; font-size: 14px; font-weight: bold; "
-        "border: 1px solid #333; border-radius: 5px; margin-top: 10px; padding-top: 10px; }"
-        "QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 5px; }"
+    QFrame *Line0 = new QFrame(this);
+    Line0->setFixedHeight(1);
+    Line0->setStyleSheet(QString("background-color: %1;").arg(COLOR_BORDER));
+    MainLayout->addWidget(Line0);
+
+    // ============================================================
+    //  Statistics
+    // ============================================================
+    QLabel *StatsTitle = new QLabel("Statistics", this);
+    StatsTitle->setStyleSheet(
+        QString("color: %1; font-size: 12px; font-weight: 600;"
+                "background: transparent;").arg(COLOR_TEXT)
     );
-    QHBoxLayout *StatsLayout = new QHBoxLayout(StatsGroup);
+    MainLayout->addWidget(StatsTitle);
 
-    // Total
-    QWidget *TotalBox = new QWidget(this);
-    TotalBox->setStyleSheet("background-color: #2a2a2a; border-radius: 5px;");
-    QVBoxLayout *TotalVBox = new QVBoxLayout(TotalBox);
-    QLabel *TotalTitle = new QLabel("TOTAL PACKETS", TotalBox);
-    TotalTitle->setStyleSheet("color: #888; font-size: 11px;");
-    TotalPacketsLabel = new QLabel("0", TotalBox);
-    TotalPacketsLabel->setStyleSheet("color: white; font-size: 20px; font-weight: bold;");
-    TotalVBox->addWidget(TotalTitle);
-    TotalVBox->addWidget(TotalPacketsLabel);
-    StatsLayout->addWidget(TotalBox, 1);
+    QHBoxLayout *StatsLayout = new QHBoxLayout();
+    StatsLayout->setSpacing(12);
 
-    // Allowed
-    QWidget *AllowedBox = new QWidget(this);
-    AllowedBox->setStyleSheet("background-color: #2a2a2a; border-radius: 5px;");
-    QVBoxLayout *AllowedVBox = new QVBoxLayout(AllowedBox);
-    QLabel *AllowedTitle = new QLabel("ALLOWED", AllowedBox);
-    AllowedTitle->setStyleSheet("color: #888; font-size: 11px;");
-    AllowedPacketsLabel = new QLabel("0", AllowedBox);
-    AllowedPacketsLabel->setStyleSheet("color: #00ffcc; font-size: 20px; font-weight: bold;");
-    AllowedVBox->addWidget(AllowedTitle);
-    AllowedVBox->addWidget(AllowedPacketsLabel);
-    StatsLayout->addWidget(AllowedBox, 1);
+    QWidget *TotalCard   = MakeStatCard("TOTAL PACKETS", COLOR_TEXT,   &TotalPacketsLabel,   this);
+    QWidget *AllowedCard = MakeStatCard("ALLOWED",       COLOR_ACCENT, &AllowedPacketsLabel, this);
+    QWidget *BlockedCard = MakeStatCard("BLOCKED",       COLOR_ERROR,  &BlockedPacketsLabel, this);
 
-    // Blocked
-    QWidget *BlockedBox = new QWidget(this);
-    BlockedBox->setStyleSheet("background-color: #2a2a2a; border-radius: 5px;");
-    QVBoxLayout *BlockedVBox = new QVBoxLayout(BlockedBox);
-    QLabel *BlockedTitle = new QLabel("BLOCKED", BlockedBox);
-    BlockedTitle->setStyleSheet("color: #888; font-size: 11px;");
-    BlockedPacketsLabel = new QLabel("0", BlockedBox);
-    BlockedPacketsLabel->setStyleSheet("color: #ff5555; font-size: 20px; font-weight: bold;");
-    BlockedVBox->addWidget(BlockedTitle);
-    BlockedVBox->addWidget(BlockedPacketsLabel);
-    StatsLayout->addWidget(BlockedBox, 1);
+    StatsLayout->addWidget(TotalCard,   1);
+    StatsLayout->addWidget(AllowedCard, 1);
+    StatsLayout->addWidget(BlockedCard, 1);
 
-    MainLayout->addWidget(StatsGroup);
+    MainLayout->addLayout(StatsLayout);
 
-    // ---- Current Rules Group ----
-    QGroupBox *RulesGroup = new QGroupBox("Current Rules", this);
-    RulesGroup->setStyleSheet(
-        "QGroupBox { color: #00ffcc; font-size: 14px; font-weight: bold; "
-        "border: 1px solid #333; border-radius: 5px; margin-top: 10px; padding-top: 10px; }"
-        "QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 5px; }"
+    // ============================================================
+    //  Current Rules
+    // ============================================================
+    QLabel *RulesTitle = new QLabel("Current Rules", this);
+    RulesTitle->setStyleSheet(
+        QString("color: %1; font-size: 12px; font-weight: 600;"
+                "background: transparent;").arg(COLOR_TEXT)
     );
-    QVBoxLayout *RulesLayout = new QVBoxLayout(RulesGroup);
+    MainLayout->addWidget(RulesTitle);
 
+    QFrame *Line1 = new QFrame(this);
+    Line1->setFixedHeight(1);
+    Line1->setStyleSheet(QString("background-color: %1;").arg(COLOR_BORDER));
+    MainLayout->addWidget(Line1);
+
+    // ---- Rule Labels ----
     BlacklistCountLabel = new QLabel(this);
-    BlacklistCountLabel->setStyleSheet("color: #ff8888; font-size: 14px;");
-    RulesLayout->addWidget(BlacklistCountLabel);
+    BlacklistCountLabel->setStyleSheet(
+        QString("color: %1; font-size: 11px; font-family: Consolas;"
+                "background: transparent; padding: 3px 0;").arg(COLOR_ERROR)
+    );
+    MainLayout->addWidget(BlacklistCountLabel);
 
     SuspiciousPortsLabel = new QLabel(this);
-    SuspiciousPortsLabel->setStyleSheet("color: #ffaa00; font-size: 14px;");
-    RulesLayout->addWidget(SuspiciousPortsLabel);
+    SuspiciousPortsLabel->setStyleSheet(
+        QString("color: %1; font-size: 11px; font-family: Consolas;"
+                "background: transparent; padding: 3px 0;").arg(COLOR_WARNING)
+    );
+    MainLayout->addWidget(SuspiciousPortsLabel);
 
     RateThresholdLabel = new QLabel(this);
-    RateThresholdLabel->setStyleSheet("color: #00ffcc; font-size: 14px;");
-    RulesLayout->addWidget(RateThresholdLabel);
-
-    MainLayout->addWidget(RulesGroup);
-
-    // ---- Add Blacklist ----
-    QGroupBox *AddGroup = new QGroupBox("Add IP to Blacklist", this);
-    AddGroup->setStyleSheet(
-        "QGroupBox { color: #00ffcc; font-size: 14px; font-weight: bold; "
-        "border: 1px solid #333; border-radius: 5px; margin-top: 10px; padding-top: 10px; }"
-        "QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 5px; }"
+    RateThresholdLabel->setStyleSheet(
+        QString("color: %1; font-size: 11px; font-family: Consolas;"
+                "background: transparent; padding: 3px 0;").arg(COLOR_ACCENT)
     );
-    QHBoxLayout *AddLayout = new QHBoxLayout(AddGroup);
+    MainLayout->addWidget(RateThresholdLabel);
+
+    // ============================================================
+    //  Add IP
+    // ============================================================
+    QLabel *AddTitle = new QLabel("Add IP to Blacklist", this);
+    AddTitle->setStyleSheet(
+        QString("color: %1; font-size: 12px; font-weight: 600;"
+                "background: transparent; padding-top: 6px;").arg(COLOR_TEXT)
+    );
+    MainLayout->addWidget(AddTitle);
+
+    QFrame *Line2 = new QFrame(this);
+    Line2->setFixedHeight(1);
+    Line2->setStyleSheet(QString("background-color: %1;").arg(COLOR_BORDER));
+    MainLayout->addWidget(Line2);
+
+    QHBoxLayout *AddLayout = new QHBoxLayout();
+    AddLayout->setSpacing(8);
 
     IPInput = new QLineEdit(this);
     IPInput->setPlaceholderText("192.168.1.100");
     IPInput->setStyleSheet(
-        "QLineEdit { background-color: #2a2a2a; color: white; "
-        "border: 1px solid #444; padding: 6px; border-radius: 3px; }"
+        QString("QLineEdit {"
+                "  background-color: %1;"
+                "  color: %2;"
+                "  font-family: Consolas;"
+                "  font-size: 12px;"
+                "  border: 1px solid %3;"
+                "  border-radius: 4px;"
+                "  padding: 7px 10px;"
+                "}"
+                "QLineEdit:focus {"
+                "  border: 1px solid %4;"
+                "}").arg(COLOR_PANEL, COLOR_TEXT, COLOR_BORDER, COLOR_ACCENT)
     );
-    AddLayout->addWidget(IPInput);
+    AddLayout->addWidget(IPInput, 1);
 
     AddButton = new QPushButton("Add", this);
+    AddButton->setFixedWidth(90);
+    AddButton->setCursor(Qt::PointingHandCursor);
     AddButton->setStyleSheet(
-        "QPushButton { background-color: #2c3e50; color: white; "
-        "padding: 6px 20px; border: none; border-radius: 3px; font-weight: bold; }"
-        "QPushButton:hover { background-color: #34495e; }"
+        QString("QPushButton {"
+                "  background-color: %1;"
+                "  color: %2;"
+                "  font-size: 12px;"
+                "  font-weight: 600;"
+                "  border: 1px solid %3;"
+                "  border-radius: 4px;"
+                "  padding: 7px;"
+                "}"
+                "QPushButton:hover {"
+                "  background-color: #2a3a35;"
+                "  border: 1px solid %2;"
+                "}").arg(COLOR_PANEL, COLOR_ACCENT, COLOR_BORDER)
     );
     AddLayout->addWidget(AddButton);
 
-    MainLayout->addWidget(AddGroup);
+    MainLayout->addLayout(AddLayout);
 
-    // ---- Blacklist List ----
-    QGroupBox *ListGroup = new QGroupBox("Blacklist", this);
-    ListGroup->setStyleSheet(
-        "QGroupBox { color: #ff5555; font-size: 14px; font-weight: bold; "
-        "border: 1px solid #333; border-radius: 5px; margin-top: 10px; padding-top: 10px; }"
-        "QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 5px; }"
+    // ============================================================
+    //  Blacklist
+    // ============================================================
+    QLabel *ListTitle = new QLabel("Blacklist", this);
+    ListTitle->setStyleSheet(
+        QString("color: %1; font-size: 12px; font-weight: 600;"
+                "background: transparent; padding-top: 6px;").arg(COLOR_TEXT)
     );
-    QVBoxLayout *ListLayout = new QVBoxLayout(ListGroup);
+    MainLayout->addWidget(ListTitle);
+
+    QFrame *Line3 = new QFrame(this);
+    Line3->setFixedHeight(1);
+    Line3->setStyleSheet(QString("background-color: %1;").arg(COLOR_BORDER));
+    MainLayout->addWidget(Line3);
 
     BlacklistList = new QListWidget(this);
     BlacklistList->setContextMenuPolicy(Qt::CustomContextMenu);
+    BlacklistList->setStyleSheet(
+        QString("QListWidget {"
+                "  background-color: %1;"
+                "  color: %2;"
+                "  font-family: Consolas;"
+                "  font-size: 12px;"
+                "  border: 1px solid %3;"
+                "  border-radius: 4px;"
+                "  padding: 4px;"
+                "  outline: none;"
+                "}"
+                "QListWidget::item {"
+                "  padding: 6px 8px;"
+                "  border-radius: 3px;"
+                "}"
+                "QListWidget::item:hover {"
+                "  background-color: %4;"
+                "}"
+                "QListWidget::item:selected {"
+                "  background-color: #2a3a35;"
+                "  color: %5;"
+                "}").arg(COLOR_BG, COLOR_ERROR, COLOR_BORDER, COLOR_PANEL, COLOR_ACCENT)
+    );
+
     connect(BlacklistList, &QListWidget::customContextMenuRequested,
             this, [this](const QPoint &pos) {
         QListWidgetItem *Item = BlacklistList->itemAt(pos);
-        if (!Item){
-            return;
-        }
+        if (!Item) return;
 
         unsigned int IP = Item->data(Qt::UserRole).toUInt();
 
-        RefreshTimer->stop();  
+        RefreshTimer->stop();
 
         QMenu menu(this);
-        QAction *RemoveAction = menu.addAction("🗑 Remove");
+        menu.setStyleSheet(
+            QString("QMenu {"
+                    "  background-color: %1;"
+                    "  color: %2;"
+                    "  border: 1px solid %3;"
+                    "  padding: 4px;"
+                    "}"
+                    "QMenu::item {"
+                    "  padding: 6px 20px;"
+                    "  border-radius: 3px;"
+                    "}"
+                    "QMenu::item:selected {"
+                    "  background-color: %4;"
+                    "}").arg(COLOR_PANEL, COLOR_TEXT, COLOR_BORDER, COLOR_ERROR)
+        );
+
+        QAction *RemoveAction = menu.addAction("🗑  Remove");
         QAction *Selected = menu.exec(BlacklistList->mapToGlobal(pos));
 
         RefreshTimer->start(1000);
@@ -166,29 +306,40 @@ ManagementPage::ManagementPage(QWidget *parent) : QWidget(parent) {
             RefreshUI();
         }
     });
-    BlacklistList->setStyleSheet(
-        "QListWidget { background-color: #1a1a1a; color: #ff8888; "
-        "font-family: Consolas; font-size: 12px; border: 1px solid #333; }"
-        "QListWidget::item { padding: 5px; }"
-    );
-    ListLayout->addWidget(BlacklistList);
 
-    MainLayout->addWidget(ListGroup, 1);
+    MainLayout->addWidget(BlacklistList, 1);
 
-    // ---- Clear Button ----
-    ClearButton = new QPushButton("🗑 Clear All Rules", this);
+    // ============================================================
+    //  Clear Button
+    // ============================================================
+    ClearButton = new QPushButton("Clear All Rules", this);
+    ClearButton->setCursor(Qt::PointingHandCursor);
     ClearButton->setStyleSheet(
-        "QPushButton { background-color: #c0392b; color: white; "
-        "padding: 10px; border: none; border-radius: 3px; font-weight: bold; }"
-        "QPushButton:hover { background-color: #e74c3c; }"
+        QString("QPushButton {"
+                "  background-color: %1;"
+                "  color: %2;"
+                "  font-size: 12px;"
+                "  font-weight: 600;"
+                "  border: 1px solid %3;"
+                "  border-radius: 4px;"
+                "  padding: 10px;"
+                "}"
+                "QPushButton:hover {"
+                "  background-color: #3a2020;"
+                "  border: 1px solid %2;"
+                "}").arg(COLOR_PANEL, COLOR_ERROR, COLOR_BORDER)
     );
     MainLayout->addWidget(ClearButton);
 
-    // ---- Connect ----
-    connect(AddButton, &QPushButton::clicked, this, &ManagementPage::OnAddBlacklistClicked);
+    // ============================================================
+    //  Connect
+    // ============================================================
+    connect(AddButton,   &QPushButton::clicked, this, &ManagementPage::OnAddBlacklistClicked);
     connect(ClearButton, &QPushButton::clicked, this, &ManagementPage::OnClearRulesClicked);
 
-    // ---- Timer Refresh (ทุก 1 วินาที) ----
+    // ============================================================
+    //  Timer
+    // ============================================================
     RefreshTimer = new QTimer(this);
     connect(RefreshTimer, &QTimer::timeout, this, &ManagementPage::RefreshUI);
     RefreshTimer->start(1000);
@@ -198,14 +349,17 @@ ManagementPage::ManagementPage(QWidget *parent) : QWidget(parent) {
 
 ManagementPage::~ManagementPage() {}
 
+// ================================================================
+//  Add IP
+// ================================================================
 void ManagementPage::OnAddBlacklistClicked() {
     QString IPInString = IPInput->text().trimmed();
     if (IPInString.isEmpty()) return;
 
-    // ตรวจสอบรูปแบบ IP ง่าย ๆ
     QStringList Parts = IPInString.split('.');
     if (Parts.size() != 4) {
-        QMessageBox::warning(this, "Invalid IP", "กรุณากรอก IP ให้ถูกต้อง เช่น 192.168.1.100");
+        QMessageBox::warning(this, "Invalid IP",
+            "กรุณากรอก IP ให้ถูกต้อง เช่น 192.168.1.100");
         return;
     }
 
@@ -213,11 +367,15 @@ void ManagementPage::OnAddBlacklistClicked() {
     PreFilterAddBlacklist(IP);
     IPInput->clear();
 
-    QMessageBox::information(this, "Success", QString("IP %1 added to Blacklist\nและถูกบล็อกผ่าน Windows Firewall แล้ว").arg(IPInString));
+    QMessageBox::information(this, "Success",
+        QString("IP %1 added to Blacklist").arg(IPInString));
 
     RefreshUI();
 }
 
+// ================================================================
+//  Clear All
+// ================================================================
 void ManagementPage::OnClearRulesClicked() {
     auto reply = QMessageBox::question(this, "Confirm",
         "Clear all rules?",
@@ -229,32 +387,38 @@ void ManagementPage::OnClearRulesClicked() {
     }
 }
 
+// ================================================================
+//  Refresh UI
+// ================================================================
 void ManagementPage::RefreshUI() {
 
-    int TotalPacket = GetPacketCount() + GetBlockedPacketCount();
+    int TotalPacket   = GetPacketCount() + GetBlockedPacketCount();
     int BlockedPacket = GetBlockedPacketCount();
     int AllowedPacket = GetPacketCount();
 
     TotalPacketsLabel->setText(QString::number(TotalPacket));
-    BlockedPacketsLabel->setText(QString("%1 IPs").arg(GetBlockedIPCount()));
     AllowedPacketsLabel->setText(QString::number(AllowedPacket));
+    BlockedPacketsLabel->setText(QString::number(BlockedPacket));
 
-    // ---- Count labels ----
+    // ---- Rules ----
     BlacklistCountLabel->setText(
-        QString("Blacklist: %1 IPs").arg(PreFilterGetBlacklistCount()));
+        QString("  ● Blacklist:        %1 IPs")
+            .arg(PreFilterGetBlacklistCount()));
 
     SuspiciousPortsLabel->setText(
-        QString("Suspicious Ports: %1 ports").arg(PreFilterGetSuspiciousPortCount()));
+        QString("  ● Suspicious Ports: %1 ports")
+            .arg(PreFilterGetSuspiciousPortCount()));
 
     RateThresholdLabel->setText(
-        QString("Rate Threshold: %1 pps").arg(PreFilterGetRateThreshold()));
+        QString("  ● Rate Threshold:   %1 pps")
+            .arg(PreFilterGetRateThreshold()));
 
     // ---- List ----
     BlacklistList->clear();
     int Count = PreFilterGetBlacklistCount();
     for (int Index = 0; Index < Count; Index++) {
         unsigned int ip = PreFilterGetBlacklistIP(Index);
-        QListWidgetItem *Item = new QListWidgetItem(IPToString(ip));
+        QListWidgetItem *Item = new QListWidgetItem("  " + IPToString(ip));
         Item->setData(Qt::UserRole, ip);
         BlacklistList->addItem(Item);
     }

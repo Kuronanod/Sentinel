@@ -398,6 +398,7 @@ CMakeFiles/sentinel.dir/src/ui/managementpage.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMenu \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qmenu.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/QAction \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QFrame \
  C:/Users/korusuba/Sentinel/include/ui/managementpage.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLineEdit \
