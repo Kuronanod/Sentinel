@@ -1,6 +1,8 @@
 C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_alertpage.cpp: C:/Users/korusuba/Sentinel/include/ui/alertpage.h \
   C:/Users/korusuba/Sentinel/build/sentinel_autogen/moc_predefs.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
   C:/Qt/6.11.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/q20bit.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/q20functional.h \
@@ -28,6 +30,7 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_alertpage.cpp: 
   C:/Qt/6.11.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/qcalendar.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qchar.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qcheckedint_impl.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qcompare.h \
@@ -42,6 +45,7 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_alertpage.cpp: 
   C:/Qt/6.11.1/mingw_64/include/QtCore/qcontiguouscache.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qdebug.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qendian.h \
@@ -57,6 +61,7 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_alertpage.cpp: 
   C:/Qt/6.11.1/mingw_64/include/QtCore/qglobalstatic.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qhash.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qhashfunctions.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevice.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevicebase.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qitemselectionmodel.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qiterable.h \
@@ -132,9 +137,11 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_alertpage.cpp: 
   C:/Qt/6.11.1/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qvarlengtharray.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qyieldcpu.h \
@@ -152,12 +159,18 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_alertpage.cpp: 
   C:/Qt/6.11.1/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpalette.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/qpen.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/qpicture.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpolygon.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qrgba64.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/qtextcursor.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/qtextdocument.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/qtextformat.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qtguiglobal.h \
@@ -165,23 +178,34 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_alertpage.cpp: 
   C:/Qt/6.11.1/mingw_64/include/QtGui/qvalidator.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QListWidget \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSplitter \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTextEdit \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemview.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistwidget.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsplitter.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstyle.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstyleoption.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabbar.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabwidget.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtextedit.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

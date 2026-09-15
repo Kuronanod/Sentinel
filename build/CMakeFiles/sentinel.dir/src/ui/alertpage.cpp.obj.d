@@ -1,8 +1,7 @@
 CMakeFiles/sentinel.dir/src/ui/alertpage.cpp.obj: \
  C:\Users\korusuba\Sentinel\src\ui\alertpage.cpp \
- C:/Users/korusuba/Sentinel/include/ui/alertpage.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qtguiglobal.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qglobal.h \
@@ -156,7 +155,8 @@ CMakeFiles/sentinel.dir/src/ui/alertpage.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qtguiexports.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qobjectdefs.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qnamespace.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qcompare.h \
@@ -230,8 +230,6 @@ CMakeFiles/sentinel.dir/src/ui/alertpage.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qstring.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qchar.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qstringview.h \
@@ -331,18 +329,29 @@ CMakeFiles/sentinel.dir/src/ui/alertpage.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qmargins.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qrect.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qcheckedint_impl.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qmargins.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/q23utility.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/q20utility.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qsize.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qpoint.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qaction.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qkeysequence.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qicon.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qsize.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qpixmap.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qpaintdevice.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qrect.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qpoint.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qcolor.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qrgb.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qrgba64.h \
@@ -381,20 +390,28 @@ CMakeFiles/sentinel.dir/src/ui/alertpage.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qfontmetrics.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qfontinfo.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qfontvariableaxis.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qbitmap.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qcalendar.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qlocale.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QFrame \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QStringList \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/QFont \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QDebug \
+ C:/Users/korusuba/Sentinel/include/ui/alertpage.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QListWidget \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistwidget.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistview.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemview.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qabstractitemmodel.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qitemselectionmodel.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstyleoption.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qvalidator.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qregularexpression.h \
@@ -404,24 +421,29 @@ CMakeFiles/sentinel.dir/src/ui/alertpage.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabbar.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qrubberband.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLineEdit \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qurl.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qtextformat.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qtextoption.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpicture.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevice.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qtimer.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qbasictimer.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qeventloop.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Users/korusuba/Sentinel/include/receiver/alert_queue.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QVBoxLayout \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayout.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qdatetime.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qcalendar.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qpicture.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevice.h \
- C:/Qt/6.11.1/mingw_64/include/QtGui/qtextdocument.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qurl.h
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSplitter \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsplitter.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTextEdit \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtextedit.h \
+ C:/Users/korusuba/Sentinel/include/receiver/alert_queue.h

@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../../include/ui/alertpage.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -40,12 +41,30 @@ template <> constexpr inline auto AlertPage::qt_create_metaobjectdata<qt_meta_ta
     QtMocHelpers::StringRefStorage qt_stringData {
         "AlertPage",
         "UpdateAlerts",
-        ""
+        "",
+        "OnFilterChanged",
+        "index",
+        "OnAlertSelected",
+        "OnClearAll",
+        "OnSearchChanged",
+        "text"
     };
 
     QtMocHelpers::UintData qt_methods {
         // Slot 'UpdateAlerts'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'OnFilterChanged'
+        QtMocHelpers::SlotData<void(int)>(3, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 4 },
+        }}),
+        // Slot 'OnAlertSelected'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'OnClearAll'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'OnSearchChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 8 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -70,10 +89,13 @@ void AlertPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->UpdateAlerts(); break;
+        case 1: _t->OnFilterChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 2: _t->OnAlertSelected(); break;
+        case 3: _t->OnClearAll(); break;
+        case 4: _t->OnSearchChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *AlertPage::metaObject() const
@@ -95,14 +117,14 @@ int AlertPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 5;
     }
     return _id;
 }

@@ -405,17 +405,6 @@ CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabbar.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qrubberband.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qtimer.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qtmochelpers.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qtmocconstants.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/q20algorithm.h \
- C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_managementpage.cpp \
- C:/Users/korusuba/Sentinel/include/ui/managementpage.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLineEdit \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlineedit.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qtextcursor.h \
@@ -431,6 +420,26 @@ CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qpicture.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevice.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qtimer.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSplitter \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsplitter.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTextEdit \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtextedit.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qcalendar.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qtmochelpers.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qtmocconstants.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/q20algorithm.h \
+ C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_managementpage.cpp \
+ C:/Users/korusuba/Sentinel/include/ui/managementpage.h \
  C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_packetpage.cpp \
  C:/Users/korusuba/Sentinel/include/ui/packetpage.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTableWidget \
@@ -449,8 +458,6 @@ CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
  C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_terminal.cpp \
  C:/Users/korusuba/Sentinel/include/ui/terminal.h \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTextEdit \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtextedit.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qprocess.h \
  C:\Users\korusuba\Sentinel\build\sentinel_autogen\JCP2AIONHY/moc_trafficgraph.cpp \
@@ -459,8 +466,6 @@ CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qpainter.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/QPainterPath \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qpainterpath.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \

@@ -1,5 +1,6 @@
 C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_window.cpp: C:/Users/korusuba/Sentinel/include/ui/window.h \
   C:/Users/korusuba/Sentinel/build/sentinel_autogen/moc_predefs.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
@@ -30,6 +31,7 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_window.cpp: C:/
   C:/Qt/6.11.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/qcalendar.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qchar.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qcheckedint_impl.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qcompare.h \
@@ -44,6 +46,7 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_window.cpp: C:/
   C:/Qt/6.11.1/mingw_64/include/QtCore/qcontiguouscache.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qdebug.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qendian.h \
@@ -190,6 +193,7 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_window.cpp: C:/
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSplitter \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QStackedWidget \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTableWidget \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTextEdit \
@@ -218,6 +222,7 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_window.cpp: C:/
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsplitter.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstackedwidget.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstyle.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstyleoption.h \

@@ -191,6 +191,7 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSplitter \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QStackedWidget \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTableWidget \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTextEdit \
@@ -219,6 +220,7 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsplitter.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstackedwidget.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstyle.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstyleoption.h \
@@ -979,13 +981,13 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/numer
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/atomicity.h:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/alloc_traits.h:
-
 C:/mingw64/share/cmake-4.2/Modules/CheckCSourceCompiles.cmake:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/exception:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicGitHelpers.cmake:
 
@@ -1022,6 +1024,10 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w6
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtInstallPaths.cmake:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkDependencies.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/Qt6VersionlessAliasTargets.cmake:
 
@@ -1114,6 +1120,10 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess:
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/QStackedWidget:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/alloc_traits.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSplitter:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qstringbuilder.h:
 
@@ -1299,8 +1309,6 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qdatastream.h:
 
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginAdditionalTargetInfo.cmake:
-
 C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake:
@@ -1371,6 +1379,10 @@ C:/mingw64/share/cmake-4.2/Modules/FindThreads.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qmetacontainer.h:
 
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qtcoreglobal.h:
+
 C:/mingw64/share/cmake-4.2/Modules/CMakeCXXInformation.cmake:
 
 C:/Users/korusuba/Sentinel/src/receiver/request_queue.cpp:
@@ -1407,11 +1419,9 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/Qt6Config.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers_v2.cmake:
 
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomBuildToolHelpers.cmake:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets.cmake:
-
 C:/Qt/6.11.1/mingw_64/include/QtGui/qtextdocument.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsplitter.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qfont.h:
 
@@ -1529,12 +1539,6 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qarraydatapointer.h:
 
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomAttributionHelpers.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/q20bit.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtGui/qpen.h:
-
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake:
@@ -1586,8 +1590,6 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevicebase.h:
 C:/mingw64/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qprocessordetection.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qitemselectionmodel.h:
 
@@ -1729,6 +1731,18 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qstringtokenizer.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtmetamacros.h:
 
+C:/Qt/6.11.1/mingw_64/include/QtCore/q20bit.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtGui/qpen.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomAttributionHelpers.cmake:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginAdditionalTargetInfo.cmake:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomBuildToolHelpers.cmake:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets.cmake:
+
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomCommonGenerationHelpers.cmake:
@@ -1754,10 +1768,6 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomDocumentNamespaceHelpers.cmake:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkDependencies.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomFileHelpers.cmake:
 
@@ -1834,10 +1844,6 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargetsPrecheck.cmake:
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersion.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersionImpl.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qtcoreglobal.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractspinbox.h:
 

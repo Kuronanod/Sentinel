@@ -464,6 +464,11 @@ CMakeFiles/sentinel.dir/src/ui/qt.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QListWidget \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistwidget.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistview.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSplitter \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsplitter.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qcalendar.h \
  C:/Users/korusuba/Sentinel/include/ui/managementpage.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qmainwindow.h \
