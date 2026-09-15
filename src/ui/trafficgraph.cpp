@@ -40,6 +40,19 @@ void SparkLineWidget::AddValue(int inRate, int outRate) {
     if (inRate > PeakIn)   PeakIn = inRate;
     if (outRate > PeakOut) PeakOut = outRate;
 
+    int currentMax = qMax(inRate, outRate);
+
+    if (currentMax > StickyMax) {
+        // Peak ใหม่ → ขึ้นทันที
+        StickyMax = currentMax;
+    } else {
+        // ค่อย ๆ ลดลง 1% ต่อรอบ (ที่ 10Hz = ~10 วินาที จาก 1000→370)
+        int newMax = (int)(StickyMax * 0.99f);
+        if (newMax < 10) newMax = 10;
+        StickyMax = newMax;
+    }
+
+
     update();
 }
 
@@ -62,13 +75,19 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
 
     p.fillRect(rect(), QColor(COLOR_BG));
 
-    // Grid
-    QPen gridPen(QColor(COLOR_BORDER), 1, Qt::DotLine);
-    p.setPen(gridPen);
-    for (int i = 1; i < 4; ++i) {
-        int y = (H * i) / 4;
-        p.drawLine(0, y, W, y);
-    }
+    // ============================================================
+    //  ⭐ กำหนดพื้นที่สำหรับแกน
+    // ============================================================
+    const int MarginLeft   = 35;   // ← ที่ให้ตัวเลข Y-axis
+    const int MarginBottom = 18;   // ← ที่ให้ label X-axis
+    const int MarginTop    = 6;
+
+    int GraphX = MarginLeft;
+    int GraphY = MarginTop;
+    int GraphW = W - MarginLeft - 6;
+    int GraphH = H - MarginTop - MarginBottom;
+
+    if (GraphW <= 0 || GraphH <= 0) return;
 
     if (InData.size() < 2) {
         p.setPen(QColor(COLOR_DIM));
@@ -77,8 +96,10 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
         return;
     }
 
-    // ---- Max (ใช้ inbound เป็นหลัก) ----
-    int MaxValue = *std::max_element(InData.begin(), InData.end());
+    // ============================================================
+    //  ค่า Max (ใช้ StickyMax)
+    // ============================================================
+    int MaxValue = StickyMax;
     if (MaxValue < 10) MaxValue = 10;
 
     static const unsigned char BRAILLE_BIT[4][2] = {
@@ -86,8 +107,7 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
         {0x04, 0x20}, {0x40, 0x80},
     };
 
-    const int FontSize = 12;
-
+    const int FontSize = 11;
     QFont BrailleFont("Consolas", FontSize);
     p.setFont(BrailleFont);
     QFontMetrics fm(BrailleFont);
@@ -96,9 +116,10 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
     int CharH = fm.height();
     if (CharW < 1 || CharH < 1) return;
 
-    int CharRows = H / CharH;
+    // ---- คำนวณ grid ภายในพื้นที่กราฟ ----
+    int CharRows = GraphH / CharH;
     if (CharRows < 1) return;
-    int CharCols = W / CharW;
+    int CharCols = GraphW / CharW;
     if (CharCols < 1) return;
 
     int SubCols   = CharCols * 2;
@@ -107,7 +128,17 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
     int Baseline  = fm.ascent();
 
     // ============================================================
-    //  Interpolate — ใช้ InData เป็นหลัก (symmetric)
+    //  ⭐ Grid แนวนอน (5 เส้น)
+    // ============================================================
+    QPen gridPen(QColor(COLOR_BORDER), 1, Qt::DotLine);
+    p.setPen(gridPen);
+    for (int i = 0; i < 5; ++i) {
+        int y = GraphY + (GraphH * i) / 4;
+        p.drawLine(GraphX, y, GraphX + GraphW, y);
+    }
+
+    // ============================================================
+    //  Interpolate
     // ============================================================
     int DataCount = InData.size();
     QVector<float> Smooth(SubCols);
@@ -117,13 +148,16 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
         int i0 = (int)t;
         int i1 = qMin(i0 + 1, DataCount - 1);
         float frac = t - i0;
-
         Smooth[sc] = InData[i0] * (1.0f - frac) + InData[i1] * frac;
     }
 
     // ============================================================
-    //  วาดอักขระ Braille — Symmetric (ขึ้น-ลงเท่ากัน)
+    //  วาดอักขระ Braille
     // ============================================================
+    p.save();
+    p.setClipRect(GraphX, GraphY, GraphW, GraphH);
+    p.translate(GraphX, GraphY);
+
     for (int c = 0; c < CharCols; ++c) {
         for (int r = 0; r < CharRows; ++r) {
 
@@ -131,43 +165,80 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
 
             for (int dr = 0; dr < 4; ++dr) {
                 for (int dc = 0; dc < 2; ++dc) {
-
                     int sc = c * 2 + dc;
                     if (sc >= SubCols) continue;
 
                     int sr = r * 4 + dr;
-                    int dist = qAbs(sr - CenterRow);   // ← ระยะจากกลาง
+                    int dist = qAbs(sr - CenterRow);
 
                     float val = Smooth[sc] / MaxValue;
-                    int reach = (int)(val * CenterRow);  // ← ขยายเท่ากันทั้งบน-ล่าง
+                    int reach = (int)(val * CenterRow);
 
-                    if (dist <= reach) {
-                        mask |= BRAILLE_BIT[dr][dc];
-                    }
+                    if (dist <= reach) mask |= BRAILLE_BIT[dr][dc];
                 }
             }
 
             if (mask != 0) {
-                // ---- สีไล่ตามความสูง (btop heatmap) ----
                 float rowRatio = 1.0f - (float)r / CharRows;
                 QColor color;
-                if (rowRatio < 0.3)      color = QColor(78, 201, 176);    // เขียว
-                else if (rowRatio < 0.6) color = QColor(140, 220, 190);   // เขียวอ่อน
-                else                     color = QColor(0, 212, 255);     // ฟ้า
+                if (rowRatio < 0.3)      color = QColor(78, 201, 176);
+                else if (rowRatio < 0.6) color = QColor(140, 220, 190);
+                else                     color = QColor(0, 212, 255);
 
                 p.setPen(color);
-
-                int x = c * CharW;
-                int y = r * CharH + Baseline;
-                p.drawText(x, y, QString(QChar(0x2800 + mask)));
+                p.drawText(c * CharW, r * CharH + Baseline,
+                           QString(QChar(0x2800 + mask)));
             }
         }
     }
 
-    // ---- เส้นกลาง ----
-    p.setPen(QPen(QColor(COLOR_BORDER), 1));
-    int centerY = (CenterRow * H) / SubRows;
-    p.drawLine(0, centerY, W, centerY);
+    p.restore();
+
+    // ============================================================
+    //  ⭐ Y-axis Labels (ซ้าย) — Max, Mid, 0, -Mid, -Max
+    // ============================================================
+    p.setFont(QFont("Consolas", 8));
+    p.setPen(QColor(COLOR_DIM));
+
+    int centerY = GraphY + GraphH / 2;
+    int stepY   = GraphH / 4;
+
+    QString yLabels[5] = {
+        QString::number(MaxValue),            // บนสุด
+        QString::number(MaxValue / 2),        // Q1
+        "0",                                   // กลาง
+        "-" + QString::number(MaxValue / 2),  // Q3
+        "-" + QString::number(MaxValue)       // ล่างสุด
+    };
+
+    for (int i = 0; i < 5; ++i) {
+        int y = GraphY + stepY * i;
+        p.drawText(QRect(0, y - 7, MarginLeft - 4, 14),
+                   Qt::AlignRight | Qt::AlignVCenter,
+                   yLabels[i]);
+    }
+
+    // ============================================================
+    //  ⭐ X-axis Labels (ล่าง) — -60s, -30s, now
+    // ============================================================
+    p.setPen(QColor(COLOR_DIM));
+    int labelY = H - 4;
+
+    // คำนวณเวลาจริง — 100ms ต่อ 1 จุด
+    int totalSec = (DataCount * 100) / 1000;
+
+    p.drawText(QRect(GraphX, labelY - 12, 50, 14),
+               Qt::AlignLeft | Qt::AlignVCenter,
+               QString("-%1s").arg(totalSec));
+
+    p.drawText(QRect(GraphX + GraphW/2 - 25, labelY - 12, 50, 14),
+               Qt::AlignCenter,
+               QString("-%1s").arg(totalSec / 2));
+
+    p.drawText(QRect(GraphX + GraphW - 50, labelY - 12, 50, 14),
+               Qt::AlignRight | Qt::AlignVCenter,
+               "now");
+
 
 }
 
@@ -324,15 +395,20 @@ TrafficGraph::TrafficGraph(QWidget *parent) : QWidget(parent) {
     // ============================================
     //  Traffic Section
     // ============================================
-    QLabel *Label = new QLabel("packets/sec", this);
-    Label->setStyleSheet("color: " COLOR_DIM "; font-size: 11px; background: transparent;");
-    Main->addWidget(Label);
 
     QHBoxLayout *TrafficHeader = new QHBoxLayout();
     TrafficHeader->setContentsMargins(0, 4, 0, 0);
     TrafficHeader->setSpacing(16);
 
-    // ---- IN ----
+    // ============ ซ้าย: packets/sec ============
+    QLabel *Label = new QLabel("packets/sec", this);
+    Label->setStyleSheet("color: " COLOR_DIM "; font-size: 11px; background: transparent;");
+    TrafficHeader->addWidget(Label);
+
+    // ⭐ ดันทุกอย่างที่ตามมาไปทางขวา
+    TrafficHeader->addStretch();
+
+    // ============ ขวา: IN ============
     QLabel *InTag = new QLabel("▼ IN", this);
     InTag->setStyleSheet("color: #00d4ff; font-size: 12px; font-weight: 600; background: transparent;");
     TrafficHeader->addWidget(InTag);
@@ -345,7 +421,7 @@ TrafficGraph::TrafficGraph(QWidget *parent) : QWidget(parent) {
     InPeakLabel->setStyleSheet("color: " COLOR_DIM "; font-size: 10px; background: transparent;");
     TrafficHeader->addWidget(InPeakLabel);
 
-    // ---- OUT ----
+    // ============ ขวา: OUT ============
     QLabel *OutTag = new QLabel("▲ OUT", this);
     OutTag->setStyleSheet("color: #4ec9b0; font-size: 12px; font-weight: 600; background: transparent; padding-left: 16px;");
     TrafficHeader->addWidget(OutTag);
@@ -357,8 +433,6 @@ TrafficGraph::TrafficGraph(QWidget *parent) : QWidget(parent) {
     OutPeakLabel = new QLabel("peak 0", this);
     OutPeakLabel->setStyleSheet("color: " COLOR_DIM "; font-size: 10px; background: transparent;");
     TrafficHeader->addWidget(OutPeakLabel);
-
-    TrafficHeader->addStretch();
 
     Main->addLayout(TrafficHeader);
 

@@ -31,6 +31,7 @@ private:
     QVector<int> OutData;
     int PeakIn  = 0;
     int PeakOut = 0;
+    int StickyMax = 10;
     int MaxPoints = 60;
 };
 
