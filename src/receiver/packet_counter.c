@@ -43,3 +43,22 @@ void DecrementBlockedIPCount(void){
 void ResetBlockedIPCount(void) {
     GETBLOCKEDIPCOUNT = 0;
 }
+
+static volatile int GETINBOUNDCOUNT  = 0;
+static volatile int GETOUTBOUNDCOUNT = 0;
+
+int GetInboundCount(void) {
+    return GETINBOUNDCOUNT;
+}
+
+void IncrementInboundCount(void) {
+    GETINBOUNDCOUNT++;
+}
+
+int GetOutboundCount(void) {
+    return GETOUTBOUNDCOUNT;
+}
+
+void IncrementOutboundCount(void) {
+    GETOUTBOUNDCOUNT++;
+}

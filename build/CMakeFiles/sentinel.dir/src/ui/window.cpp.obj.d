@@ -393,6 +393,11 @@ CMakeFiles/sentinel.dir/src/ui/window.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QButtonGroup \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qbuttongroup.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
+ C:/Users/korusuba/Sentinel/include/ui/trafficgraph.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
@@ -400,11 +405,12 @@ CMakeFiles/sentinel.dir/src/ui/window.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevice.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qtextdocument.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qurl.h \
- C:/Users/korusuba/Sentinel/include/ui/trafficgraph.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/QPainter \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qpainter.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qtextoption.h \
  C:/Qt/6.11.1/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/QPainterPath \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/qpainterpath.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \

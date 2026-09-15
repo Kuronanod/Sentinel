@@ -4,9 +4,10 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QPushButton>
-#include <QLabel>
+#include <QButtonGroup>
+#include <QGraphicsDropShadowEffect>
 
-class SideBar : public QWidget{
+class SideBar : public QWidget {
 
     Q_OBJECT
 
@@ -16,6 +17,9 @@ public:
 signals:
     void pageChangeRequested(int index);
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event) override;   // ← สำหรับ Exit hover
+
 private:
     QPushButton *DashBoardButton;
     QPushButton *PacketPageButton;
@@ -23,7 +27,11 @@ private:
     QPushButton *ManagementButton;
     QPushButton *AlertpageButton;
     QPushButton *SettingButton;
+    QPushButton *ExitButton;
 
+    QButtonGroup *ButtonGroup;
+
+    QPushButton *CreateButton(const QString &Icon, const QString &Tooltip, int Index);
 };
 
 #endif

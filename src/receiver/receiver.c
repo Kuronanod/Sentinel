@@ -52,6 +52,12 @@ int receiver(const char *ip){
 
         IncreementPacketCount();
 
+        if (Record.DestinationPort < 1024) {
+            IncrementOutboundCount();
+        } else {
+            IncrementInboundCount();
+        }
+
         if (PreFilterCheck(&Record)) {
 
             IncrementBlockedPacketCount();
@@ -103,6 +109,12 @@ int receiver(const char *ip){
         Record.Length          = INFO.PacketLength;
 
         IncreementPacketCount();
+
+        if (Record.DestinationPort < 1024) {
+            IncrementOutboundCount();
+        } else {
+            IncrementInboundCount();
+        }
 
         if (PreFilterCheck(&Record)) {
 

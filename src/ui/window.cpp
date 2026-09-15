@@ -49,7 +49,7 @@ void Window::SetupUI(){
 
     Main_TitleBar = new QWidget(this);
     Main_TitleBar->setFixedHeight(40);
-    Main_TitleBar->setStyleSheet("background-color: #2c3e50;");
+    Main_TitleBar->setStyleSheet("background-color: #181818;");
 
     Main_MinimizeButton = new QPushButton("─");
     Main_MaximizeButton = new QPushButton("☐");
@@ -84,7 +84,9 @@ void Window::SetupUI(){
     //Main Layout
     QWidget *CentralWidget = new QWidget(this);
     CentralWidget->setContentsMargins(0, 0, 0, 0);
-    CentralWidget->setStyleSheet("background-color: #1a2127");
+    CentralWidget->setObjectName("CentralWidget");
+    CentralWidget->setAttribute(Qt::WA_StyledBackground, true);
+    CentralWidget->setStyleSheet("QWidget#CentralWidget { background-color: #1e1e1e; }");
     QVBoxLayout *MainLayout = new QVBoxLayout(CentralWidget);
     MainLayout->setContentsMargins(0, 0, 0, 0);
     MainLayout->setSpacing(0);
@@ -134,14 +136,11 @@ void Window::SetupUI(){
     // Timer อัปเดต UI ทุก 100 ms
     MainTimer = new QTimer(this);
     connect(MainTimer, &QTimer::timeout, this, [this]() {
-        int count = GetPacketCount();
-        DashBoardPage->UpdatePacketCount(count);
-
-        int queueSize = GetPacketQueueSize();
-        qDebug() << "Queue size:" << queueSize;
-
+        int inCount  = GetInboundCount();
+        int outCount = GetOutboundCount();
+        DashBoardPage->UpdatePacketCount(inCount, outCount);
     });
-    MainTimer->start(1000);
+    MainTimer->start(100);
 
 }
 

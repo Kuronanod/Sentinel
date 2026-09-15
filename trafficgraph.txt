@@ -26,32 +26,23 @@
 SparkLineWidget::SparkLineWidget(QWidget *parent) : QWidget(parent) {
     setMinimumHeight(150);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    InData.reserve(MaxPoints);
-    OutData.reserve(MaxPoints);
+    MainData.reserve(MaxPoints);
 }
 
-void SparkLineWidget::AddValue(int inRate, int outRate) {
-    InData.push_back(inRate);
-    if (InData.size() > MaxPoints) InData.pop_front();
-
-    OutData.push_back(outRate);
-    if (OutData.size() > MaxPoints) OutData.pop_front();
-
-    if (inRate > PeakIn)   PeakIn = inRate;
-    if (outRate > PeakOut) PeakOut = outRate;
-
+void SparkLineWidget::AddValue(int rate) {
+    MainData.push_back(rate);
+    if (MainData.size() > MaxPoints) MainData.pop_front();
     update();
 }
 
 void SparkLineWidget::Clear() {
-    InData.clear();
-    OutData.clear();
-    PeakIn = PeakOut = 0;
+    MainData.clear();
     update();
 }
 
 int SparkLineWidget::GetPeakValue() const {
-    return qMax(PeakIn, PeakOut);
+    if (MainData.isEmpty()) return 0;
+    return *std::max_element(MainData.begin(), MainData.end());
 }
 
 void SparkLineWidget::paintEvent(QPaintEvent *) {
@@ -70,15 +61,14 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
         p.drawLine(0, y, W, y);
     }
 
-    if (InData.size() < 2) {
+    if (MainData.size() < 2) {
         p.setPen(QColor(COLOR_DIM));
         p.setFont(QFont("Segoe UI", 10));
         p.drawText(rect(), Qt::AlignCenter, "Waiting for traffic...");
         return;
     }
 
-    // ---- Max (ใช้ inbound เป็นหลัก) ----
-    int MaxValue = *std::max_element(InData.begin(), InData.end());
+    int MaxValue = *std::max_element(MainData.begin(), MainData.end());
     if (MaxValue < 10) MaxValue = 10;
 
     static const unsigned char BRAILLE_BIT[4][2] = {
@@ -86,7 +76,16 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
         {0x04, 0x20}, {0x40, 0x80},
     };
 
-    const int FontSize = 12;
+    // ============================================================
+    //  ✅ 2 ค่าปรับได้
+    // ============================================================
+    const int FontSize = 10;       // ขนาดอักขระ braille
+    const int RepeatX  = 3;        // ⭐ 1 data point = กี่ sub-columns
+                                    //    1 = ปกติ (จุดเดียว)
+                                    //    2 = . → ..
+                                    //    3 = . → ...
+                                    //    4 = . → ....
+                                    //    6 = . → ......
 
     QFont BrailleFont("Consolas", FontSize);
     p.setFont(BrailleFont);
@@ -98,32 +97,40 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
 
     int CharRows = H / CharH;
     if (CharRows < 1) return;
+    int SubRows = CharRows * 4;
+    int CenterRow = SubRows / 2;
+
+    // ---- จำนวนอักขระที่แสดง ----
     int CharCols = W / CharW;
     if (CharCols < 1) return;
 
-    int SubCols   = CharCols * 2;
-    int SubRows   = CharRows * 4;
-    int CenterRow = SubRows / 2;
-    int Baseline  = fm.ascent();
+    // Sub-columns ทั้งหมดในจอ
+    int TotalSubCols = CharCols * 2;
+
+    // จำนวน data point ที่จะแสดง (แต่ละอันกิน RepeatX sub-columns)
+    int MaxDataPoints = TotalSubCols / RepeatX;
+    int DataCount = MainData.size();
+    int ShowCount = qMin(DataCount, MaxDataPoints);
+    int StartIdx  = DataCount - ShowCount;
 
     // ============================================================
-    //  Interpolate — ใช้ InData เป็นหลัก (symmetric)
+    //  ✅ สร้างตาราง sub-column → data point
     // ============================================================
-    int DataCount = InData.size();
-    QVector<float> Smooth(SubCols);
+    // SubCols[subCol] = index ของ data point ที่จะวาดใน sub-col นี้
+    QVector<int> SubColMap(TotalSubCols, -1);
 
-    for (int sc = 0; sc < SubCols; ++sc) {
-        float t = (float)sc / (SubCols - 1) * (DataCount - 1);
-        int i0 = (int)t;
-        int i1 = qMin(i0 + 1, DataCount - 1);
-        float frac = t - i0;
-
-        Smooth[sc] = InData[i0] * (1.0f - frac) + InData[i1] * frac;
+    for (int i = 0; i < ShowCount; ++i) {
+        int dataIdx = StartIdx + i;
+        int startSubCol = i * RepeatX;
+        for (int j = 0; j < RepeatX; ++j) {
+            int sc = startSubCol + j;
+            if (sc < TotalSubCols) SubColMap[sc] = dataIdx;
+        }
     }
 
-    // ============================================================
-    //  วาดอักขระ Braille — Symmetric (ขึ้น-ลงเท่ากัน)
-    // ============================================================
+    // ---- วาด ----
+    int Baseline = fm.ascent();
+
     for (int c = 0; c < CharCols; ++c) {
         for (int r = 0; r < CharRows; ++r) {
 
@@ -133,42 +140,48 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
                 for (int dc = 0; dc < 2; ++dc) {
 
                     int sc = c * 2 + dc;
-                    if (sc >= SubCols) continue;
+                    if (sc >= TotalSubCols) continue;
+
+                    int dataIdx = SubColMap[sc];
+                    if (dataIdx < 0 || dataIdx >= DataCount) continue;
+
+                    float ratio = (float)MainData[dataIdx] / MaxValue;
 
                     int sr = r * 4 + dr;
-                    int dist = qAbs(sr - CenterRow);   // ← ระยะจากกลาง
+                    int HalfHeight = (int)(ratio * CenterRow);
+                    int dist = qAbs(sr - CenterRow);
 
-                    float val = Smooth[sc] / MaxValue;
-                    int reach = (int)(val * CenterRow);  // ← ขยายเท่ากันทั้งบน-ล่าง
-
-                    if (dist <= reach) {
+                    if (dist <= HalfHeight) {
                         mask |= BRAILLE_BIT[dr][dc];
                     }
                 }
             }
 
             if (mask != 0) {
-                // ---- สีไล่ตามความสูง (btop heatmap) ----
                 float rowRatio = 1.0f - (float)r / CharRows;
                 QColor color;
-                if (rowRatio < 0.3)      color = QColor(78, 201, 176);    // เขียว
-                else if (rowRatio < 0.6) color = QColor(140, 220, 190);   // เขียวอ่อน
-                else                     color = QColor(0, 212, 255);     // ฟ้า
+                if (rowRatio < 0.3)      color = QColor(78, 201, 176);
+                else if (rowRatio < 0.6) color = QColor(140, 220, 190);
+                else                     color = QColor(0, 212, 255);
 
                 p.setPen(color);
-
+                QChar ch(0x2800 + mask);
                 int x = c * CharW;
                 int y = r * CharH + Baseline;
-                p.drawText(x, y, QString(QChar(0x2800 + mask)));
+                p.drawText(x, y, QString(ch));
             }
         }
     }
 
-    // ---- เส้นกลาง ----
+    // เส้นกลาง
     p.setPen(QPen(QColor(COLOR_BORDER), 1));
     int centerY = (CenterRow * H) / SubRows;
     p.drawLine(0, centerY, W, centerY);
 
+    // Max value
+    p.setPen(QColor(COLOR_DIM));
+    p.setFont(QFont("Consolas", 9));
+    p.drawText(W - 70, 14, QString("%1 pps").arg(MaxValue));
 }
 
 // ================================================================
@@ -324,41 +337,42 @@ TrafficGraph::TrafficGraph(QWidget *parent) : QWidget(parent) {
     // ============================================
     //  Traffic Section
     // ============================================
-    QLabel *Label = new QLabel("packets/sec", this);
-    Label->setStyleSheet("color: " COLOR_DIM "; font-size: 11px; background: transparent;");
-    Main->addWidget(Label);
+    QLabel *TrafficTitle = new QLabel("Traffic", this);
+    TrafficTitle->setStyleSheet(
+        "color: " COLOR_TEXT "; font-size: 13px; font-weight: 600;"
+        "background: transparent;"
+    );
+    Main->addWidget(TrafficTitle);
 
+    // เส้นคั่น
+    QFrame *Line1 = new QFrame(this);
+    Line1->setFixedHeight(1);
+    Line1->setStyleSheet("background-color: " COLOR_BORDER ";");
+    Main->addWidget(Line1);
+
+    // Header ของกราฟ: Current + Peak
     QHBoxLayout *TrafficHeader = new QHBoxLayout();
     TrafficHeader->setContentsMargins(0, 4, 0, 0);
-    TrafficHeader->setSpacing(16);
 
-    // ---- IN ----
-    QLabel *InTag = new QLabel("▼ IN", this);
-    InTag->setStyleSheet("color: #00d4ff; font-size: 12px; font-weight: 600; background: transparent;");
-    TrafficHeader->addWidget(InTag);
-
-    InRateLabel = new QLabel("0 pps", this);
-    InRateLabel->setStyleSheet("color: #00d4ff; font-size: 12px; font-weight: 600; background: transparent;");
-    TrafficHeader->addWidget(InRateLabel);
-
-    InPeakLabel = new QLabel("peak 0", this);
-    InPeakLabel->setStyleSheet("color: " COLOR_DIM "; font-size: 10px; background: transparent;");
-    TrafficHeader->addWidget(InPeakLabel);
-
-    // ---- OUT ----
-    QLabel *OutTag = new QLabel("▲ OUT", this);
-    OutTag->setStyleSheet("color: #4ec9b0; font-size: 12px; font-weight: 600; background: transparent; padding-left: 16px;");
-    TrafficHeader->addWidget(OutTag);
-
-    OutRateLabel = new QLabel("0 pps", this);
-    OutRateLabel->setStyleSheet("color: #4ec9b0; font-size: 12px; font-weight: 600; background: transparent;");
-    TrafficHeader->addWidget(OutRateLabel);
-
-    OutPeakLabel = new QLabel("peak 0", this);
-    OutPeakLabel->setStyleSheet("color: " COLOR_DIM "; font-size: 10px; background: transparent;");
-    TrafficHeader->addWidget(OutPeakLabel);
+    QLabel *Label = new QLabel("packets/sec", this);
+    Label->setStyleSheet("color: " COLOR_DIM "; font-size: 11px; background: transparent;");
+    TrafficHeader->addWidget(Label);
 
     TrafficHeader->addStretch();
+
+    CurrentRateLabel = new QLabel("0 pps", this);
+    CurrentRateLabel->setStyleSheet(
+        "color: " COLOR_ACCENT "; font-size: 12px; font-weight: 600;"
+        "background: transparent;"
+    );
+    TrafficHeader->addWidget(CurrentRateLabel);
+
+    PeakRateLabel = new QLabel("Peak: 0", this);
+    PeakRateLabel->setStyleSheet(
+        "color: " COLOR_DIM "; font-size: 11px;"
+        "background: transparent; padding-left: 12px;"
+    );
+    TrafficHeader->addWidget(PeakRateLabel);
 
     Main->addLayout(TrafficHeader);
 
@@ -395,37 +409,23 @@ TrafficGraph::TrafficGraph(QWidget *parent) : QWidget(parent) {
     MainResourceWidget->UpdateResources();
 }
 
-void TrafficGraph::UpdatePacketCount(int inCount, int outCount) {
+void TrafficGraph::UpdatePacketCount(int count) {
     if (MainFirst) {
-        MainLastIn  = inCount;
-        MainLastOut = outCount;
+        MainLastCount = count;
         MainFirst = 0;
         return;
     }
 
-    int inDiff  = inCount  - MainLastIn;
-    int outDiff = outCount - MainLastOut;
-    if (inDiff  < 0) inDiff  = 0;
-    if (outDiff < 0) outDiff = 0;
+    int diff = count - MainLastCount;
+    int rate = diff * 10;
+    if (rate < 0) rate = 0;
 
-    int inRate  = inDiff  * 10;
-    int outRate = outDiff * 10;
+    MainLastCount = count;
 
-    MainLastIn  = inCount;
-    MainLastOut = outCount;
+    MainSparkLine->AddValue(rate);
+    CurrentRateLabel->setText(QString("%1 pps").arg(rate));
 
-    MainSparkLine->AddValue(inRate, outRate);
-
-    // ---- Smooth ----
-    static float smoothIn  = 0;
-    static float smoothOut = 0;
-    smoothIn  = smoothIn  * 0.6f + inRate  * 0.4f;
-    smoothOut = smoothOut * 0.6f + outRate * 0.4f;
-
-    // ---- อัปเดต Labels ----
-    InRateLabel->setText(QString("%1 pps").arg((int)smoothIn));
-    OutRateLabel->setText(QString("%1 pps").arg((int)smoothOut));
-
-    InPeakLabel->setText(QString("peak %1").arg(MainSparkLine->GetPeakIn()));
-    OutPeakLabel->setText(QString("peak %1").arg(MainSparkLine->GetPeakOut()));
+    int peak = MainSparkLine->GetPeakValue();
+    if (peak > PeakRate) PeakRate = peak;
+    PeakRateLabel->setText(QString("Peak: %1").arg(PeakRate));
 }
