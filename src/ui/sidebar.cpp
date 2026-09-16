@@ -40,6 +40,12 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent) {
     ManagementButton = CreateButton("⚙", "Management", 4);
     Main_Layout->addWidget(ManagementButton, 0, Qt::AlignHCenter);
 
+    LogButton = CreateButton("📜", "Logs", 5);
+    Main_Layout->addWidget(LogButton, 0, Qt::AlignHCenter);
+
+    AIButton = CreateButton("🤖", "AI Assistant", 6);
+    Main_Layout->addWidget(AIButton, 0, Qt::AlignHCenter);
+
     // ============ Divider ============
     QFrame *Line = new QFrame(this);
     Line->setFixedHeight(1);
@@ -49,8 +55,11 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent) {
     // ============ ดันปุ่มล่าง ============
     Main_Layout->addStretch();
 
+    NotificationButton = CreateButton("🔔", "Notifications", 7);
+    Main_Layout->addWidget(NotificationButton, 0, Qt::AlignHCenter);
+
     // ============ Settings ============
-    SettingButton = CreateButton("⚒", "Settings", 5);
+    SettingButton = CreateButton("⚒", "Settings", 8);
     Main_Layout->addWidget(SettingButton, 0, Qt::AlignHCenter);
 
     // ============ Exit (ไม่นับใน group + มี glow แดง) ============

@@ -226,6 +226,54 @@ src/receiver/firewall.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/firewall.c.s
 .PHONY : src/receiver/firewall.c.s
 
+src/receiver/log_queue.obj: src/receiver/log_queue.cpp.obj
+.PHONY : src/receiver/log_queue.obj
+
+# target to build an object file
+src/receiver/log_queue.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/log_queue.cpp.obj
+.PHONY : src/receiver/log_queue.cpp.obj
+
+src/receiver/log_queue.i: src/receiver/log_queue.cpp.i
+.PHONY : src/receiver/log_queue.i
+
+# target to preprocess a source file
+src/receiver/log_queue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/log_queue.cpp.i
+.PHONY : src/receiver/log_queue.cpp.i
+
+src/receiver/log_queue.s: src/receiver/log_queue.cpp.s
+.PHONY : src/receiver/log_queue.s
+
+# target to generate assembly for a file
+src/receiver/log_queue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/log_queue.cpp.s
+.PHONY : src/receiver/log_queue.cpp.s
+
+src/receiver/notification_queue.obj: src/receiver/notification_queue.cpp.obj
+.PHONY : src/receiver/notification_queue.obj
+
+# target to build an object file
+src/receiver/notification_queue.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/notification_queue.cpp.obj
+.PHONY : src/receiver/notification_queue.cpp.obj
+
+src/receiver/notification_queue.i: src/receiver/notification_queue.cpp.i
+.PHONY : src/receiver/notification_queue.i
+
+# target to preprocess a source file
+src/receiver/notification_queue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/notification_queue.cpp.i
+.PHONY : src/receiver/notification_queue.cpp.i
+
+src/receiver/notification_queue.s: src/receiver/notification_queue.cpp.s
+.PHONY : src/receiver/notification_queue.s
+
+# target to generate assembly for a file
+src/receiver/notification_queue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/notification_queue.cpp.s
+.PHONY : src/receiver/notification_queue.cpp.s
+
 src/receiver/packet_counter.obj: src/receiver/packet_counter.c.obj
 .PHONY : src/receiver/packet_counter.obj
 
@@ -418,6 +466,30 @@ src/receiver/windows/socket.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/windows/socket.c.s
 .PHONY : src/receiver/windows/socket.c.s
 
+src/ui/aipage.obj: src/ui/aipage.cpp.obj
+.PHONY : src/ui/aipage.obj
+
+# target to build an object file
+src/ui/aipage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/aipage.cpp.obj
+.PHONY : src/ui/aipage.cpp.obj
+
+src/ui/aipage.i: src/ui/aipage.cpp.i
+.PHONY : src/ui/aipage.i
+
+# target to preprocess a source file
+src/ui/aipage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/aipage.cpp.i
+.PHONY : src/ui/aipage.cpp.i
+
+src/ui/aipage.s: src/ui/aipage.cpp.s
+.PHONY : src/ui/aipage.s
+
+# target to generate assembly for a file
+src/ui/aipage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/aipage.cpp.s
+.PHONY : src/ui/aipage.cpp.s
+
 src/ui/alertpage.obj: src/ui/alertpage.cpp.obj
 .PHONY : src/ui/alertpage.obj
 
@@ -442,6 +514,30 @@ src/ui/alertpage.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/alertpage.cpp.s
 .PHONY : src/ui/alertpage.cpp.s
 
+src/ui/logpage.obj: src/ui/logpage.cpp.obj
+.PHONY : src/ui/logpage.obj
+
+# target to build an object file
+src/ui/logpage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/logpage.cpp.obj
+.PHONY : src/ui/logpage.cpp.obj
+
+src/ui/logpage.i: src/ui/logpage.cpp.i
+.PHONY : src/ui/logpage.i
+
+# target to preprocess a source file
+src/ui/logpage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/logpage.cpp.i
+.PHONY : src/ui/logpage.cpp.i
+
+src/ui/logpage.s: src/ui/logpage.cpp.s
+.PHONY : src/ui/logpage.s
+
+# target to generate assembly for a file
+src/ui/logpage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/logpage.cpp.s
+.PHONY : src/ui/logpage.cpp.s
+
 src/ui/managementpage.obj: src/ui/managementpage.cpp.obj
 .PHONY : src/ui/managementpage.obj
 
@@ -465,6 +561,30 @@ src/ui/managementpage.s: src/ui/managementpage.cpp.s
 src/ui/managementpage.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/managementpage.cpp.s
 .PHONY : src/ui/managementpage.cpp.s
+
+src/ui/notificationpage.obj: src/ui/notificationpage.cpp.obj
+.PHONY : src/ui/notificationpage.obj
+
+# target to build an object file
+src/ui/notificationpage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/notificationpage.cpp.obj
+.PHONY : src/ui/notificationpage.cpp.obj
+
+src/ui/notificationpage.i: src/ui/notificationpage.cpp.i
+.PHONY : src/ui/notificationpage.i
+
+# target to preprocess a source file
+src/ui/notificationpage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/notificationpage.cpp.i
+.PHONY : src/ui/notificationpage.cpp.i
+
+src/ui/notificationpage.s: src/ui/notificationpage.cpp.s
+.PHONY : src/ui/notificationpage.s
+
+# target to generate assembly for a file
+src/ui/notificationpage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/notificationpage.cpp.s
+.PHONY : src/ui/notificationpage.cpp.s
 
 src/ui/packetpage.obj: src/ui/packetpage.cpp.obj
 .PHONY : src/ui/packetpage.obj
@@ -513,6 +633,30 @@ src/ui/qt.s: src/ui/qt.cpp.s
 src/ui/qt.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/qt.cpp.s
 .PHONY : src/ui/qt.cpp.s
+
+src/ui/settingpage.obj: src/ui/settingpage.cpp.obj
+.PHONY : src/ui/settingpage.obj
+
+# target to build an object file
+src/ui/settingpage.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/settingpage.cpp.obj
+.PHONY : src/ui/settingpage.cpp.obj
+
+src/ui/settingpage.i: src/ui/settingpage.cpp.i
+.PHONY : src/ui/settingpage.i
+
+# target to preprocess a source file
+src/ui/settingpage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/settingpage.cpp.i
+.PHONY : src/ui/settingpage.cpp.i
+
+src/ui/settingpage.s: src/ui/settingpage.cpp.s
+.PHONY : src/ui/settingpage.s
+
+# target to generate assembly for a file
+src/ui/settingpage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/ui/settingpage.cpp.s
+.PHONY : src/ui/settingpage.cpp.s
 
 src/ui/sidebar.obj: src/ui/sidebar.cpp.obj
 .PHONY : src/ui/sidebar.obj
@@ -654,6 +798,12 @@ help:
 	@echo ... src/receiver/firewall.obj
 	@echo ... src/receiver/firewall.i
 	@echo ... src/receiver/firewall.s
+	@echo ... src/receiver/log_queue.obj
+	@echo ... src/receiver/log_queue.i
+	@echo ... src/receiver/log_queue.s
+	@echo ... src/receiver/notification_queue.obj
+	@echo ... src/receiver/notification_queue.i
+	@echo ... src/receiver/notification_queue.s
 	@echo ... src/receiver/packet_counter.obj
 	@echo ... src/receiver/packet_counter.i
 	@echo ... src/receiver/packet_counter.s
@@ -678,18 +828,30 @@ help:
 	@echo ... src/receiver/windows/socket.obj
 	@echo ... src/receiver/windows/socket.i
 	@echo ... src/receiver/windows/socket.s
+	@echo ... src/ui/aipage.obj
+	@echo ... src/ui/aipage.i
+	@echo ... src/ui/aipage.s
 	@echo ... src/ui/alertpage.obj
 	@echo ... src/ui/alertpage.i
 	@echo ... src/ui/alertpage.s
+	@echo ... src/ui/logpage.obj
+	@echo ... src/ui/logpage.i
+	@echo ... src/ui/logpage.s
 	@echo ... src/ui/managementpage.obj
 	@echo ... src/ui/managementpage.i
 	@echo ... src/ui/managementpage.s
+	@echo ... src/ui/notificationpage.obj
+	@echo ... src/ui/notificationpage.i
+	@echo ... src/ui/notificationpage.s
 	@echo ... src/ui/packetpage.obj
 	@echo ... src/ui/packetpage.i
 	@echo ... src/ui/packetpage.s
 	@echo ... src/ui/qt.obj
 	@echo ... src/ui/qt.i
 	@echo ... src/ui/qt.s
+	@echo ... src/ui/settingpage.obj
+	@echo ... src/ui/settingpage.i
+	@echo ... src/ui/settingpage.s
 	@echo ... src/ui/sidebar.obj
 	@echo ... src/ui/sidebar.i
 	@echo ... src/ui/sidebar.s

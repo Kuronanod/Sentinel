@@ -5,25 +5,35 @@
 #include <QTextEdit>
 #include <QLineEdit>
 #include <QProcess>
-#include <QVBoxLayout>
+#include <QPushButton>
+#include <QLabel>
 
-class Terminal : public QWidget{
-
+class Terminal : public QWidget {
     Q_OBJECT
 
 public:
-    explicit Terminal(QWidget *parent = nullptr); 
+    explicit Terminal(QWidget *parent = nullptr);
+    ~Terminal();
 
 private slots:
-    void ExecuteCommand();
-    void ReadOutput();
-    void ReadError();
+    void OnCommandEntered();
+    void OnReadyReadStandardOutput();
+    void OnReadyReadStandardError();
+    void OnProcessFinished(int exitCode, QProcess::ExitStatus status);
+    void OnClearClicked();
+    void OnStopClicked();
 
 private:
-    QTextEdit *OutputArea;
-    QLineEdit *InputArea;
-    QProcess *Process;
+    QTextEdit   *OutputView;
+    QLineEdit   *InputLine;
+    QPushButton *ClearBtn;
+    QPushButton *StopBtn;
+    QLabel      *StatusLabel;
+    QProcess    *Shell;
 
+    void AppendText(const QString &text, const QString &color = "");
+    void StartShell();
+    void StopShell();
 };
 
 #endif

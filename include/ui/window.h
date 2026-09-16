@@ -7,6 +7,10 @@
 #include "terminal.h"
 #include "alertpage.h"
 #include "managementpage.h"
+#include "settingpage.h"
+#include "logpage.h"
+#include "aipage.h"
+#include "notificationpage.h"
 
 #include <QMainWindow>
 #include <QPushButton>
@@ -60,6 +64,10 @@ private:
     AlertPage *AlertInfoPage;
     SideBar *MainSideBar;
     ManagementPage *ManagementInfoPage;
+    LogPage *LogInfoPage;
+    AIPage *AIInfoPage;
+    NotificationPage *NotificationInfoPage;
+    SettingPage *SettingInfoPage;
 
 };
 

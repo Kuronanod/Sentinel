@@ -2,6 +2,8 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_window.cpp: C:/
   C:/Users/korusuba/Sentinel/build/sentinel_autogen/moc_predefs.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/QString \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/QStringList \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
   C:/Qt/6.11.1/mingw_64/include/QtCore/q17memory.h \
@@ -147,6 +149,7 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_window.cpp: C:/
   C:/Qt/6.11.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/QColor \
   C:/Qt/6.11.1/mingw_64/include/QtGui/QPainter \
   C:/Qt/6.11.1/mingw_64/include/QtGui/QPainterPath \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qaction.h \
@@ -185,6 +188,8 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_window.cpp: C:/
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QButtonGroup \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QCheckBox \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
@@ -208,6 +213,8 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_window.cpp: C:/
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qbuttongroup.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qcheckbox.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
@@ -453,9 +460,13 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_window.cpp: C:/
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+  C:/Users/korusuba/Sentinel/include/ui/aipage.h \
   C:/Users/korusuba/Sentinel/include/ui/alertpage.h \
+  C:/Users/korusuba/Sentinel/include/ui/logpage.h \
   C:/Users/korusuba/Sentinel/include/ui/managementpage.h \
+  C:/Users/korusuba/Sentinel/include/ui/notificationpage.h \
   C:/Users/korusuba/Sentinel/include/ui/packetpage.h \
+  C:/Users/korusuba/Sentinel/include/ui/settingpage.h \
   C:/Users/korusuba/Sentinel/include/ui/sidebar.h \
   C:/Users/korusuba/Sentinel/include/ui/terminal.h \
   C:/Users/korusuba/Sentinel/include/ui/trafficgraph.h

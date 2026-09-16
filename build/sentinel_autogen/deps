@@ -1,6 +1,8 @@
 sentinel_autogen/timestamp: \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess \
+	C:/Qt/6.11.1/mingw_64/include/QtCore/QString \
+	C:/Qt/6.11.1/mingw_64/include/QtCore/QStringList \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/q17memory.h \
@@ -146,6 +148,7 @@ sentinel_autogen/timestamp: \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/qversiontagging.h \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/qxptype_traits.h \
 	C:/Qt/6.11.1/mingw_64/include/QtCore/qyieldcpu.h \
+	C:/Qt/6.11.1/mingw_64/include/QtGui/QColor \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/QPainter \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/QPainterPath \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qaction.h \
@@ -184,6 +187,8 @@ sentinel_autogen/timestamp: \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QButtonGroup \
+	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QCheckBox \
+	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QComboBox \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
@@ -207,6 +212,8 @@ sentinel_autogen/timestamp: \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qbuttongroup.h \
+	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qcheckbox.h \
+	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qcombobox.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
 	C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
@@ -662,6 +669,8 @@ sentinel_autogen/timestamp: \
 	C:/Users/korusuba/Sentinel/build/sentinel_autogen/moc_predefs.h \
 	C:/Users/korusuba/Sentinel/include/receiver/alert_queue.h \
 	C:/Users/korusuba/Sentinel/include/receiver/firewall.h \
+	C:/Users/korusuba/Sentinel/include/receiver/log_queue.h \
+	C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h \
 	C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h \
 	C:/Users/korusuba/Sentinel/include/receiver/parser.h \
 	C:/Users/korusuba/Sentinel/include/receiver/prefilter.h \
@@ -670,9 +679,13 @@ sentinel_autogen/timestamp: \
 	C:/Users/korusuba/Sentinel/include/receiver/windows/get_packet.h \
 	C:/Users/korusuba/Sentinel/include/receiver/windows/read.h \
 	C:/Users/korusuba/Sentinel/include/receiver/windows/socket.h \
+	C:/Users/korusuba/Sentinel/include/ui/aipage.h \
 	C:/Users/korusuba/Sentinel/include/ui/alertpage.h \
+	C:/Users/korusuba/Sentinel/include/ui/logpage.h \
 	C:/Users/korusuba/Sentinel/include/ui/managementpage.h \
+	C:/Users/korusuba/Sentinel/include/ui/notificationpage.h \
 	C:/Users/korusuba/Sentinel/include/ui/packetpage.h \
+	C:/Users/korusuba/Sentinel/include/ui/settingpage.h \
 	C:/Users/korusuba/Sentinel/include/ui/sidebar.h \
 	C:/Users/korusuba/Sentinel/include/ui/terminal.h \
 	C:/Users/korusuba/Sentinel/include/ui/topbar.h \
@@ -680,6 +693,8 @@ sentinel_autogen/timestamp: \
 	C:/Users/korusuba/Sentinel/include/ui/window.h \
 	C:/Users/korusuba/Sentinel/src/receiver/alert_queue.cpp \
 	C:/Users/korusuba/Sentinel/src/receiver/firewall.c \
+	C:/Users/korusuba/Sentinel/src/receiver/log_queue.cpp \
+	C:/Users/korusuba/Sentinel/src/receiver/notification_queue.cpp \
 	C:/Users/korusuba/Sentinel/src/receiver/packet_counter.c \
 	C:/Users/korusuba/Sentinel/src/receiver/parser.c \
 	C:/Users/korusuba/Sentinel/src/receiver/prefilter.c \
@@ -688,10 +703,14 @@ sentinel_autogen/timestamp: \
 	C:/Users/korusuba/Sentinel/src/receiver/windows/get_packet.c \
 	C:/Users/korusuba/Sentinel/src/receiver/windows/read.c \
 	C:/Users/korusuba/Sentinel/src/receiver/windows/socket.c \
+	C:/Users/korusuba/Sentinel/src/ui/aipage.cpp \
 	C:/Users/korusuba/Sentinel/src/ui/alertpage.cpp \
+	C:/Users/korusuba/Sentinel/src/ui/logpage.cpp \
 	C:/Users/korusuba/Sentinel/src/ui/managementpage.cpp \
+	C:/Users/korusuba/Sentinel/src/ui/notificationpage.cpp \
 	C:/Users/korusuba/Sentinel/src/ui/packetpage.cpp \
 	C:/Users/korusuba/Sentinel/src/ui/qt.cpp \
+	C:/Users/korusuba/Sentinel/src/ui/settingpage.cpp \
 	C:/Users/korusuba/Sentinel/src/ui/sidebar.cpp \
 	C:/Users/korusuba/Sentinel/src/ui/terminal.cpp \
 	C:/Users/korusuba/Sentinel/src/ui/topbar.cpp \

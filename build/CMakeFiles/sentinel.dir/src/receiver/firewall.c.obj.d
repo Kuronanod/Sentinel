@@ -15,6 +15,7 @@ CMakeFiles/sentinel.dir/src/receiver/firewall.c.obj: \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/crtdefs.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sec_api/string_s.h \
  C:/Users/korusuba/Sentinel/include/receiver/firewall.h \
+ C:/Users/korusuba/Sentinel/include/receiver/log_queue.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/windows.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sdkddkver.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/excpt.h \

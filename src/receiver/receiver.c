@@ -3,6 +3,8 @@
 #include "receiver/request_queue.h"
 #include "receiver/prefilter.h"
 #include "receiver/alert_queue.h"
+#include "receiver/log_queue.h"
+#include "receiver/notification_queue.h"
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -27,6 +29,8 @@ int receiver(const char *ip){
         printf("Socket init failed!\n");
         return -1;
     }
+
+    LogWrite(LOG_INFO, "Receiver started on %s", ip);
 
     //printf("Entering capture loop...\n");
     while(true){
@@ -70,6 +74,11 @@ int receiver(const char *ip){
                 (Record.SourceIP >> 24) & 0xFF,
                 Record.DestinationPort);
             PushAlert(alertMsg);
+            PushNotification(NOTIF_TYPE_ALERT, "Anomaly Detected", alertMsg);
+
+            LogWrite(LOG_CRIT, "%s", alertMsg);
+            
+
         } else {
             PushPacket(&Record);
         }

@@ -272,4 +272,6 @@ CMakeFiles/sentinel.dir/src/receiver/prefilter.c.obj: \
  C:/Users/korusuba/Sentinel/include/receiver/prefilter.h \
  C:/Users/korusuba/Sentinel/include/receiver/request_queue.h \
  C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h \
+ C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h \
+ C:/Users/korusuba/Sentinel/include/receiver/log_queue.h \
  C:/Users/korusuba/Sentinel/include/receiver/firewall.h

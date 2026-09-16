@@ -147,6 +147,7 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_terminal.cpp: C
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpen.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/qpicture.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qpolygon.h \
@@ -163,17 +164,17 @@ C:/Users/korusuba/Sentinel/build/sentinel_autogen/JCP2AIONHY/moc_terminal.cpp: C
   C:/Qt/6.11.1/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLineEdit \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTextEdit \
-  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
-  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
-  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayout.h \
-  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlineedit.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtextedit.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgets-config.h \

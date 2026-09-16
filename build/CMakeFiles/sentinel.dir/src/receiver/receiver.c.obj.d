@@ -18,6 +18,8 @@ CMakeFiles/sentinel.dir/src/receiver/receiver.c.obj: \
  C:/Users/korusuba/Sentinel/include/receiver/prefilter.h \
  C:/Users/korusuba/Sentinel/include/receiver/request_queue.h \
  C:/Users/korusuba/Sentinel/include/receiver/alert_queue.h \
+ C:/Users/korusuba/Sentinel/include/receiver/log_queue.h \
+ C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/stdio.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_off_t.h \

@@ -40,19 +40,33 @@ template <> constexpr inline auto Terminal::qt_create_metaobjectdata<qt_meta_tag
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "Terminal",
-        "ExecuteCommand",
+        "OnCommandEntered",
         "",
-        "ReadOutput",
-        "ReadError"
+        "OnReadyReadStandardOutput",
+        "OnReadyReadStandardError",
+        "OnProcessFinished",
+        "exitCode",
+        "QProcess::ExitStatus",
+        "status",
+        "OnClearClicked",
+        "OnStopClicked"
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'ExecuteCommand'
+        // Slot 'OnCommandEntered'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'ReadOutput'
+        // Slot 'OnReadyReadStandardOutput'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'ReadError'
+        // Slot 'OnReadyReadStandardError'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'OnProcessFinished'
+        QtMocHelpers::SlotData<void(int, QProcess::ExitStatus)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 6 }, { 0x80000000 | 7, 8 },
+        }}),
+        // Slot 'OnClearClicked'
+        QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'OnStopClicked'
+        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -76,13 +90,15 @@ void Terminal::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     auto *_t = static_cast<Terminal *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->ExecuteCommand(); break;
-        case 1: _t->ReadOutput(); break;
-        case 2: _t->ReadError(); break;
+        case 0: _t->OnCommandEntered(); break;
+        case 1: _t->OnReadyReadStandardOutput(); break;
+        case 2: _t->OnReadyReadStandardError(); break;
+        case 3: _t->OnProcessFinished((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QProcess::ExitStatus>>(_a[2]))); break;
+        case 4: _t->OnClearClicked(); break;
+        case 5: _t->OnStopClicked(); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *Terminal::metaObject() const
@@ -104,14 +120,14 @@ int Terminal::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 6;
     }
     return _id;
 }

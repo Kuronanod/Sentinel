@@ -344,6 +344,18 @@
 			null
 		],
 		[
+			"C:/Users/korusuba/Sentinel/include/receiver/log_queue.h",
+			"Mu",
+			"QLJF6WQS6J/moc_log_queue.cpp",
+			null
+		],
+		[
+			"C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h",
+			"Mu",
+			"QLJF6WQS6J/moc_notification_queue.cpp",
+			null
+		],
+		[
 			"C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h",
 			"Mu",
 			"QLJF6WQS6J/moc_packet_counter.cpp",
@@ -392,9 +404,21 @@
 			null
 		],
 		[
+			"C:/Users/korusuba/Sentinel/include/ui/aipage.h",
+			"Mu",
+			"JCP2AIONHY/moc_aipage.cpp",
+			null
+		],
+		[
 			"C:/Users/korusuba/Sentinel/include/ui/alertpage.h",
 			"Mu",
 			"JCP2AIONHY/moc_alertpage.cpp",
+			null
+		],
+		[
+			"C:/Users/korusuba/Sentinel/include/ui/logpage.h",
+			"Mu",
+			"JCP2AIONHY/moc_logpage.cpp",
 			null
 		],
 		[
@@ -404,9 +428,21 @@
 			null
 		],
 		[
+			"C:/Users/korusuba/Sentinel/include/ui/notificationpage.h",
+			"Mu",
+			"JCP2AIONHY/moc_notificationpage.cpp",
+			null
+		],
+		[
 			"C:/Users/korusuba/Sentinel/include/ui/packetpage.h",
 			"Mu",
 			"JCP2AIONHY/moc_packetpage.cpp",
+			null
+		],
+		[
+			"C:/Users/korusuba/Sentinel/include/ui/settingpage.h",
+			"Mu",
+			"JCP2AIONHY/moc_settingpage.cpp",
 			null
 		],
 		[
@@ -519,6 +555,12 @@
 	[
 		[ "C:/Users/korusuba/Sentinel/src/receiver/alert_queue.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/receiver/firewall.c", "Mu", null ],
+		[ "C:/Users/korusuba/Sentinel/src/receiver/log_queue.cpp", "Mu", null ],
+		[
+			"C:/Users/korusuba/Sentinel/src/receiver/notification_queue.cpp",
+			"Mu",
+			null
+		],
 		[
 			"C:/Users/korusuba/Sentinel/src/receiver/packet_counter.c",
 			"Mu",
@@ -543,10 +585,14 @@
 			"Mu",
 			null
 		],
+		[ "C:/Users/korusuba/Sentinel/src/ui/aipage.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/alertpage.cpp", "Mu", null ],
+		[ "C:/Users/korusuba/Sentinel/src/ui/logpage.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/managementpage.cpp", "Mu", null ],
+		[ "C:/Users/korusuba/Sentinel/src/ui/notificationpage.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/packetpage.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/qt.cpp", "Mu", null ],
+		[ "C:/Users/korusuba/Sentinel/src/ui/settingpage.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/sidebar.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/terminal.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/ui/topbar.cpp", "Mu", null ],

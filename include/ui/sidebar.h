@@ -26,6 +26,9 @@ private:
     QPushButton *TerminalButton;
     QPushButton *ManagementButton;
     QPushButton *AlertpageButton;
+    QPushButton *LogButton;
+    QPushButton *AIButton;
+    QPushButton *NotificationButton;
     QPushButton *SettingButton;
     QPushButton *ExitButton;
 

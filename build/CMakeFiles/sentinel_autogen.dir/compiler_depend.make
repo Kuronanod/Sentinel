@@ -3,6 +3,8 @@
 
 sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QProcess \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/QString \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/QStringList \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.11.1/mingw_64/include/QtCore/QVector \
   C:/Qt/6.11.1/mingw_64/include/QtCore/q17memory.h \
@@ -148,6 +150,7 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/QColor \
   C:/Qt/6.11.1/mingw_64/include/QtGui/QPainter \
   C:/Qt/6.11.1/mingw_64/include/QtGui/QPainterPath \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qaction.h \
@@ -186,6 +189,8 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QButtonGroup \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QCheckBox \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QHBoxLayout \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel \
@@ -194,6 +199,7 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QScrollArea \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSpinBox \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSplitter \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QStackedWidget \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QTableWidget \
@@ -208,6 +214,8 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qbuttongroup.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qcheckbox.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qgridlayout.h \
@@ -223,6 +231,7 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qspinbox.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsplitter.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstackedwidget.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstyle.h \
@@ -662,6 +671,8 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   sentinel_autogen/moc_predefs.h \
   C:/Users/korusuba/Sentinel/include/receiver/alert_queue.h \
   C:/Users/korusuba/Sentinel/include/receiver/firewall.h \
+  C:/Users/korusuba/Sentinel/include/receiver/log_queue.h \
+  C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h \
   C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h \
   C:/Users/korusuba/Sentinel/include/receiver/parser.h \
   C:/Users/korusuba/Sentinel/include/receiver/prefilter.h \
@@ -670,9 +681,13 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Users/korusuba/Sentinel/include/receiver/windows/get_packet.h \
   C:/Users/korusuba/Sentinel/include/receiver/windows/read.h \
   C:/Users/korusuba/Sentinel/include/receiver/windows/socket.h \
+  C:/Users/korusuba/Sentinel/include/ui/aipage.h \
   C:/Users/korusuba/Sentinel/include/ui/alertpage.h \
+  C:/Users/korusuba/Sentinel/include/ui/logpage.h \
   C:/Users/korusuba/Sentinel/include/ui/managementpage.h \
+  C:/Users/korusuba/Sentinel/include/ui/notificationpage.h \
   C:/Users/korusuba/Sentinel/include/ui/packetpage.h \
+  C:/Users/korusuba/Sentinel/include/ui/settingpage.h \
   C:/Users/korusuba/Sentinel/include/ui/sidebar.h \
   C:/Users/korusuba/Sentinel/include/ui/terminal.h \
   C:/Users/korusuba/Sentinel/include/ui/topbar.h \
@@ -680,6 +695,8 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Users/korusuba/Sentinel/include/ui/window.h \
   C:/Users/korusuba/Sentinel/src/receiver/alert_queue.cpp \
   C:/Users/korusuba/Sentinel/src/receiver/firewall.c \
+  C:/Users/korusuba/Sentinel/src/receiver/log_queue.cpp \
+  C:/Users/korusuba/Sentinel/src/receiver/notification_queue.cpp \
   C:/Users/korusuba/Sentinel/src/receiver/packet_counter.c \
   C:/Users/korusuba/Sentinel/src/receiver/parser.c \
   C:/Users/korusuba/Sentinel/src/receiver/prefilter.c \
@@ -688,10 +705,14 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Users/korusuba/Sentinel/src/receiver/windows/get_packet.c \
   C:/Users/korusuba/Sentinel/src/receiver/windows/read.c \
   C:/Users/korusuba/Sentinel/src/receiver/windows/socket.c \
+  C:/Users/korusuba/Sentinel/src/ui/aipage.cpp \
   C:/Users/korusuba/Sentinel/src/ui/alertpage.cpp \
+  C:/Users/korusuba/Sentinel/src/ui/logpage.cpp \
   C:/Users/korusuba/Sentinel/src/ui/managementpage.cpp \
+  C:/Users/korusuba/Sentinel/src/ui/notificationpage.cpp \
   C:/Users/korusuba/Sentinel/src/ui/packetpage.cpp \
   C:/Users/korusuba/Sentinel/src/ui/qt.cpp \
+  C:/Users/korusuba/Sentinel/src/ui/settingpage.cpp \
   C:/Users/korusuba/Sentinel/src/ui/sidebar.cpp \
   C:/Users/korusuba/Sentinel/src/ui/terminal.cpp \
   C:/Users/korusuba/Sentinel/src/ui/topbar.cpp \
@@ -798,19 +819,27 @@ C:/Users/korusuba/Sentinel/src/ui/terminal.cpp:
 
 C:/Users/korusuba/Sentinel/src/ui/sidebar.cpp:
 
+C:/Users/korusuba/Sentinel/src/ui/settingpage.cpp:
+
 C:/Users/korusuba/Sentinel/src/ui/qt.cpp:
 
 C:/Users/korusuba/Sentinel/src/ui/packetpage.cpp:
 
+C:/Users/korusuba/Sentinel/src/ui/logpage.cpp:
+
 C:/mingw64/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake:
 
 C:/Users/korusuba/Sentinel/src/ui/alertpage.cpp:
+
+C:/Users/korusuba/Sentinel/src/ui/aipage.cpp:
 
 C:/Users/korusuba/Sentinel/src/receiver/receiver.c:
 
 C:/Users/korusuba/Sentinel/src/receiver/parser.c:
 
 C:/Users/korusuba/Sentinel/src/receiver/packet_counter.c:
+
+C:/Users/korusuba/Sentinel/src/receiver/notification_queue.cpp:
 
 C:/Users/korusuba/Sentinel/src/receiver/alert_queue.cpp:
 
@@ -819,6 +848,10 @@ C:/Users/korusuba/Sentinel/include/ui/window.h:
 C:/Users/korusuba/Sentinel/include/ui/topbar.h:
 
 C:/Users/korusuba/Sentinel/include/ui/terminal.h:
+
+C:/Users/korusuba/Sentinel/src/ui/notificationpage.cpp:
+
+C:/Users/korusuba/Sentinel/include/ui/settingpage.h:
 
 C:/Users/korusuba/Sentinel/include/ui/packetpage.h:
 
@@ -833,6 +866,10 @@ C:/Users/korusuba/Sentinel/include/receiver/windows/get_packet.h:
 C:/Users/korusuba/Sentinel/include/receiver/prefilter.h:
 
 C:/Users/korusuba/Sentinel/include/receiver/parser.h:
+
+C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h:
+
+C:/Users/korusuba/Sentinel/include/receiver/log_queue.h:
 
 C:/Users/korusuba/Sentinel/include/receiver/firewall.h:
 
@@ -992,27 +1029,19 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint:
 
-C:/Qt/6.11.1/mingw_64/include/QtCore/qconfig.h:
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_types.h:
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare:
 
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicExternalProjectHelpers.cmake:
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale:
 
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow:
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits:
 
-C:/Qt/6.11.1/mingw_64/include/QtCore/qglobalstatic.h:
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set:
 
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargetsPrecheck.cmake:
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractbutton.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicCMakeEarlyPolicyHelpers.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake:
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtInstallPaths.cmake:
 
@@ -1066,8 +1095,6 @@ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qmainwindow.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtpreprocessorsupport.h:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale:
-
 C:/Users/korusuba/Sentinel/include/ui/trafficgraph.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistview.h:
@@ -1077,6 +1104,12 @@ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qslider.h:
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargetsPrecheck.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlayout.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qcheckbox.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qobjectdefs_impl.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabwidget.h:
 
@@ -1120,6 +1153,8 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qstringbuilder.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h:
 
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qspinbox.h:
+
 C:/Qt/6.11.1/mingw_64/include/QtCore/qscopeguard.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qttypetraits.h:
@@ -1137,6 +1172,10 @@ C:/Qt/6.11.1/mingw_64/include/QtGui/qvalidator.h:
 C:/Qt/6.11.1/mingw_64/include/QtGui/qtguiexports.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qtgui-config.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/list.tcc:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/QStringList:
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qtextcursor.h:
 
@@ -1171,6 +1210,8 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkAdditionalTargetInfo.cmake:
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemview.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargetsPrecheck.cmake:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargetsPrecheck.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qcolor.h:
 
@@ -1208,6 +1249,8 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/speci
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/nested_exception.h:
 
+C:/Qt/6.11.1/mingw_64/include/QtGui/QColor:
+
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtablewidget.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qstringlist.h:
@@ -1215,12 +1258,6 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qstringlist.h:
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qxptype_traits.h:
-
-C:/Users/korusuba/Sentinel/include/receiver/request_queue.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qvarlengtharray.h:
 
@@ -1236,6 +1273,8 @@ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/process.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qurl.h:
 
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QCheckBox:
+
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtabbar.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtypeinfo.h:
@@ -1250,17 +1289,9 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qttranslation.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtimer.h:
 
-C:/mingw64/share/cmake-4.2/Modules/CMakeRCInformation.cmake:
+C:/Qt/6.11.1/mingw_64/include/QtCore/qtextstream.h:
 
-C:/Qt/6.11.1/mingw_64/include/QtCore/qtypes.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qgenericatomic.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/q20functional.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h:
+C:/Qt/6.11.1/mingw_64/include/QtCore/qstring.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qnamespace.h:
 
@@ -1276,9 +1307,13 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qmath.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hash_bytes.h:
 
+C:/Qt/6.11.1/mingw_64/include/QtCore/QString:
+
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtclasshelpermacros.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qdebug.h:
+
+C:/Users/korusuba/Sentinel/include/ui/logpage.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstyleoption.h:
 
@@ -1294,19 +1329,25 @@ C:/Users/korusuba/Sentinel/src/receiver/firewall.c:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qdatetime.h:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string_view:
-
-C:/Qt/6.11.1/mingw_64/include/QtGui/QPainterPath:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_construct.h:
-
 C:/Qt/6.11.1/mingw_64/include/QtCore/qdatastream.h:
 
+C:/mingw64/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qendian.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qtenvironmentvariables.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qcontiguouscache.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtGui/qtransform.h:
+
 C:/Qt/6.11.1/mingw_64/include/QtCore/qdeadlinetimer.h:
+
+C:/Users/korusuba/Sentinel/include/ui/aipage.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake:
 
@@ -1318,15 +1359,13 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shar
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qcompilerdetection.h:
 
-C:/Qt/6.11.1/mingw_64/include/QtCore/qcalendar.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtGui/qrgba64.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/enable_special_members.h:
-
 C:/Qt/6.11.1/mingw_64/include/QtCore/qcompare.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtextedit.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/q17memory.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qpair.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicAndroidHelpers.cmake:
 
@@ -1335,6 +1374,136 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qrefcount.h:
 C:/Users/korusuba/Sentinel/src/ui/window.cpp:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/QListWidget:
+
+C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qbytearrayalgorithms.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtGui/qrgba64.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qcalendar.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/q20functional.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h:
+
+C:/mingw64/share/cmake-4.2/Modules/CMakeRCInformation.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qtypes.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QLabel:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qgenericatomic.h:
+
+C:/Users/korusuba/Sentinel/src/ui/managementpage.cpp:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qconstructormacros.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstackedwidget.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomExternalReferenceHelpers.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QMainWindow:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qglobalstatic.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicExternalProjectHelpers.cmake:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargetsPrecheck.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qcomparehelpers.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginAdditionalTargetInfo.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qtconfigmacros.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/Qt6Config.cmake:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers_v2.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/utility.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string_view:
+
+C:/Qt/6.11.1/mingw_64/include/QtGui/QPainterPath:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_construct.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtGui/qtextdocument.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsplitter.h:
+
+C:/mingw64/share/cmake-4.2/Modules/FindThreads.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qmetacontainer.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qsize.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qtcoreglobal.h:
+
+C:/mingw64/share/cmake-4.2/Modules/CMakeCXXInformation.cmake:
+
+C:/Users/korusuba/Sentinel/src/receiver/request_queue.cpp:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtGui/qfont.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qset.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/q20utility.h:
+
+C:/Users/korusuba/Sentinel/include/ui/sidebar.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qmargins.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qstringconverter.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qabstracteventdispatcher.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/QVector:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_ptr.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomCpeHelpers.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtGui/qfontmetrics.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/beta_function.tcc:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistwidget.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargetsPrecheck.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/q20type_traits.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qbasicatomic.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qiterator.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qcombobox.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomRelationshipHelpers.cmake:
 
 C:/mingw64/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake:
 
@@ -1350,78 +1519,6 @@ C:/Users/korusuba/Sentinel/src/receiver/windows/read.c:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtformat_impl.h:
 
-C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qbytearrayalgorithms.h:
-
-C:/Users/korusuba/Sentinel/src/ui/managementpage.cpp:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qconstructormacros.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc:
-
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/qstackedwidget.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomExternalReferenceHelpers.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qcomparehelpers.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginAdditionalTargetInfo.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qtconfigmacros.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/beta_function.tcc:
-
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlistwidget.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargetsPrecheck.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qsize.h:
-
-C:/mingw64/share/cmake-4.2/Modules/FindThreads.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qmetacontainer.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qtcoreglobal.h:
-
-C:/mingw64/share/cmake-4.2/Modules/CMakeCXXInformation.cmake:
-
-C:/Users/korusuba/Sentinel/src/receiver/request_queue.cpp:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/QVector:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_ptr.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qabstracteventdispatcher.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qmargins.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qstringconverter.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits:
-
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtextedit.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qpair.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/q17memory.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qobjectdefs_impl.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qbasicatomic.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/q20type_traits.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/utility.h:
-
 C:/Qt/6.11.1/mingw_64/include/QtCore/qfloat16.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargetsPrecheck.cmake:
@@ -1430,53 +1527,23 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets.c
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qfunctionpointer.h:
 
-C:/Qt/6.11.1/mingw_64/include/QtCore/qchar.h:
-
 C:/Qt/6.11.1/mingw_64/include/QtCore/qalgorithms.h:
 
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/Qt6Config.cmake:
+C:/Qt/6.11.1/mingw_64/include/QtCore/qchar.h:
 
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers_v2.cmake:
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno:
 
-C:/Qt/6.11.1/mingw_64/include/QtGui/qtextdocument.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/qsplitter.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtGui/qfont.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qset.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/q20utility.h:
-
-C:/Users/korusuba/Sentinel/include/ui/sidebar.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/QTimer:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qiterator.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/qlabel.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomRelationshipHelpers.cmake:
+C:/Qt/6.11.1/mingw_64/include/QtCore/qarraydata.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qtextstream.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qstring.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtGui/qfontmetrics.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomCpeHelpers.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qtwidgets-config.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets-relwithdebinfo.cmake:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qanystringview.h:
 
@@ -1485,14 +1552,6 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsDependencies.cmake:
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qlogging.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qpaintdevice.h:
 
@@ -1526,13 +1585,13 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qarraydatapointer.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/qscrollarea.h:
 
-C:/Qt/6.11.1/mingw_64/include/QtCore/qarraydata.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno:
-
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersionImpl.cmake:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qconfig.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_iterator_base_types.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/q20memory.h:
 
@@ -1548,25 +1607,19 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qatomic_cxx11.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qswap.h:
 
-C:/mingw64/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake:
+C:/Users/korusuba/Sentinel/include/receiver/request_queue.h:
 
-C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h:
+C:/Qt/6.11.1/mingw_64/include/QtCore/qvector.h:
 
-C:/Qt/6.11.1/mingw_64/include/QtCore/qcontiguouscache.h:
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake:
 
-C:/Qt/6.11.1/mingw_64/include/QtGui/qtransform.h:
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qendian.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qtenvironmentvariables.h:
-
-C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h:
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qalloc.h:
+
+C:/Users/korusuba/Sentinel/include/ui/notificationpage.h:
 
 C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/stdio.h:
 
@@ -1575,6 +1628,8 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node
 C:/Qt/6.11.1/mingw_64/include/QtGui/qpixelformat.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/q23utility.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QSpinBox:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets-relwithdebinfo.cmake:
 
@@ -1688,6 +1743,10 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets.cmake:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qshareddata_impl.h:
 
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath:
+
+C:/Qt/6.11.1/mingw_64/include/QtCore/qsharedpointer_impl.h:
+
 C:/Qt/6.11.1/mingw_64/include/QtGui/qbrush.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qspan.h:
@@ -1731,6 +1790,24 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginAdditionalTargetInfo.cma
 C:/Qt/6.11.1/mingw_64/include/QtCore/qtcoreexports.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bit:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractbutton.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicCMakeEarlyPolicyHelpers.cmake:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/enable_special_members.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h:
+
+C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicGitHelpers.cmake:
 
@@ -1904,6 +1981,8 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake:
 
+C:/Users/korusuba/Sentinel/src/receiver/log_queue.cpp:
+
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginTargetsPrecheck.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6/QtPublicSbomPurlHelpers.cmake:
@@ -1933,8 +2012,6 @@ C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginAdditionalT
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginConfig.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets-relwithdebinfo.cmake:
-
-C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargetsPrecheck.cmake:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginConfig.cmake:
 
@@ -2052,6 +2129,8 @@ C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h:
 
 C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargetsPrecheck.cmake:
 
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QComboBox:
+
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/charconv.h:
 
 C:/mingw64/share/cmake-4.2/Modules/GNUInstallDirs.cmake:
@@ -2129,8 +2208,6 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unor
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/invoke.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/list.tcc:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio:
 
@@ -2217,17 +2294,3 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono:
-
-C:/Qt/6.11.1/mingw_64/include/QtCore/qsharedpointer_impl.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef:

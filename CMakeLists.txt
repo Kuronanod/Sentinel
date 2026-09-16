@@ -16,6 +16,10 @@ set(UI_SRCS
     src/ui/packetpage.cpp
     src/ui/alertpage.cpp
     src/ui/managementpage.cpp
+    src/ui/logpage.cpp
+    src/ui/aipage.cpp
+    src/ui/settingpage.cpp
+    src/ui/notificationpage.cpp
 )
 
 set(CORE_SRCS
@@ -25,7 +29,9 @@ set(CORE_SRCS
     src/receiver/request_queue.cpp
     src/receiver/prefilter.c
     src/receiver/alert_queue.cpp
+    src/receiver/log_queue.cpp
     src/receiver/firewall.c
+    src/receiver/notification_queue.cpp
 )
 
 if(WIN32)
@@ -68,6 +74,10 @@ add_executable(sentinel
     include/ui/packetpage.h
     include/ui/alertpage.h
     include/ui/managementpage.h
+    include/ui/logpage.h
+    include/ui/aipage.h
+    include/ui/settingpage.h
+    include/ui/notificationpage.h
     include/receiver/receiver.h
     include/receiver/parser.h
     include/receiver/packet_counter.h
@@ -75,6 +85,8 @@ add_executable(sentinel
     include/receiver/alert_queue.h
     include/receiver/prefilter.h
     include/receiver/firewall.h
+    include/receiver/log_queue.h
+    include/receiver/notification_queue.h
     ${OS_HEADERS}
 )
 

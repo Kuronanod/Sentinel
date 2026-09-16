@@ -61,6 +61,30 @@
 },
 {
   "directory": "C:/Users/korusuba/Sentinel/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/sentinel.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\sentinel.dir\\src\\ui\\logpage.cpp.obj -c C:\\Users\\korusuba\\Sentinel\\src\\ui\\logpage.cpp",
+  "file": "C:/Users/korusuba/Sentinel/src/ui/logpage.cpp",
+  "output": "CMakeFiles/sentinel.dir/src/ui/logpage.cpp.obj"
+},
+{
+  "directory": "C:/Users/korusuba/Sentinel/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/sentinel.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\sentinel.dir\\src\\ui\\aipage.cpp.obj -c C:\\Users\\korusuba\\Sentinel\\src\\ui\\aipage.cpp",
+  "file": "C:/Users/korusuba/Sentinel/src/ui/aipage.cpp",
+  "output": "CMakeFiles/sentinel.dir/src/ui/aipage.cpp.obj"
+},
+{
+  "directory": "C:/Users/korusuba/Sentinel/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/sentinel.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\sentinel.dir\\src\\ui\\settingpage.cpp.obj -c C:\\Users\\korusuba\\Sentinel\\src\\ui\\settingpage.cpp",
+  "file": "C:/Users/korusuba/Sentinel/src/ui/settingpage.cpp",
+  "output": "CMakeFiles/sentinel.dir/src/ui/settingpage.cpp.obj"
+},
+{
+  "directory": "C:/Users/korusuba/Sentinel/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/sentinel.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\sentinel.dir\\src\\ui\\notificationpage.cpp.obj -c C:\\Users\\korusuba\\Sentinel\\src\\ui\\notificationpage.cpp",
+  "file": "C:/Users/korusuba/Sentinel/src/ui/notificationpage.cpp",
+  "output": "CMakeFiles/sentinel.dir/src/ui/notificationpage.cpp.obj"
+},
+{
+  "directory": "C:/Users/korusuba/Sentinel/build",
   "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\gcc.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/sentinel.dir/includes_C.rsp -g -o CMakeFiles\\sentinel.dir\\src\\receiver\\parser.c.obj -c C:\\Users\\korusuba\\Sentinel\\src\\receiver\\parser.c",
   "file": "C:/Users/korusuba/Sentinel/src/receiver/parser.c",
   "output": "CMakeFiles/sentinel.dir/src/receiver/parser.c.obj"
@@ -97,9 +121,21 @@
 },
 {
   "directory": "C:/Users/korusuba/Sentinel/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/sentinel.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\sentinel.dir\\src\\receiver\\log_queue.cpp.obj -c C:\\Users\\korusuba\\Sentinel\\src\\receiver\\log_queue.cpp",
+  "file": "C:/Users/korusuba/Sentinel/src/receiver/log_queue.cpp",
+  "output": "CMakeFiles/sentinel.dir/src/receiver/log_queue.cpp.obj"
+},
+{
+  "directory": "C:/Users/korusuba/Sentinel/build",
   "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\gcc.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/sentinel.dir/includes_C.rsp -g -o CMakeFiles\\sentinel.dir\\src\\receiver\\firewall.c.obj -c C:\\Users\\korusuba\\Sentinel\\src\\receiver\\firewall.c",
   "file": "C:/Users/korusuba/Sentinel/src/receiver/firewall.c",
   "output": "CMakeFiles/sentinel.dir/src/receiver/firewall.c.obj"
+},
+{
+  "directory": "C:/Users/korusuba/Sentinel/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/sentinel.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\sentinel.dir\\src\\receiver\\notification_queue.cpp.obj -c C:\\Users\\korusuba\\Sentinel\\src\\receiver\\notification_queue.cpp",
+  "file": "C:/Users/korusuba/Sentinel/src/receiver/notification_queue.cpp",
+  "output": "CMakeFiles/sentinel.dir/src/receiver/notification_queue.cpp.obj"
 },
 {
   "directory": "C:/Users/korusuba/Sentinel/build",

@@ -9,6 +9,8 @@
 
 #include "prefilter.h"
 #include "packet_counter.h"
+#include "notification_queue.h"
+#include "log_queue.h"
 #include "firewall.h"
 
 #ifdef _WIN32
@@ -82,6 +84,11 @@ void PreFilterAddBlacklist(unsigned int IP) {
     if (Added) {
         FirewallBlockIP(IP);
         IncrementBlockedIPCount();
+        LogWrite(LOG_INFO, "Blacklist added: %u.%u.%u.%u",
+        IP & 0xFF,
+        (IP >> 8) & 0xFF,
+        (IP >> 16) & 0xFF,
+        (IP >> 24) & 0xFF);
     }
 
 }
@@ -104,6 +111,11 @@ void PreFilterRemoveBlacklist(unsigned int IP) {
     if (Removed) {
         FirewallUnblockIP(IP);
         DecrementBlockedIPCount();
+        LogWrite(LOG_INFO, "Blacklist removed: %u.%u.%u.%u",
+        IP & 0xFF,
+        (IP >> 8) & 0xFF,
+        (IP >> 16) & 0xFF,
+        (IP >> 24) & 0xFF);
     }
 
 }
@@ -160,7 +172,10 @@ void PreFilterClear(void) {
     UnlockBlacklist(); 
 
     FirewallClearAll();
-    ResetBlockedIPCount(); 
+    ResetBlockedIPCount();
+    LogWrite(LOG_WARN, "All rules cleared"); 
+    PushNotification(NOTIF_TYPE_SYSTEM, "Firewall Rule Added", 
+    "IP added to blacklist");
 
 }
 

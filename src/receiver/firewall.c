@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "firewall.h"
+#include "log_queue.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -53,6 +54,7 @@ void FirewallBlockIP(unsigned int IP) {
     RunHidden(Command);
 
     printf("[Firewall] Blocked: %s\n", IPString);
+    LogWrite(LOG_WARN, "Firewall block: %s", IPString);
 
 }
 
@@ -73,6 +75,7 @@ void FirewallUnblockIP(unsigned int IP) {
     RunHidden(Command);
 
     printf("[Firewall] Unblocked: %s\n", IPString);
+    LogWrite(LOG_INFO, "Firewall unblock: %s", IPString);
 
 }
 

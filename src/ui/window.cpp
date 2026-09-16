@@ -3,6 +3,12 @@
 #include "receiver/receiver.h"
 #include "receiver/packet_counter.h"
 #include "receiver/request_queue.h"
+#include "logpage.h"
+#include "receiver/log_queue.h"
+#include "aipage.h"
+#include "notificationpage.h"
+#include "receiver/notification_queue.h"
+
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -18,6 +24,8 @@
 #include <thread>
 #include <chrono>
 #include <atomic>
+#include <QStandardPaths>
+#include <QDir>
 
 // Window API
 #ifdef Q_OS_WIN
@@ -103,18 +111,34 @@ void Window::SetupUI(){
     ContentLayout->addWidget(MainSideBar, 0);
     connect(MainSideBar, &SideBar::pageChangeRequested, this, &Window::SwitchPage);
 
+    QString logDir = QStandardPaths::writableLocation(
+    QStandardPaths::DocumentsLocation) + "/Sentinel/logs";
+    QDir().mkpath(logDir);
+    QString logFile = logDir + "/sentinel.log";
+    LogInit(logFile.toUtf8().constData());
+    LogWrite(LOG_INFO, "Application started");
+
     MainWidget = new QStackedWidget(this);
     DashBoardPage = new TrafficGraph(MainWidget);
     PacketInfoPage = new PacketPage(MainWidget);
     TerminalPage = new Terminal(MainWidget);
     AlertInfoPage = new AlertPage(MainWidget);
     ManagementInfoPage = new ManagementPage(MainWidget);
+    LogInfoPage = new LogPage(MainWidget);
+    AIInfoPage = new AIPage(MainWidget);
+    NotificationInfoPage = new NotificationPage(MainWidget);
+    SettingInfoPage = new SettingPage(MainWidget);
 
     MainWidget->addWidget(DashBoardPage);
     MainWidget->addWidget(PacketInfoPage);
     MainWidget->addWidget(TerminalPage);
     MainWidget->addWidget(AlertInfoPage);
     MainWidget->addWidget(ManagementInfoPage);
+    MainWidget->addWidget(LogInfoPage);
+    MainWidget->addWidget(AIInfoPage);
+
+    MainWidget->addWidget(NotificationInfoPage);
+    MainWidget->addWidget(SettingInfoPage);
 
     ContentLayout->addWidget(MainWidget, 1);
     MainLayout->addWidget(Content, 1);
@@ -128,7 +152,7 @@ void Window::SetupUI(){
 
     MainReceiverThread = new std::thread([this]() {
     while (!StopReceiverThread) {
-            receiver("192.168.1.103");  // Ip ตรงนี้นะ bro
+            receiver("192.168.1.101");  // Ip ตรงนี้นะ bro
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
     });
@@ -151,6 +175,7 @@ Window::~Window() {
     }
     delete MainReceiverThread;
     delete MainTimer;
+    LogClose();
 }
 
 bool Window::nativeEvent(const QByteArray &eventType, void *message, qintptr *result){
