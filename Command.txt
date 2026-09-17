@@ -1,0 +1,8 @@
+cmake for new config setting
+
+cmake -S .. -B . -G "MinGW Makefiles" ^ -DCMAKE_PREFIX_PATH=C:/Qt/6.11.1/mingw_64 ^ -DCMAKE_CXX_COMPILER=C:/Qt/Tools/mingw1310_64/bin/g++.exe
+
+
+.dll path setup
+
+set PATH=C:\Qt\6.11.1\mingw_64\bin;%PATH%
