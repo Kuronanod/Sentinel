@@ -726,10 +726,6 @@ ResourceWidget::ResourceWidget(QWidget *parent) : QWidget(parent) {
 
 void ResourceWidget::UpdateResources() {
 
-    qDebug() << "=== SIZE DEBUG ==="
-             << "CPU:" << CPUColumn->height()
-             << "Resource:" << this->height();
-
     // ---- CPU (per-core) ----
     CPUColumn->UpdateCPU();
 

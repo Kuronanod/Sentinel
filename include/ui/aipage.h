@@ -57,37 +57,47 @@ public:
     QString GetWelcome();
     void    Reset();
 
-    // ---- Delay simulation ----
     int     GetResponseDelay(const QString &response) const;
 
 private:
     struct Rule {
         QStringList keywords;
         QString     response;
-        QString     category;   // สำหรับ context
+        QString     category;
+        int         priority;
     };
 
     QVector<Rule> Rules;
 
-    // ---- Context Memory ----
+    // ---- Context ----
     QString LastCategory;
     QString LastUserMsg;
+    QString LastTopic;
     int     ConversationDepth;
+    int     MissStreak;         // นับครั้งที่ตอบไม่ได้ติดกัน
 
     // ---- Helpers ----
     void    InitRules();
     QString BuildStatusResponse();
+    QString BuildBlockedResponse();
+    QString BuildAlertsResponse();
     QString BuildHelpResponse();
-    QString PickRandom(const QStringList &options);
+    QString BuildAboutResponse();
     QString BuildFallback(const QString &input);
+    QString BuildMissResponse(const QString &input);
+    QString PickRandom(const QStringList &options);
 
-    // ---- Fuzzy Match ----
-    int  KeywordScore(const QString &input, const QString &keyword);
-    bool IsGreeting(const QString &input);
-    bool IsThanking(const QString &input);
-    bool IsFarewell(const QString &input);
-    bool IsAffirmative(const QString &input);
-    bool IsNegative(const QString &input);
+    // ---- Normalize / Match ----
+    QString Normalize(const QString &input);
+    int     KeywordScore(const QString &input, const QString &keyword);
+    bool    IsGreeting(const QString &s);
+    bool    IsThanking(const QString &s);
+    bool    IsFarewell(const QString &s);
+    bool    IsAboutSelf(const QString &s);
+    bool    IsCapabilityQuestion(const QString &s);
+    bool    IsMetaQuestion(const QString &s);
+    bool    IsYesNoQuestion(const QString &s);
+    QString GetYesNoTarget(const QString &s);
 };
 
 // ================================================================

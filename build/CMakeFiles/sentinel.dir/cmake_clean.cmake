@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sentinel.dir/src/receiver/firewall.c.obj.d"
   "CMakeFiles/sentinel.dir/src/receiver/log_queue.cpp.obj"
   "CMakeFiles/sentinel.dir/src/receiver/log_queue.cpp.obj.d"
+  "CMakeFiles/sentinel.dir/src/receiver/netinfo.cpp.obj"
+  "CMakeFiles/sentinel.dir/src/receiver/netinfo.cpp.obj.d"
   "CMakeFiles/sentinel.dir/src/receiver/notification_queue.cpp.obj"
   "CMakeFiles/sentinel.dir/src/receiver/notification_queue.cpp.obj.d"
   "CMakeFiles/sentinel.dir/src/receiver/packet_counter.c.obj"

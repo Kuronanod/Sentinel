@@ -250,6 +250,30 @@ src/receiver/log_queue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/log_queue.cpp.s
 .PHONY : src/receiver/log_queue.cpp.s
 
+src/receiver/netinfo.obj: src/receiver/netinfo.cpp.obj
+.PHONY : src/receiver/netinfo.obj
+
+# target to build an object file
+src/receiver/netinfo.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/netinfo.cpp.obj
+.PHONY : src/receiver/netinfo.cpp.obj
+
+src/receiver/netinfo.i: src/receiver/netinfo.cpp.i
+.PHONY : src/receiver/netinfo.i
+
+# target to preprocess a source file
+src/receiver/netinfo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/netinfo.cpp.i
+.PHONY : src/receiver/netinfo.cpp.i
+
+src/receiver/netinfo.s: src/receiver/netinfo.cpp.s
+.PHONY : src/receiver/netinfo.s
+
+# target to generate assembly for a file
+src/receiver/netinfo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sentinel.dir\build.make CMakeFiles/sentinel.dir/src/receiver/netinfo.cpp.s
+.PHONY : src/receiver/netinfo.cpp.s
+
 src/receiver/notification_queue.obj: src/receiver/notification_queue.cpp.obj
 .PHONY : src/receiver/notification_queue.obj
 
@@ -801,6 +825,9 @@ help:
 	@echo ... src/receiver/log_queue.obj
 	@echo ... src/receiver/log_queue.i
 	@echo ... src/receiver/log_queue.s
+	@echo ... src/receiver/netinfo.obj
+	@echo ... src/receiver/netinfo.i
+	@echo ... src/receiver/netinfo.s
 	@echo ... src/receiver/notification_queue.obj
 	@echo ... src/receiver/notification_queue.i
 	@echo ... src/receiver/notification_queue.s

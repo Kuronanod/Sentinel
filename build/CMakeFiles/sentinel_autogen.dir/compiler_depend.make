@@ -672,6 +672,7 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Users/korusuba/Sentinel/include/receiver/alert_queue.h \
   C:/Users/korusuba/Sentinel/include/receiver/firewall.h \
   C:/Users/korusuba/Sentinel/include/receiver/log_queue.h \
+  C:/Users/korusuba/Sentinel/include/receiver/netinfo.h \
   C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h \
   C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h \
   C:/Users/korusuba/Sentinel/include/receiver/parser.h \
@@ -696,6 +697,7 @@ sentinel_autogen/timestamp: C:/Qt/6.11.1/mingw_64/include/QtCore/QDateTime \
   C:/Users/korusuba/Sentinel/src/receiver/alert_queue.cpp \
   C:/Users/korusuba/Sentinel/src/receiver/firewall.c \
   C:/Users/korusuba/Sentinel/src/receiver/log_queue.cpp \
+  C:/Users/korusuba/Sentinel/src/receiver/netinfo.cpp \
   C:/Users/korusuba/Sentinel/src/receiver/notification_queue.cpp \
   C:/Users/korusuba/Sentinel/src/receiver/packet_counter.c \
   C:/Users/korusuba/Sentinel/src/receiver/parser.c \
@@ -869,9 +871,13 @@ C:/Users/korusuba/Sentinel/include/receiver/parser.h:
 
 C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h:
 
+C:/Users/korusuba/Sentinel/include/receiver/netinfo.h:
+
 C:/Users/korusuba/Sentinel/include/receiver/log_queue.h:
 
 C:/Users/korusuba/Sentinel/include/receiver/firewall.h:
+
+C:/Users/korusuba/Sentinel/src/receiver/netinfo.cpp:
 
 sentinel_autogen/moc_predefs.h:
 

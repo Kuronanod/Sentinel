@@ -12,9 +12,14 @@
 #include "notification_queue.h"
 #include "log_queue.h"
 #include "firewall.h"
+#include "receiver/log_queue.h"
+#include "receiver/notification_queue.h"
 
 #ifdef _WIN32
     static CRITICAL_SECTION BlacklistMutex;
+    static CRITICAL_SECTION PortMutex;   // Windows
+    static int PortMutexInitialized = 0;
+
     static int MutexInitialized = 0;
     static void LockBlacklist(void) {
         if (!MutexInitialized) {
@@ -26,25 +31,45 @@
     static void UnlockBlacklist(void) {
         LeaveCriticalSection(&BlacklistMutex);
     }
+
+    static void LockPort(void) {
+        if (!PortMutexInitialized) {
+            InitializeCriticalSection(&PortMutex);
+            PortMutexInitialized = 1;
+        }
+        EnterCriticalSection(&PortMutex);
+    }
+
+    static void UnlockPort(void) {
+        LeaveCriticalSection(&PortMutex);
+    }
+    
+
 #else
     #include <pthread.h>
     static pthread_mutex_t BlacklistMutex = PTHREAD_MUTEX_INITIALIZER;
     static void LockBlacklist(void) { pthread_mutex_lock(&BlacklistMutex); }
     static void UnlockBlacklist(void) { pthread_mutex_unlock(&BlacklistMutex); }
+    static pthread_mutex_t PortMutex = PTHREAD_MUTEX_INITIALIZER;
+    static void LockPort(void)   { pthread_mutex_lock(&PortMutex); }
+    static void UnlockPort(void) { pthread_mutex_unlock(&PortMutex); }
 #endif
 
 #define MAX_BLACKLIST 100
 #define MAX_TRACKED_IPS 256
 #define DEFAULT_RATE 500
 #define RATE_WINDOW_SEC 1
+#define MAX_SUSPICIOUS_PORTS  50
 
 static unsigned int Blacklist[MAX_BLACKLIST];
 static int BlacklistCount = 0;
 static int RateThreshold = DEFAULT_RATE;
 
-
-static const unsigned short SuspiciousPorts[] = {4444, 1337, 31337, 6667, 12345};
-static const int SuspiciousPortsCount = 5;
+static unsigned short SuspiciousPorts[MAX_SUSPICIOUS_PORTS] = {
+    4444, 1337, 31337, 6667, 12345
+};
+static int SuspiciousPortsCount = 5;
+static int SuspiciousPortsDefault = 5;
 
 typedef struct {
 
@@ -148,16 +173,92 @@ int PreFilterGetRateThreshold(void){
     return RateThreshold; 
 }
 
-int PreFilterGetSuspiciousPortCount(void){
-    return SuspiciousPortsCount; 
+int PreFilterGetSuspiciousPortCount(void) {
+    LockPort();
+    int count = SuspiciousPortsCount;
+    UnlockPort();
+    return count;
 }
 
 unsigned short PreFilterGetSuspiciousPort(int index) {
-    if (index >= 0 && index < SuspiciousPortsCount){
-        return SuspiciousPorts[index];
+    LockPort();
+    unsigned short port = 0;
+    if (index >= 0 && index < SuspiciousPortsCount) {
+        port = SuspiciousPorts[index];
     }
-    return 0;
+    UnlockPort();
+    return port;
+}
 
+// ================================================================
+//  Add Port
+// ================================================================
+void PreFilterAddSuspiciousPort(unsigned short port) {
+    int added = 0;
+
+    LockPort();
+
+    // ตรวจซ้ำ
+    int found = 0;
+    for (int i = 0; i < SuspiciousPortsCount; i++) {
+        if (SuspiciousPorts[i] == port) {
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found && SuspiciousPortsCount < MAX_SUSPICIOUS_PORTS) {
+        SuspiciousPorts[SuspiciousPortsCount++] = port;
+        added = 1;
+    }
+
+    UnlockPort();
+
+    if (added) {
+        LogWrite(LOG_INFO, "Suspicious port added: %u", port);
+        PushNotification(NOTIF_TYPE_SYSTEM,
+            "Suspicious Port Added",
+            "Port added to blocklist");
+    }
+}
+
+// ================================================================
+//  Remove Port
+// ================================================================
+void PreFilterRemoveSuspiciousPort(unsigned short port) {
+    int removed = 0;
+
+    LockPort();
+
+    for (int i = 0; i < SuspiciousPortsCount; i++) {
+        if (SuspiciousPorts[i] == port) {
+            SuspiciousPorts[i] = SuspiciousPorts[SuspiciousPortsCount - 1];
+            SuspiciousPortsCount--;
+            removed = 1;
+            break;
+        }
+    }
+
+    UnlockPort();
+
+    if (removed) {
+        LogWrite(LOG_INFO, "Suspicious port removed: %u", port);
+    }
+}
+
+// ================================================================
+//  Reset to Default
+// ================================================================
+void PreFilterResetSuspiciousPorts(void) {
+    LockPort();
+
+    unsigned short defaults[] = {4444, 1337, 31337, 6667, 12345};
+    SuspiciousPortsCount = SuspiciousPortsDefault;
+    for (int i = 0; i < SuspiciousPortsDefault; i++) {
+        SuspiciousPorts[i] = defaults[i];
+    }
+
+    UnlockPort();
 }
 
 void PreFilterClear(void) {
@@ -197,11 +298,16 @@ static int IsBlacklisted(unsigned int IP) {
 }
 
 static int IsSuspiciousPort(unsigned short Port) {
-    for (int Index = 0; Index < SuspiciousPortsCount; Index++)
-        if (SuspiciousPorts[Index] == Port){
-            return 1;
+    int result = 0;
+    LockPort();
+    for (int i = 0; i < SuspiciousPortsCount; i++) {
+        if (SuspiciousPorts[i] == Port) {
+            result = 1;
+            break;
         }
-    return 0;
+    }
+    UnlockPort();
+    return result;
 }
 
 static int CheckRate(unsigned int IP) {

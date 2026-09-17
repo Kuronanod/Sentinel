@@ -9,6 +9,8 @@
 #include "managementpage.h"
 #include "receiver/prefilter.h"
 #include "receiver/packet_counter.h"
+#include "receiver/notification_queue.h"
+#include "receiver/log_queue.h"
 
 // ================================================================
 //  Palette (VSCode Dark)
@@ -455,9 +457,6 @@ void ManagementPage::OnApplyThresholdClicked() {
         QString("Rate threshold set to %1 pps").arg(val));
 }
 
-// ================================================================
-//  Add Port
-// ================================================================
 void ManagementPage::OnAddPortClicked() {
     QString text = PortInput->text().trimmed();
     if (text.isEmpty()) return;
@@ -466,22 +465,14 @@ void ManagementPage::OnAddPortClicked() {
     int port = text.toInt(&ok);
     if (!ok || port < 1 || port > 65535) {
         QMessageBox::warning(this, "Invalid Port",
-            "Enter Valid Port");
+            "กรุณากรอก Port 1-65535");
         return;
     }
 
-    // ⚠ ตัวอย่าง: ยังไม่ save จริง — ต้องมี API เพิ่ม
-    // PreFilterAddSuspiciousPort((unsigned short)port);
+    PreFilterAddSuspiciousPort((unsigned short)port);
 
     PortInput->clear();
     RefreshUI();
-}
-
-// ================================================================
-//  Remove Port (chip)
-// ================================================================
-void ManagementPage::OnRemovePortClicked() {
-    // ใช้ lambda ใน RebuildPortChips แทน
 }
 
 // ================================================================
@@ -489,13 +480,30 @@ void ManagementPage::OnRemovePortClicked() {
 // ================================================================
 void ManagementPage::OnClearRulesClicked() {
     auto reply = QMessageBox::question(this, "Confirm",
-        "Clear all rules?",
+        "Clear all rules?\n\n"
+        "This will remove:\n"
+        "  - All Blacklist IPs\n"
+        "  - All Suspicious Ports\n"
+        "  - Reset Rate Threshold to 500 pps",
         QMessageBox::Yes | QMessageBox::No);
 
-    if (reply == QMessageBox::Yes) {
-        PreFilterClear();
-        RefreshUI();
-    }
+    if (reply != QMessageBox::Yes) return;
+
+    // ---- Clear Blacklist ----
+    PreFilterClear();
+
+    // ---- Reset Suspicious Ports to default (4444, 1337, ...) ----
+    PreFilterResetSuspiciousPorts();
+
+    // ---- Reset Rate Threshold to 500 ----
+    PreFilterSetRateThreshold(500);
+
+    // ---- Update UI ----
+    RateThresholdInput->setValue(500);
+    RefreshUI();
+
+    QMessageBox::information(this, "Cleared",
+        "All rules have been reset to default");
 }
 
 // ================================================================
@@ -560,10 +568,8 @@ void ManagementPage::RefreshPorts() {
 
         unsigned short portVal = port;
         connect(removeBtn, &QPushButton::clicked, this, [this, portVal]() {
-            // ⚠ ต้องมี API ลบ port จริง
-            // PreFilterRemoveSuspiciousPort(portVal);
-            QMessageBox::information(this, "Info",
-                QString("Remove port %1 — ต้องเพิ่ม API ก่อน").arg(portVal));
+            PreFilterRemoveSuspiciousPort(portVal);
+            RefreshUI();
         });
 
         PortsLayout->addWidget(chip);

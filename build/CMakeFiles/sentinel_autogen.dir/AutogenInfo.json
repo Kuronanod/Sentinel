@@ -350,6 +350,12 @@
 			null
 		],
 		[
+			"C:/Users/korusuba/Sentinel/include/receiver/netinfo.h",
+			"Mu",
+			"QLJF6WQS6J/moc_netinfo.cpp",
+			null
+		],
+		[
 			"C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h",
 			"Mu",
 			"QLJF6WQS6J/moc_notification_queue.cpp",
@@ -556,6 +562,7 @@
 		[ "C:/Users/korusuba/Sentinel/src/receiver/alert_queue.cpp", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/receiver/firewall.c", "Mu", null ],
 		[ "C:/Users/korusuba/Sentinel/src/receiver/log_queue.cpp", "Mu", null ],
+		[ "C:/Users/korusuba/Sentinel/src/receiver/netinfo.cpp", "Mu", null ],
 		[
 			"C:/Users/korusuba/Sentinel/src/receiver/notification_queue.cpp",
 			"Mu",

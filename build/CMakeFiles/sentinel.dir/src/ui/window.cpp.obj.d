@@ -490,6 +490,7 @@ CMakeFiles/sentinel.dir/src/ui/window.cpp.obj: \
  C:/Users/korusuba/Sentinel/include/ui/aipage.h \
  C:/Users/korusuba/Sentinel/include/ui/notificationpage.h \
  C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h \
+ C:/Users/korusuba/Sentinel/include/receiver/netinfo.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QApplication \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qapplication.h \
  C:/Qt/6.11.1/mingw_64/include/QtCore/qcoreapplication.h \

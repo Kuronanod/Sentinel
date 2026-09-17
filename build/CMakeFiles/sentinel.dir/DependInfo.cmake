@@ -20,6 +20,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/korusuba/Sentinel/build/sentinel_autogen/mocs_compilation.cpp" "CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/sentinel.dir/sentinel_autogen/mocs_compilation.cpp.obj.d"
   "C:/Users/korusuba/Sentinel/src/receiver/alert_queue.cpp" "CMakeFiles/sentinel.dir/src/receiver/alert_queue.cpp.obj" "gcc" "CMakeFiles/sentinel.dir/src/receiver/alert_queue.cpp.obj.d"
   "C:/Users/korusuba/Sentinel/src/receiver/log_queue.cpp" "CMakeFiles/sentinel.dir/src/receiver/log_queue.cpp.obj" "gcc" "CMakeFiles/sentinel.dir/src/receiver/log_queue.cpp.obj.d"
+  "C:/Users/korusuba/Sentinel/src/receiver/netinfo.cpp" "CMakeFiles/sentinel.dir/src/receiver/netinfo.cpp.obj" "gcc" "CMakeFiles/sentinel.dir/src/receiver/netinfo.cpp.obj.d"
   "C:/Users/korusuba/Sentinel/src/receiver/notification_queue.cpp" "CMakeFiles/sentinel.dir/src/receiver/notification_queue.cpp.obj" "gcc" "CMakeFiles/sentinel.dir/src/receiver/notification_queue.cpp.obj.d"
   "C:/Users/korusuba/Sentinel/src/receiver/request_queue.cpp" "CMakeFiles/sentinel.dir/src/receiver/request_queue.cpp.obj" "gcc" "CMakeFiles/sentinel.dir/src/receiver/request_queue.cpp.obj.d"
   "C:/Users/korusuba/Sentinel/src/ui/aipage.cpp" "CMakeFiles/sentinel.dir/src/ui/aipage.cpp.obj" "gcc" "CMakeFiles/sentinel.dir/src/ui/aipage.cpp.obj.d"

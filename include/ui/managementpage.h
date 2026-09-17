@@ -22,7 +22,6 @@ private slots:
     void OnClearRulesClicked();
     void OnApplyThresholdClicked();
     void OnAddPortClicked();
-    void OnRemovePortClicked();
     void RefreshUI();
 
 private:

@@ -32,6 +32,7 @@ set(CORE_SRCS
     src/receiver/log_queue.cpp
     src/receiver/firewall.c
     src/receiver/notification_queue.cpp
+    src/receiver/netinfo.cpp
 )
 
 if(WIN32)
@@ -87,6 +88,7 @@ add_executable(sentinel
     include/receiver/firewall.h
     include/receiver/log_queue.h
     include/receiver/notification_queue.h
+    include/receiver/netinfo.h
     ${OS_HEADERS}
 )
 

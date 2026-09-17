@@ -1,15 +1,31 @@
-CMakeFiles/sentinel.dir/src/receiver/prefilter.c.obj: \
- C:\Users\korusuba\Sentinel\src\receiver\prefilter.c \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/windows.h \
+CMakeFiles/sentinel.dir/src/receiver/netinfo.cpp.obj: \
+ C:\Users\korusuba\Sentinel\src\receiver\netinfo.cpp \
+ C:/Users/korusuba/Sentinel/include/receiver/netinfo.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/pstl_config.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/string.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/corecrt.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_mac.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_secapi.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/stdio.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_off_t.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/swprintf.inl \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winsock2.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_unicode.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/windows.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sdkddkver.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/excpt.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/crtdefs.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/corecrt.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/stdarg.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
@@ -21,14 +37,11 @@ CMakeFiles/sentinel.dir/src/receiver/prefilter.c.obj: \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/concurrencysal.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/driverspecs.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winnt.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_unicode.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ctype.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/apiset.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/basetsd.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/guiddef.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/string.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sec_api/string_s.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/x86intrin.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/x86gprintrin.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/ia32intrin.h \
@@ -74,6 +87,8 @@ CMakeFiles/sentinel.dir/src/receiver/prefilter.c.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mmintrin.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xmmintrin.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdlib \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/stdlib.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
@@ -81,6 +96,7 @@ CMakeFiles/sentinel.dir/src/receiver/prefilter.c.obj: \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/limits.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/malloc.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/errno.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/emmintrin.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pmmintrin.h \
@@ -219,16 +235,6 @@ CMakeFiles/sentinel.dir/src/receiver/prefilter.c.obj: \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/shellapi.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winperf.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winsock.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_timeval.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_bsd_types.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/inaddr.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_socket_types.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_fd_types.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_ip_types.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_wsadata.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_xmitfile.h \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_wsa_errnos.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wincrypt.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/bcrypt.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ncrypt.h \
@@ -265,15 +271,40 @@ CMakeFiles/sentinel.dir/src/receiver/prefilter.c.obj: \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winsvc.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/mcx.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/imm.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_ws1_undef.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_timeval.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_bsd_types.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/inaddr.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_socket_types.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_fd_types.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_ip_types.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_wsadata.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ws2def.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_wsa_errnos.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/qos.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/iphlpapi.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/iprtrmib.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/mprapi.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/lmcons.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ras.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/in6addr.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/naptypes.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ocidl.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ipmib.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/nldef.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ipifcons.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/udpmib.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/tcpmib.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ipexport.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/iptypes.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sys/timeb.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/pthread_time.h \
- C:/Users/korusuba/Sentinel/include/receiver/prefilter.h \
- C:/Users/korusuba/Sentinel/include/receiver/request_queue.h \
- C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h \
- C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h \
- C:/Users/korusuba/Sentinel/include/receiver/log_queue.h \
- C:/Users/korusuba/Sentinel/include/receiver/firewall.h \
- C:/Users/korusuba/Sentinel/include/receiver/log_queue.h \
- C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ifdef.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/tcpestats.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/netioapi.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ws2tcpip.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ws2ipdef.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/mstcpip.h

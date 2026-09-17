@@ -444,4 +444,6 @@ CMakeFiles/sentinel.dir/src/ui/managementpage.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qspinbox.h \
  C:/Users/korusuba/Sentinel/include/receiver/prefilter.h \
  C:/Users/korusuba/Sentinel/include/receiver/request_queue.h \
- C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h
+ C:/Users/korusuba/Sentinel/include/receiver/packet_counter.h \
+ C:/Users/korusuba/Sentinel/include/receiver/notification_queue.h \
+ C:/Users/korusuba/Sentinel/include/receiver/log_queue.h

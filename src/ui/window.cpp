@@ -8,6 +8,7 @@
 #include "aipage.h"
 #include "notificationpage.h"
 #include "receiver/notification_queue.h"
+#include "receiver/netinfo.h"
 
 
 #include <QVBoxLayout>
@@ -150,9 +151,24 @@ void Window::SetupUI(){
     connect(Main_MaximizeButton, &QPushButton::clicked, this, &Window::OnMaximizeClicked);
     connect(Main_CloseButton, &QPushButton::clicked, this, &Window::OnCloseClicked);
 
-    MainReceiverThread = new std::thread([this]() {
-    while (!StopReceiverThread) {
-            receiver("172.15.48.243");  // Ip ตรงนี้นะ bro
+    char LocalIP[32] = {0};
+
+    if (GetLocalIP(LocalIP, sizeof(LocalIP)) == 0) {
+        qDebug() << "[Network] Auto-detected IP:" << LocalIP;
+        LogWrite(LOG_INFO, "Auto-detected IP: %s", LocalIP);
+    } else {
+        // Fallback: ใช้ loopback
+        strncpy(LocalIP, "127.0.0.1", sizeof(LocalIP) - 1);
+        qDebug() << "[Network] Cannot detect IP. Using fallback:" << LocalIP;
+        LogWrite(LOG_WARN, "Cannot detect IP, using fallback: %s", LocalIP);
+    }
+
+    QString detectedIP = QString::fromUtf8(LocalIP);
+
+    // ---- Start Receiver ----
+    MainReceiverThread = new std::thread([this, detectedIP]() {
+        while (!StopReceiverThread) {
+            receiver(detectedIP.toUtf8().constData());
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
     });

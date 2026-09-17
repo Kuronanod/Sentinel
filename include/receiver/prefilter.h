@@ -22,6 +22,9 @@ int  PreFilterGetRateThreshold(void);
 
 int  PreFilterGetSuspiciousPortCount(void);
 unsigned short PreFilterGetSuspiciousPort(int Index);
+void PreFilterAddSuspiciousPort(unsigned short port);
+void PreFilterRemoveSuspiciousPort(unsigned short port);
+void PreFilterResetSuspiciousPorts(void);
 
 #ifdef __cplusplus
 
