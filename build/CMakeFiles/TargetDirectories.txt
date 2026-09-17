@@ -1,0 +1,5 @@
+C:/Users/korusuba/Sentinel/build/CMakeFiles/sentinel.dir
+C:/Users/korusuba/Sentinel/build/CMakeFiles/edit_cache.dir
+C:/Users/korusuba/Sentinel/build/CMakeFiles/rebuild_cache.dir
+C:/Users/korusuba/Sentinel/build/CMakeFiles/sentinel_autogen_timestamp_deps.dir
+C:/Users/korusuba/Sentinel/build/CMakeFiles/sentinel_autogen.dir

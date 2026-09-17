@@ -1,0 +1,37 @@
+{
+    "configurations": [
+        {
+            "name": "Windows",
+            "includePath": [
+                "c:/Users/korusuba/Sentinel/**",
+                "c:/Users/korusuba/Sentinel/include/**",
+                "c:/Users/korusuba/Sentinel/src/**",
+                "C:/Qt/6.11.1/mingw_64/include",
+                "C:/Qt/6.11.1/mingw_64/include/QtWidgets",
+                "C:/Qt/6.11.1/mingw_64/include/QtCore",
+                "C:/Qt/6.11.1/mingw_64/include/QtGui"
+            ],
+            "defines": [
+                "_WIN32"
+            ],
+            "cStandard": "c17",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerPath": "C:/Qt/6.11.1/mingw_64/bin/g++.exe"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/include/**",
+                "${workspaceFolder}/src/**"
+            ],
+            "defines": [
+                "__linux__"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

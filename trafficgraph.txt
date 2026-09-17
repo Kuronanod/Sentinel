@@ -1,0 +1,431 @@
+#include "trafficgraph.h"
+#include "receiver/packet_counter.h"
+
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QFrame>
+#include <windows.h>
+#include <psapi.h>
+
+// ================================================================
+//  Palette (VSCode Dark)
+// ================================================================
+#define COLOR_BG "#1a1a1a"     // พื้นหลังหลัก — เทาเข้ม
+#define COLOR_PANEL "#212121"     // Panel
+#define COLOR_BORDER "#2d2d2d"     // เส้นกรอบ
+#define COLOR_TEXT "#e0e0e0"     // ตัวอักษรขาว
+#define COLOR_DIM "#707070"     // ตัวอักษรเทา
+#define COLOR_ACCENT "#4ec9b0"     // เขียว (แทนฟ้า)
+#define COLOR_SUCCESS "#4ec9b0"     // เขียว
+#define COLOR_WARNING "#dcdcaa"     // เหลือง
+#define COLOR_ERROR "#f48771"
+
+// ================================================================
+//  SparkLineWidget
+// ================================================================
+SparkLineWidget::SparkLineWidget(QWidget *parent) : QWidget(parent) {
+    setMinimumHeight(150);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    MainData.reserve(MaxPoints);
+}
+
+void SparkLineWidget::AddValue(int rate) {
+    MainData.push_back(rate);
+    if (MainData.size() > MaxPoints) MainData.pop_front();
+    update();
+}
+
+void SparkLineWidget::Clear() {
+    MainData.clear();
+    update();
+}
+
+int SparkLineWidget::GetPeakValue() const {
+    if (MainData.isEmpty()) return 0;
+    return *std::max_element(MainData.begin(), MainData.end());
+}
+
+void SparkLineWidget::paintEvent(QPaintEvent *) {
+    QPainter p(this);
+    int W = width();
+    int H = height();
+    if (W <= 0 || H <= 0) return;
+
+    p.fillRect(rect(), QColor(COLOR_BG));
+
+    // Grid
+    QPen gridPen(QColor(COLOR_BORDER), 1, Qt::DotLine);
+    p.setPen(gridPen);
+    for (int i = 1; i < 4; ++i) {
+        int y = (H * i) / 4;
+        p.drawLine(0, y, W, y);
+    }
+
+    if (MainData.size() < 2) {
+        p.setPen(QColor(COLOR_DIM));
+        p.setFont(QFont("Segoe UI", 10));
+        p.drawText(rect(), Qt::AlignCenter, "Waiting for traffic...");
+        return;
+    }
+
+    int MaxValue = *std::max_element(MainData.begin(), MainData.end());
+    if (MaxValue < 10) MaxValue = 10;
+
+    static const unsigned char BRAILLE_BIT[4][2] = {
+        {0x01, 0x08}, {0x02, 0x10},
+        {0x04, 0x20}, {0x40, 0x80},
+    };
+
+    // ============================================================
+    //  ✅ 2 ค่าปรับได้
+    // ============================================================
+    const int FontSize = 10;       // ขนาดอักขระ braille
+    const int RepeatX  = 3;        // ⭐ 1 data point = กี่ sub-columns
+                                    //    1 = ปกติ (จุดเดียว)
+                                    //    2 = . → ..
+                                    //    3 = . → ...
+                                    //    4 = . → ....
+                                    //    6 = . → ......
+
+    QFont BrailleFont("Consolas", FontSize);
+    p.setFont(BrailleFont);
+    QFontMetrics fm(BrailleFont);
+
+    int CharW = fm.horizontalAdvance(QChar(0x28FF));
+    int CharH = fm.height();
+    if (CharW < 1 || CharH < 1) return;
+
+    int CharRows = H / CharH;
+    if (CharRows < 1) return;
+    int SubRows = CharRows * 4;
+    int CenterRow = SubRows / 2;
+
+    // ---- จำนวนอักขระที่แสดง ----
+    int CharCols = W / CharW;
+    if (CharCols < 1) return;
+
+    // Sub-columns ทั้งหมดในจอ
+    int TotalSubCols = CharCols * 2;
+
+    // จำนวน data point ที่จะแสดง (แต่ละอันกิน RepeatX sub-columns)
+    int MaxDataPoints = TotalSubCols / RepeatX;
+    int DataCount = MainData.size();
+    int ShowCount = qMin(DataCount, MaxDataPoints);
+    int StartIdx  = DataCount - ShowCount;
+
+    // ============================================================
+    //  ✅ สร้างตาราง sub-column → data point
+    // ============================================================
+    // SubCols[subCol] = index ของ data point ที่จะวาดใน sub-col นี้
+    QVector<int> SubColMap(TotalSubCols, -1);
+
+    for (int i = 0; i < ShowCount; ++i) {
+        int dataIdx = StartIdx + i;
+        int startSubCol = i * RepeatX;
+        for (int j = 0; j < RepeatX; ++j) {
+            int sc = startSubCol + j;
+            if (sc < TotalSubCols) SubColMap[sc] = dataIdx;
+        }
+    }
+
+    // ---- วาด ----
+    int Baseline = fm.ascent();
+
+    for (int c = 0; c < CharCols; ++c) {
+        for (int r = 0; r < CharRows; ++r) {
+
+            unsigned char mask = 0;
+
+            for (int dr = 0; dr < 4; ++dr) {
+                for (int dc = 0; dc < 2; ++dc) {
+
+                    int sc = c * 2 + dc;
+                    if (sc >= TotalSubCols) continue;
+
+                    int dataIdx = SubColMap[sc];
+                    if (dataIdx < 0 || dataIdx >= DataCount) continue;
+
+                    float ratio = (float)MainData[dataIdx] / MaxValue;
+
+                    int sr = r * 4 + dr;
+                    int HalfHeight = (int)(ratio * CenterRow);
+                    int dist = qAbs(sr - CenterRow);
+
+                    if (dist <= HalfHeight) {
+                        mask |= BRAILLE_BIT[dr][dc];
+                    }
+                }
+            }
+
+            if (mask != 0) {
+                float rowRatio = 1.0f - (float)r / CharRows;
+                QColor color;
+                if (rowRatio < 0.3)      color = QColor(78, 201, 176);
+                else if (rowRatio < 0.6) color = QColor(140, 220, 190);
+                else                     color = QColor(0, 212, 255);
+
+                p.setPen(color);
+                QChar ch(0x2800 + mask);
+                int x = c * CharW;
+                int y = r * CharH + Baseline;
+                p.drawText(x, y, QString(ch));
+            }
+        }
+    }
+
+    // เส้นกลาง
+    p.setPen(QPen(QColor(COLOR_BORDER), 1));
+    int centerY = (CenterRow * H) / SubRows;
+    p.drawLine(0, centerY, W, centerY);
+
+    // Max value
+    p.setPen(QColor(COLOR_DIM));
+    p.setFont(QFont("Consolas", 9));
+    p.drawText(W - 70, 14, QString("%1 pps").arg(MaxValue));
+}
+
+// ================================================================
+//  ResourceBar
+// ================================================================
+ResourceBar::ResourceBar(const QString &Label, QWidget *parent)
+    : QWidget(parent), LabelText(Label)
+{
+    setFixedHeight(28);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+}
+
+void ResourceBar::SetPercent(int percent) {
+    Percent = qBound(0, percent, 100);
+    update();
+}
+
+void ResourceBar::SetSubText(const QString &text) {
+    SubText = text;
+    update();
+}
+
+void ResourceBar::paintEvent(QPaintEvent *) {
+    QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing, false);
+
+    int W = width();
+    int H = height();
+
+    // ---- Label ----
+    p.setPen(QColor(COLOR_TEXT));
+    p.setFont(QFont("Segoe UI", 10));
+    p.drawText(QRect(0, 0, 55, H), Qt::AlignLeft | Qt::AlignVCenter, LabelText);
+
+    // ---- Progress Bar ----
+    int barX = 60;
+    int barW = W - 60 - 110;   // เหลือที่ให้ %
+    int barH = 8;
+    int barY = (H - barH) / 2;
+
+    // พื้นหลัง bar
+    p.fillRect(barX, barY, barW, barH, QColor("#2d2d30"));
+
+    // เติมสีตามค่า
+    int fillW = (barW * Percent) / 100;
+    QColor barColor(COLOR_ACCENT);
+    if (Percent > 80)      barColor = QColor(COLOR_ERROR);
+    else if (Percent > 60) barColor = QColor(COLOR_WARNING);
+    else                   barColor = QColor(COLOR_SUCCESS);
+
+    p.fillRect(barX, barY, fillW, barH, barColor);
+
+    // ---- SubText + Percent (ชิดขวา) ----
+    p.setPen(QColor(COLOR_DIM));
+    p.setFont(QFont("Consolas", 9));
+    QString right = SubText.isEmpty()
+        ? QString("%1%").arg(Percent)
+        : QString("%1  %2%").arg(SubText).arg(Percent);
+    p.drawText(QRect(barX + barW + 5, 0, 105, H),
+               Qt::AlignRight | Qt::AlignVCenter, right);
+}
+
+// ================================================================
+//  ResourceWidget
+// ================================================================
+ResourceWidget::ResourceWidget(QWidget *parent) : QWidget(parent) {
+    QVBoxLayout *L = new QVBoxLayout(this);
+    L->setContentsMargins(0, 0, 0, 0);
+    L->setSpacing(2);
+
+    CPUBar  = new ResourceBar("CPU",  this);
+    RAMBar  = new ResourceBar("RAM",  this);
+    DiskBar = new ResourceBar("DISK", this);
+    GPUBar  = new ResourceBar("GPU",  this);
+
+    L->addWidget(CPUBar);
+    L->addWidget(RAMBar);
+    L->addWidget(DiskBar);
+    L->addWidget(GPUBar);
+}
+
+void ResourceWidget::UpdateResources() {
+    // ---------- CPU ----------
+    static FILETIME prevIdle, prevKernel, prevUser;
+    FILETIME idle, kernel, user;
+
+    if (GetSystemTimes(&idle, &kernel, &user)) {
+        ULARGE_INTEGER i, k, u, pi, pk, pu;
+        i.LowPart = idle.dwLowDateTime;    i.HighPart = idle.dwHighDateTime;
+        k.LowPart = kernel.dwLowDateTime;  k.HighPart = kernel.dwHighDateTime;
+        u.LowPart = user.dwLowDateTime;    u.HighPart = user.dwHighDateTime;
+        pi.LowPart = prevIdle.dwLowDateTime;    pi.HighPart = prevIdle.dwHighDateTime;
+        pk.LowPart = prevKernel.dwLowDateTime;  pk.HighPart = prevKernel.dwHighDateTime;
+        pu.LowPart = prevUser.dwLowDateTime;    pu.HighPart = prevUser.dwHighDateTime;
+
+        if (prevIdle.dwLowDateTime || prevIdle.dwHighDateTime) {
+            ULONGLONG idleD   = i.QuadPart - pi.QuadPart;
+            ULONGLONG kernelD = k.QuadPart - pk.QuadPart;
+            ULONGLONG userD   = u.QuadPart - pu.QuadPart;
+            ULONGLONG total   = kernelD + userD;
+
+            if (total > 0) {
+                double cpu = (1.0 - (double)idleD / total) * 100.0;
+                int pct = (int)cpu;
+                CPUBar->SetPercent(pct);
+                CPUBar->SetSubText("");
+            }
+        }
+        prevIdle = idle; prevKernel = kernel; prevUser = user;
+    }
+
+    // ---------- RAM ----------
+    MEMORYSTATUSEX mem;
+    mem.dwLength = sizeof(mem);
+    if (GlobalMemoryStatusEx(&mem)) {
+        int pct = mem.dwMemoryLoad;
+        double totalGB = mem.ullTotalPhys / (1024.0 * 1024 * 1024);
+        double usedGB  = totalGB * pct / 100.0;
+
+        RAMBar->SetPercent(pct);
+        RAMBar->SetSubText(QString("%1/%2G")
+            .arg(usedGB, 0, 'f', 1).arg(totalGB, 0, 'f', 0));
+    }
+
+    // ---------- DISK ----------
+    ULARGE_INTEGER freeB, totalB, totalFreeB;
+    if (GetDiskFreeSpaceExW(L"C:\\", &freeB, &totalB, &totalFreeB)) {
+        double totalGB = totalB.QuadPart / (1024.0 * 1024 * 1024);
+        double freeGB  = freeB.QuadPart  / (1024.0 * 1024 * 1024);
+        double usedGB  = totalGB - freeGB;
+        int pct = totalGB > 0 ? (int)(usedGB / totalGB * 100) : 0;
+
+        DiskBar->SetPercent(pct);
+        DiskBar->SetSubText(QString("%1/%2G")
+            .arg(usedGB, 0, 'f', 0).arg(totalGB, 0, 'f', 0));
+    }
+
+    // ---------- GPU ----------
+    GPUBar->SetPercent(0);
+    GPUBar->SetSubText("N/A");
+}
+
+// ================================================================
+//  TrafficGraph
+// ================================================================
+TrafficGraph::TrafficGraph(QWidget *parent) : QWidget(parent) {
+    this->setStyleSheet("background-color: " COLOR_BG ";");
+
+    QVBoxLayout *Main = new QVBoxLayout(this);
+    Main->setContentsMargins(16, 16, 16, 16);
+    Main->setSpacing(12);
+
+    // ============================================
+    //  Traffic Section
+    // ============================================
+    QLabel *TrafficTitle = new QLabel("Traffic", this);
+    TrafficTitle->setStyleSheet(
+        "color: " COLOR_TEXT "; font-size: 13px; font-weight: 600;"
+        "background: transparent;"
+    );
+    Main->addWidget(TrafficTitle);
+
+    // เส้นคั่น
+    QFrame *Line1 = new QFrame(this);
+    Line1->setFixedHeight(1);
+    Line1->setStyleSheet("background-color: " COLOR_BORDER ";");
+    Main->addWidget(Line1);
+
+    // Header ของกราฟ: Current + Peak
+    QHBoxLayout *TrafficHeader = new QHBoxLayout();
+    TrafficHeader->setContentsMargins(0, 4, 0, 0);
+
+    QLabel *Label = new QLabel("packets/sec", this);
+    Label->setStyleSheet("color: " COLOR_DIM "; font-size: 11px; background: transparent;");
+    TrafficHeader->addWidget(Label);
+
+    TrafficHeader->addStretch();
+
+    CurrentRateLabel = new QLabel("0 pps", this);
+    CurrentRateLabel->setStyleSheet(
+        "color: " COLOR_ACCENT "; font-size: 12px; font-weight: 600;"
+        "background: transparent;"
+    );
+    TrafficHeader->addWidget(CurrentRateLabel);
+
+    PeakRateLabel = new QLabel("Peak: 0", this);
+    PeakRateLabel->setStyleSheet(
+        "color: " COLOR_DIM "; font-size: 11px;"
+        "background: transparent; padding-left: 12px;"
+    );
+    TrafficHeader->addWidget(PeakRateLabel);
+
+    Main->addLayout(TrafficHeader);
+
+    // กราฟ
+    MainSparkLine = new SparkLineWidget(this);
+    Main->addWidget(MainSparkLine, 3);   // ใช้พื้นที่ 3 ส่วน
+
+    // ============================================
+    //  System Resources Section
+    // ============================================
+    QLabel *ResourceTitle = new QLabel("System Resources", this);
+    ResourceTitle->setStyleSheet(
+        "color: " COLOR_TEXT "; font-size: 13px; font-weight: 600;"
+        "background: transparent; padding-top: 8px;"
+    );
+    Main->addWidget(ResourceTitle);
+
+    QFrame *Line2 = new QFrame(this);
+    Line2->setFixedHeight(1);
+    Line2->setStyleSheet("background-color: " COLOR_BORDER ";");
+    Main->addWidget(Line2);
+
+    MainResourceWidget = new ResourceWidget(this);
+    Main->addWidget(MainResourceWidget, 1);
+
+    // ============================================
+    //  Timer
+    // ============================================
+    MainResourceTimer = new QTimer(this);
+    connect(MainResourceTimer, &QTimer::timeout, this, [this]() {
+        MainResourceWidget->UpdateResources();
+    });
+    MainResourceTimer->start(1000);
+    MainResourceWidget->UpdateResources();
+}
+
+void TrafficGraph::UpdatePacketCount(int count) {
+    if (MainFirst) {
+        MainLastCount = count;
+        MainFirst = 0;
+        return;
+    }
+
+    int diff = count - MainLastCount;
+    int rate = diff * 10;
+    if (rate < 0) rate = 0;
+
+    MainLastCount = count;
+
+    MainSparkLine->AddValue(rate);
+    CurrentRateLabel->setText(QString("%1 pps").arg(rate));
+
+    int peak = MainSparkLine->GetPeakValue();
+    if (peak > PeakRate) PeakRate = peak;
+    PeakRateLabel->setText(QString("Peak: %1").arg(PeakRate));
+}
