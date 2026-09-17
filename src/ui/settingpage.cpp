@@ -335,7 +335,7 @@ SettingPage::SettingPage(QWidget *parent) : QWidget(parent) {
     QHBoxLayout *ExportRow = new QHBoxLayout();
     ExportRow->setSpacing(8);
 
-    QPushButton *ExportBtn = new QPushButton("📥  Export Data", LogSection);
+    QPushButton *ExportBtn = new QPushButton("Export Data", LogSection);
     ExportBtn->setCursor(Qt::PointingHandCursor);
     ExportBtn->setFixedHeight(30);
     ExportBtn->setStyleSheet(
@@ -355,7 +355,7 @@ SettingPage::SettingPage(QWidget *parent) : QWidget(parent) {
     );
     ExportRow->addWidget(ExportBtn);
 
-    QPushButton *ImportBtn = new QPushButton("📤  Import Settings", LogSection);
+    QPushButton *ImportBtn = new QPushButton("Import Settings", LogSection);
     ImportBtn->setCursor(Qt::PointingHandCursor);
     ImportBtn->setFixedHeight(30);
     ImportBtn->setStyleSheet(
@@ -415,7 +415,7 @@ SettingPage::SettingPage(QWidget *parent) : QWidget(parent) {
     QHBoxLayout *ActionRow = new QHBoxLayout();
     ActionRow->setSpacing(10);
 
-    QPushButton *SaveBtn = new QPushButton("💾  Save Settings", Content);
+    QPushButton *SaveBtn = new QPushButton("Save Settings", Content);
     SaveBtn->setCursor(Qt::PointingHandCursor);
     SaveBtn->setFixedHeight(36);
     SaveBtn->setFixedWidth(180);

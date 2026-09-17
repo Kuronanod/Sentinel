@@ -152,7 +152,7 @@ void Window::SetupUI(){
 
     MainReceiverThread = new std::thread([this]() {
     while (!StopReceiverThread) {
-            receiver("192.168.1.101");  // Ip ตรงนี้นะ bro
+            receiver("172.15.48.243");  // Ip ตรงนี้นะ bro
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
     });

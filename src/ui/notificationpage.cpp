@@ -44,7 +44,7 @@ NotificationPage::NotificationPage(QWidget *parent) : QWidget(parent) {
     TitleLayout->setContentsMargins(16, 0, 16, 0);
     TitleLayout->setSpacing(10);
 
-    QLabel *TitleLabel = new QLabel("🔔  Notifications", TitleBar);
+    QLabel *TitleLabel = new QLabel("Notifications", TitleBar);
     TitleLabel->setStyleSheet(
         QString("color: %1; font-size: 14px; font-weight: 600;"
                 "background: transparent; border: none;").arg(COLOR_TEXT)
@@ -60,7 +60,7 @@ NotificationPage::NotificationPage(QWidget *parent) : QWidget(parent) {
     TitleLayout->addWidget(CountLabel);
 
     // ---- Mark All ----
-    QPushButton *MarkBtn = new QPushButton("✓✓  Mark All Read", TitleBar);
+    QPushButton *MarkBtn = new QPushButton("Mark All Read", TitleBar);
     MarkBtn->setCursor(Qt::PointingHandCursor);
     MarkBtn->setFixedHeight(26);
     MarkBtn->setStyleSheet(
@@ -81,7 +81,7 @@ NotificationPage::NotificationPage(QWidget *parent) : QWidget(parent) {
     TitleLayout->addWidget(MarkBtn);
 
     // ---- Clear ----
-    QPushButton *ClearBtn = new QPushButton("🗑  Clear All", TitleBar);
+    QPushButton *ClearBtn = new QPushButton("Clear All", TitleBar);
     ClearBtn->setCursor(Qt::PointingHandCursor);
     ClearBtn->setFixedHeight(26);
     ClearBtn->setStyleSheet(
@@ -140,7 +140,7 @@ NotificationPage::NotificationPage(QWidget *parent) : QWidget(parent) {
     ListLayout->setSpacing(10);
 
     // ---- Empty state ----
-    EmptyLabel = new QLabel("🔕\n\nNo notifications yet", ListWidget);
+    EmptyLabel = new QLabel("\n\nNo notifications yet", ListWidget);
     EmptyLabel->setAlignment(Qt::AlignCenter);
     EmptyLabel->setStyleSheet(
         QString("color: %1; font-size: 14px; padding: 100px 0;"

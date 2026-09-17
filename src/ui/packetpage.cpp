@@ -58,7 +58,7 @@ PacketPage::PacketPage(QWidget *parent) : QWidget(parent) {
     TitleLayout->setContentsMargins(16, 0, 16, 0);
     TitleLayout->setSpacing(12);
 
-    QLabel *TitleLabel = new QLabel("📦  Packet Capture", TitleBar);
+    QLabel *TitleLabel = new QLabel("Packet Capture", TitleBar);
     TitleLabel->setStyleSheet(
         QString("color: %1; font-size: 14px; font-weight: 600;"
                 "background: transparent; border: none;").arg(COLOR_TEXT)
@@ -89,7 +89,7 @@ PacketPage::PacketPage(QWidget *parent) : QWidget(parent) {
     SearchLayout->setContentsMargins(10, 6, 10, 6);
 
     SearchInput = new QLineEdit(SearchBar);
-    SearchInput->setPlaceholderText("🔍  Filter by IP / Port / Protocol...");
+    SearchInput->setPlaceholderText("Filter by IP / Port / Protocol...");
     SearchInput->setStyleSheet(
         QString("QLineEdit {"
                 "  background-color: %1;"

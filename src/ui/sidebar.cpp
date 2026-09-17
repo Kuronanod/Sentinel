@@ -31,19 +31,19 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent) {
     PacketPageButton = CreateButton("⬢", "Packets",    1);
     Main_Layout->addWidget(PacketPageButton, 0, Qt::AlignHCenter);
 
-    TerminalButton   = CreateButton(">_", "Terminal",  2);
+    TerminalButton   = CreateButton("⌨", "Terminal",  2);
     Main_Layout->addWidget(TerminalButton, 0, Qt::AlignHCenter);
 
-    AlertpageButton  = CreateButton("⚡", "Alerts",     3);
+    AlertpageButton  = CreateButton("▲", "Alerts",     3);
     Main_Layout->addWidget(AlertpageButton, 0, Qt::AlignHCenter);
 
-    ManagementButton = CreateButton("⚙", "Management", 4);
+    ManagementButton = CreateButton("⛭", "Management", 4);
     Main_Layout->addWidget(ManagementButton, 0, Qt::AlignHCenter);
 
-    LogButton = CreateButton("📜", "Logs", 5);
+    LogButton = CreateButton("☰", "Logs", 5);
     Main_Layout->addWidget(LogButton, 0, Qt::AlignHCenter);
 
-    AIButton = CreateButton("🤖", "AI Assistant", 6);
+    AIButton = CreateButton("✦", "AI Assistant", 6);
     Main_Layout->addWidget(AIButton, 0, Qt::AlignHCenter);
 
     // ============ Divider ============
@@ -55,11 +55,11 @@ SideBar::SideBar(QWidget *parent) : QWidget(parent) {
     // ============ ดันปุ่มล่าง ============
     Main_Layout->addStretch();
 
-    NotificationButton = CreateButton("🔔", "Notifications", 7);
+    NotificationButton = CreateButton("⬤", "Notifications", 7);
     Main_Layout->addWidget(NotificationButton, 0, Qt::AlignHCenter);
 
     // ============ Settings ============
-    SettingButton = CreateButton("⚒", "Settings", 8);
+    SettingButton = CreateButton("✲", "Settings", 8);
     Main_Layout->addWidget(SettingButton, 0, Qt::AlignHCenter);
 
     // ============ Exit (ไม่นับใน group + มี glow แดง) ============

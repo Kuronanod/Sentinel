@@ -181,9 +181,6 @@ static int GetGPUUsage() {
         }
     }
 
-    qDebug() << "[GPU] validCount:" << validCount
-             << "maxVal:" << maxVal;
-
     if (validCount == 0) return -1;
     if (maxVal > 100.0) maxVal = 100.0;
     return (int)maxVal;
@@ -435,7 +432,7 @@ void SparkLineWidget::paintEvent(QPaintEvent *) {
     p.fillRect(rect(), QColor(COLOR_BG));
 
     // ============================================================
-    //  ⭐ กำหนดพื้นที่สำหรับแกน
+    //  กำหนดพื้นที่สำหรับแกน
     // ============================================================
     const int MarginLeft   = 35;   // ← ที่ให้ตัวเลข Y-axis
     const int MarginBottom = 18;   // ← ที่ให้ label X-axis

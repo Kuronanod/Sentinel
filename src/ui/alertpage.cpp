@@ -127,7 +127,7 @@ AlertPage::AlertPage(QWidget *parent) : QWidget(parent) {
     TitleLayout->setContentsMargins(16, 0, 16, 0);
     TitleLayout->setSpacing(10);
 
-    QLabel *TitleLabel = new QLabel("🚨  Security Alerts", TitleBar);
+    QLabel *TitleLabel = new QLabel("Security Alerts", TitleBar);
     TitleLabel->setStyleSheet(
         QString("color: %1; font-size: 14px; font-weight: 600;"
                 "background: transparent; border: none;").arg(COLOR_TEXT)
@@ -136,7 +136,7 @@ AlertPage::AlertPage(QWidget *parent) : QWidget(parent) {
 
     TitleLayout->addStretch();
 
-    ClearButton = new QPushButton("🗑  Clear All", TitleBar);
+    ClearButton = new QPushButton("Clear All", TitleBar);
     ClearButton->setCursor(Qt::PointingHandCursor);
     ClearButton->setFixedHeight(26);
     ClearButton->setStyleSheet(
@@ -190,7 +190,7 @@ AlertPage::AlertPage(QWidget *parent) : QWidget(parent) {
     SearchLayout->setContentsMargins(10, 6, 10, 6);
 
     SearchInput = new QLineEdit(SearchBar);
-    SearchInput->setPlaceholderText("🔍  Search alerts...");
+    SearchInput->setPlaceholderText("Search Alerts Message");
     SearchInput->setStyleSheet(
         QString("QLineEdit {"
                 "  background-color: %1;"

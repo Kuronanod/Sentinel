@@ -142,8 +142,8 @@ ManagementPage::ManagementPage(QWidget *parent) : QWidget(parent) {
     StatsLayout->setSpacing(12);
 
     QWidget *TotalCard   = MakeStatCard("TOTAL PACKETS", COLOR_TEXT,   &TotalPacketsLabel,   this);
-    QWidget *AllowedCard = MakeStatCard("ALLOWED",       COLOR_ACCENT, &AllowedPacketsLabel, this);
-    QWidget *BlockedCard = MakeStatCard("BLOCKED",       COLOR_ERROR,  &BlockedPacketsLabel, this);
+    QWidget *AllowedCard = MakeStatCard("ALLOWED PACKETS",       COLOR_ACCENT, &AllowedPacketsLabel, this);
+    QWidget *BlockedCard = MakeStatCard("BLOCKED IP",       COLOR_ERROR,  &BlockedPacketsLabel, this);
 
     StatsLayout->addWidget(TotalCard,   1);
     StatsLayout->addWidget(AllowedCard, 1);
@@ -216,7 +216,7 @@ ManagementPage::ManagementPage(QWidget *parent) : QWidget(parent) {
     AddIPLayout->setSpacing(8);
 
     IPInput = new QLineEdit(this);
-    IPInput->setPlaceholderText("e.g. 192.168.1.100");
+    IPInput->setPlaceholderText("Enter IP Here");
     IPInput->setStyleSheet(
         QString("QLineEdit {"
                 "  background-color: %1;"
@@ -305,7 +305,7 @@ ManagementPage::ManagementPage(QWidget *parent) : QWidget(parent) {
                     "}").arg(COLOR_PANEL, COLOR_TEXT, COLOR_BORDER, COLOR_ERROR)
         );
 
-        QAction *RemoveAction = menu.addAction("🗑  Remove");
+        QAction *RemoveAction = menu.addAction("Remove");
         QAction *Selected = menu.exec(BlacklistList->mapToGlobal(pos));
 
         RefreshTimer->start(1000);
@@ -327,7 +327,7 @@ ManagementPage::ManagementPage(QWidget *parent) : QWidget(parent) {
     AddPortLayout->setSpacing(8);
 
     PortInput = new QLineEdit(this);
-    PortInput->setPlaceholderText("e.g. 4444");
+    PortInput->setPlaceholderText("Enter Port Here");
     PortInput->setStyleSheet(
         QString("QLineEdit {"
                 "  background-color: %1;"
@@ -382,7 +382,7 @@ ManagementPage::ManagementPage(QWidget *parent) : QWidget(parent) {
     // ============================================================
     //  Clear All Button
     // ============================================================
-    ClearButton = new QPushButton("🗑   Clear All Rules", this);
+    ClearButton = new QPushButton("Clear All Setting", this);
     ClearButton->setCursor(Qt::PointingHandCursor);
     ClearButton->setFixedHeight(36);
     ClearButton->setStyleSheet(
@@ -430,7 +430,7 @@ void ManagementPage::OnAddBlacklistClicked() {
     QStringList Parts = IPInString.split('.');
     if (Parts.size() != 4) {
         QMessageBox::warning(this, "Invalid IP",
-            "กรุณากรอก IP ให้ถูกต้อง เช่น 192.168.1.100");
+            "Enter Valid Ip");
         return;
     }
 
@@ -466,7 +466,7 @@ void ManagementPage::OnAddPortClicked() {
     int port = text.toInt(&ok);
     if (!ok || port < 1 || port > 65535) {
         QMessageBox::warning(this, "Invalid Port",
-            "กรุณากรอก Port 1-65535");
+            "Enter Valid Port");
         return;
     }
 

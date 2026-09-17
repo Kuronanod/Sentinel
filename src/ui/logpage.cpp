@@ -52,7 +52,7 @@ LogPage::LogPage(QWidget *parent) : QWidget(parent) {
     TitleLayout->setContentsMargins(16, 0, 16, 0);
     TitleLayout->setSpacing(10);
 
-    QLabel *TitleLabel = new QLabel("📜  System Logs", TitleBar);
+    QLabel *TitleLabel = new QLabel("Terminal History Logs", TitleBar);
     TitleLabel->setStyleSheet(
         QString("color: %1; font-size: 14px; font-weight: 600;"
                 "background: transparent; border: none;").arg(COLOR_TEXT)
@@ -69,7 +69,7 @@ LogPage::LogPage(QWidget *parent) : QWidget(parent) {
     TitleLayout->addWidget(StatusLabel);
 
     // ---- Pause ----
-    PauseBtn = new QPushButton("⏸  Pause", TitleBar);
+    PauseBtn = new QPushButton("Pause", TitleBar);
     PauseBtn->setCheckable(true);
     PauseBtn->setCursor(Qt::PointingHandCursor);
     PauseBtn->setFixedHeight(26);
@@ -92,7 +92,7 @@ LogPage::LogPage(QWidget *parent) : QWidget(parent) {
     TitleLayout->addWidget(PauseBtn);
 
     // ---- Export ----
-    ExportBtn = new QPushButton("📥  Export", TitleBar);
+    ExportBtn = new QPushButton("Export", TitleBar);
     ExportBtn->setCursor(Qt::PointingHandCursor);
     ExportBtn->setFixedHeight(26);
     ExportBtn->setStyleSheet(
@@ -113,7 +113,7 @@ LogPage::LogPage(QWidget *parent) : QWidget(parent) {
     TitleLayout->addWidget(ExportBtn);
 
     // ---- Clear ----
-    ClearBtn = new QPushButton("🗑  Clear", TitleBar);
+    ClearBtn = new QPushButton("Clear", TitleBar);
     ClearBtn->setCursor(Qt::PointingHandCursor);
     ClearBtn->setFixedHeight(26);
     ClearBtn->setStyleSheet(
@@ -148,7 +148,7 @@ LogPage::LogPage(QWidget *parent) : QWidget(parent) {
     FilterLayout->setSpacing(8);
 
     SearchInput = new QLineEdit(FilterBar);
-    SearchInput->setPlaceholderText("🔍  Search logs...");
+    SearchInput->setPlaceholderText("Search Historic Logs Message");
     SearchInput->setStyleSheet(
         QString("QLineEdit {"
                 "  background-color: %1;"
@@ -342,5 +342,5 @@ void LogPage::OnExportClicked() {
 // ================================================================
 void LogPage::OnPauseToggled(bool paused) {
     Paused = paused;
-    PauseBtn->setText(paused ? "▶  Resume" : "⏸  Pause");
+    PauseBtn->setText(paused ? "Resume" : "Pause");
 }

@@ -65,7 +65,7 @@ Terminal::Terminal(QWidget *parent) : QWidget(parent) {
     TitleLayout->setContentsMargins(16, 0, 16, 0);
     TitleLayout->setSpacing(10);
 
-    QLabel *TitleLabel = new QLabel(">_  Terminal", TitleBar);
+    QLabel *TitleLabel = new QLabel("Terminal", TitleBar);
     TitleLabel->setStyleSheet(
         QString("color: %1; font-size: 14px; font-weight: 600;"
                 "background: transparent; border: none;").arg(COLOR_TEXT)
@@ -82,7 +82,7 @@ Terminal::Terminal(QWidget *parent) : QWidget(parent) {
     TitleLayout->addWidget(StatusLabel);
 
     // ---- Stop Button ----
-    StopBtn = new QPushButton("⏹  Stop", TitleBar);
+    StopBtn = new QPushButton("Stop", TitleBar);
     StopBtn->setCursor(Qt::PointingHandCursor);
     StopBtn->setFixedHeight(26);
     StopBtn->setStyleSheet(
@@ -103,7 +103,7 @@ Terminal::Terminal(QWidget *parent) : QWidget(parent) {
     TitleLayout->addWidget(StopBtn);
 
     // ---- Clear Button ----
-    ClearBtn = new QPushButton("🗑  Clear", TitleBar);
+    ClearBtn = new QPushButton("Clear", TitleBar);
     ClearBtn->setCursor(Qt::PointingHandCursor);
     ClearBtn->setFixedHeight(26);
     ClearBtn->setStyleSheet(

@@ -749,7 +749,7 @@ AIPage::AIPage(QWidget *parent) : QWidget(parent) {
     QHBoxLayout *TitleLayout = new QHBoxLayout(TitleBar);
     TitleLayout->setContentsMargins(16, 0, 16, 0);
 
-    QLabel *TitleLabel = new QLabel("🤖  Sentinel AI Assistant", TitleBar);
+    QLabel *TitleLabel = new QLabel("Sentinel AI Assistant", TitleBar);
     TitleLabel->setStyleSheet(
         QString("color: %1; font-size: 14px; font-weight: 600;"
                 "background: transparent; border: none;").arg(COLOR_TEXT)
